@@ -2,7 +2,7 @@ import React from 'react'
 
 const Navlink = ({children}) => {
   return (
-    <a>{children}</a>
+    <a className="text-xl">{children}</a>
   )
 }
 

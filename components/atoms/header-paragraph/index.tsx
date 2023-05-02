@@ -2,7 +2,7 @@ import React from 'react'
 
 const HeaderParagraph = ({children}) => {
   return (
-    <p>{children}</p>
+    <p className="text-xl my-8">{children}</p>
   )
 }
 

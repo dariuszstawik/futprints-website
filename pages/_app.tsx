@@ -15,13 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
     setIsMobileMenuActive(false);
   }
 
-  return <RootContext.Provider value = {{
-    isMobileMenuActive,
-    toggleMobileMenu,
-    closeMobileMenu,
-  }}
->  
+  return (  
   <Component {...pageProps} />
-
-  </RootContext.Provider>
+  )
 }
