@@ -6,7 +6,7 @@ import React from "react";
 const Navbar = () => {
   return (
 
-<div className="flex justify-between px-16 pr-16 my-8">
+<div className="flex justify-between px-16 pr-16 my-4">
 <Logo/>
 <div className="flex items-start gap-6">
 <Navlinks/>

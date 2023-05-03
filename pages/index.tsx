@@ -4,6 +4,7 @@ import styles from '@/styles/Home.module.css'
 import Navbar from '@/components/organisms/navbar'
 import Container from '@/components/atoms/container'
 import Header from '@/components/organisms/header'
+import ActivitiesSection from '@/components/organisms/activities-section'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,6 +20,7 @@ export default function Home() {
       <Container>
       <Navbar/>
       <Header/>
+      <ActivitiesSection/>
       </Container>
     </>
   )
