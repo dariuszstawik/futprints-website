@@ -6,10 +6,10 @@ interface HeaderTitleProps {
 
 // katalog: types / plik z interface do importu albo zostawić w tym samym pliku
 
-const HeaderTitle = ({children}: HeaderTitleProps) => {
+const SectionTitle = ({children}: HeaderTitleProps) => {
   return (
-    <h1 className="text-5xl font-bold my-6">{children}</h1>
+    <h2 className="text-4xl font-bold my-6">{children}</h2>
   )
 }
 
-export default HeaderTitle;
+export default SectionTitle;

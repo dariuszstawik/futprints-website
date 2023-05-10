@@ -1,11 +1,13 @@
+import Button from '@/components/atoms/button';
 import Navlink from '@/components/atoms/navlink';
 import React from 'react'
 
-const Navlinks = () => {
+const Navlinks = ({toggleMobileMenu}:{toggleMobileMenu: ()=> void}) => {
   return (
     <ul className="flex flex-col justify-start align-center gap-14 lg:flex-row my-4">
     <li><Navlink>aktualności</Navlink></li>
     <li><Navlink>o nas</Navlink></li>
+    <li><Navlink>chcę pomóc</Navlink></li>
     <li><Navlink>quiz</Navlink></li>
     <li><Navlink>kontakt</Navlink></li>
     </ul>

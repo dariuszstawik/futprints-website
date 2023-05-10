@@ -5,6 +5,9 @@ import Navbar from '@/components/organisms/navbar'
 import Container from '@/components/atoms/container'
 import Header from '@/components/organisms/header'
 import ActivitiesSection from '@/components/organisms/activities-section'
+import SupportSection from '@/components/organisms/support-section'
+import NewsSection from '@/components/organisms/news-section'
+import Footer from '@/components/organisms/footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,11 +20,17 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container>
+      <div className="relative">
       <Navbar/>
+      <Container>
+
       <Header/>
       <ActivitiesSection/>
+      <SupportSection/>
+      <NewsSection/>
       </Container>
+      <Footer/>
+      </div>
     </>
   )
 }
