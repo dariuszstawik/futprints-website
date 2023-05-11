@@ -8,22 +8,25 @@ const Navbar = () => {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuActive(!isMobileMenuActive);
-  }
+  };
 
   const closeMobileMenu = () => {
     setIsMobileMenuActive(false);
-  }
+  };
 
   return (
-
-<div className="w-full flex justify-between items-center px-16 pr-16 py-4 bg-white border-t-4 border-t-green-800 border-b-2 border-b-grey-100 fixed top-0 left-0 z-10">
-<Logo/>
-<div className="flex items-start gap-6">
-<Navlinks toggleMobileMenu={toggleMobileMenu}/>
-{/* {isMobileMenuActive ? 'X': <Hamburger/> } */}
-</div>
-</div>
-  )
-}
+    <div className="w-full flex justify-between items-center px-16 pr-16 py-4 bg-white border-t-4 border-t-green-800 border-b-2 border-b-grey-100 fixed top-0 left-0 z-10">
+      <Logo />
+      <div className="flex items-start gap-6">
+        <Navlinks isVisible={isMobileMenuActive ? true : false} />
+        <Hamburger
+          hasCloseIcon={isMobileMenuActive ? true : false}
+          toggleMobileMenu={toggleMobileMenu}
+        />
+        {/* {isMobileMenuActive ? 'X': <Hamburger/> } */}
+      </div>
+    </div>
+  );
+};
 
 export default Navbar;
