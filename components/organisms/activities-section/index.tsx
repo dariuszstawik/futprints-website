@@ -3,7 +3,7 @@ import HeaderTitle from '@/components/atoms/header-title'
 import SectionTitle from '@/components/atoms/section-title'
 import ActivitiesCard from '@/components/molecules/activities-card'
 import React from 'react'
-import { Slide, Zoom } from 'react-awesome-reveal'
+import Fade from 'react-reveal/Fade';
 
 
 const ActivitiesSection = () => {
@@ -16,11 +16,11 @@ const ActivitiesSection = () => {
         </div>
     <div className="px- py-1 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-4 lg:px-0 lg:py-10">
     <div className="grid gap-6 row-gap-5 md:row-gap-8 sm:mx-auto lg:grid-cols-4">
-    <Zoom fraction={0}><ActivitiesCard/>
+    <Fade bottom><ActivitiesCard/>
     <ActivitiesCard/>
     <ActivitiesCard/>
     <ActivitiesCard/>
-    </Zoom>
+    </Fade>
     </div>
     </div>
     </div>
