@@ -1,5 +1,6 @@
 import Button from "@/components/atoms/button";
 import Navlink from "@/components/atoms/navlink";
+import Link from "next/link";
 import React from "react";
 
 // const Navlinks = ({toggleMobileMenu}:{toggleMobileMenu: ()=> void}) => {
@@ -16,7 +17,7 @@ const Navlinks = ({ isVisible }) => {
         <Navlink>aktualności</Navlink>
       </li>
       <li>
-        <Navlink>o nas</Navlink>
+        <Link href="/aboutus">o nas</Link>
       </li>
       <li>
         <Navlink>chcę pomóc</Navlink>
