@@ -23,6 +23,15 @@ const aboutus = () => {
           placeat officiis consectetur, dignissimos quam! Quos odit optio unde
           voluptatum veritatis est facilis?
         </AboutSection>
+
+        <AboutSection title="Co robimy" img="pomaganie4.jpg" isReverse>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+          ut quo quidem et impedit, dolor iure placeat quae nesciunt, temporibus
+          eaque distinctio culpa fugiat vel vitae dolore quam qui non? Lorem
+          ipsum, dolor sit amet consectetur adipisicing elit. Nisi, libero earum
+          cum reiciendis animi tenetur debitis inventore doloremque ut fugit
+          adipisci accusamus.
+        </AboutSection>
       </Container>
       <Footer />
     </div>

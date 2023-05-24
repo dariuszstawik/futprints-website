@@ -1,15 +1,20 @@
-import Head from 'next/head'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-import Navbar from '@/components/organisms/navbar'
-import Container from '@/components/atoms/container'
-import Header from '@/components/organisms/header'
-import ActivitiesSection from '@/components/organisms/activities-section'
-import SupportSection from '@/components/organisms/support-section'
-import NewsSection from '@/components/organisms/news-section'
-import Footer from '@/components/organisms/footer'
+import Head from "next/head";
+import { Inter } from "next/font/google";
+import styles from "@/styles/Home.module.css";
+import Navbar from "@/components/organisms/navbar";
+import Container from "@/components/atoms/container";
+import Header from "@/components/organisms/header";
+import ActivitiesSection from "@/components/organisms/activities-section";
+import SupportSection from "@/components/organisms/support-section";
+import NewsSection from "@/components/organisms/news-section";
+import Footer from "@/components/organisms/footer";
+import CtaSection from "@/components/organisms/cta-section";
+import { KitwindFeatures } from "@/components/organisms/kitwind-features";
+import Projects from "@/components/organisms/projects";
+import CardList from "@/components/organisms/card-list";
+import ProjectsSection from "@/components/organisms/projects-section";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -21,16 +26,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="relative">
-      <Navbar/>
-      <Container>
-
-      <Header/>
-      <ActivitiesSection/>
-      <SupportSection/>
-      <NewsSection/>
-      </Container>
-      <Footer/>
+        <Navbar />
+        <Container>
+          <Header />
+          <CtaSection />
+          {/* <CardList /> */}
+          {/* <Projects /> */}
+          <ActivitiesSection />
+          {/* <ProjectsSection /> */}
+          {/* <KitwindFeatures /> */}
+          <SupportSection />
+          <NewsSection />
+        </Container>
+        <Footer />
       </div>
     </>
-  )
+  );
 }

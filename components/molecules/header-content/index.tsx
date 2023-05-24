@@ -1,32 +1,29 @@
 import Button from "@/components/atoms/button";
+import Divider from "@/components/atoms/divider";
 import HeaderParagraph from "@/components/atoms/header-paragraph";
 import HeaderTitle from "@/components/atoms/header-title";
 import React from "react";
 
 const HeaderContent = () => {
   return (
-    <div className="col-start-1 col-end-2">
-      <HeaderParagraph>Fundacja Futprints</HeaderParagraph>
+    // <div className="col-start-1 col-end-2">
+    <div className="max-w-[500px] my-auto pb-8">
+      {/* <HeaderParagraph>Fundacja Futprints</HeaderParagraph> */}
+      {/* <p className="text-green-800 text-xl">Fundacja Futprints</p> */}
       <HeaderTitle>
-        <span className="block">Wspieramy osoby</span>{" "}
-        <span className="leading-relaxed">w kryzysie</span>
+        <span className="block text-primary">Wspieramy osoby</span>{" "}
+        <span className="leading-relaxed text-primary">w kryzysie</span>
       </HeaderTitle>
-      <div className="w-24 h-1 bg-green-800" />
-      {/* <div className="w-14 h-1 bg-green-800"/> */}
+      <Divider />
       <HeaderParagraph>
-        Pomagamy osobom ubogim i w kryzysie bezdomności. Prowadzimy działania
-        integracyjne dla cudzoziemców. Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Delectus, voluptatem praesentium ipsum explicabo.
-        Działamy w Katowicach.
+        Wspieramy osoby w kryzysie bezdomności: doradzamy, pomagamy w
+        załatwianiu spraw urzędowych, rozdajemy kanapki na ulicach. Nasze
+        działania są jednak szersze: organizujemy wydarzenia integracyjne dla
+        społeczności lokalnej, w tym dla cudzoziemców. Działąmy w Katowicach.
       </HeaderParagraph>
       <Button>Poznaj nas</Button>
-      <Button>Informacje dla osób bezdomych</Button>
-      <div>
-        {/* <div className="w-24 h-1 bg-green-800 mb-6"/> */}
-        {/* <HeaderParagraph>Szukasz pomocy? Chcesz zrobić coś dobrego? Kliknij i dowiedz się więdej.</HeaderParagraph> */}
-        {/* <Button>Szukam pomocy dla osoby bezdomnej</Button> */}
-        {/* <Button>Chcę pomóc</Button> */}
-      </div>
+      {/* <Button isWhite>Informacje dla osób bezdomych w Katowicach</Button> */}
+      <div></div>
     </div>
   );
 };

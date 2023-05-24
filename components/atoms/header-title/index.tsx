@@ -1,15 +1,17 @@
-import React from 'react'
+import React from "react";
 
 interface HeaderTitleProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 // katalog: types / plik z interface do importu albo zostawić w tym samym pliku
 
-const HeaderTitle = ({children}: HeaderTitleProps) => {
+const HeaderTitle = ({ children }: HeaderTitleProps) => {
   return (
-    <h1 className="text-5xl font-bold my-6">{children}</h1>
-  )
-}
+    <h1 className="text-5xl font-bold text-neutral-700 my-6 leading-tight tracking-tight">
+      {children}
+    </h1>
+  );
+};
 
 export default HeaderTitle;
