@@ -1,9 +1,9 @@
 import React from "react";
 
-const ArrowLong = () => {
+const ArrowLong = ({ isLarge }: boolean) => {
   return (
     <svg
-      className="w-5 h-6 ml-3 inline-block"
+      className={`ml-3 inline-block ${isLarge ? "w-6 h-8" : "w-5 h-6"}`}
       fill="none"
       stroke="currentColor"
       stroke-width="1.5"

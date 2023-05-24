@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full h-32 flex justify-between items-center px-28 py-4 bg-backgroundGray border-t-4 border-t-primary border-b-2 border-b-grey-100 fixed top-0 left-0 z-10">
+    <div className="w-full h-32 flex justify-between items-center px-28 py-4 bg-backgroundGray border-t-4 border-t-primary border-b-2 border-b-grey-100 fixed top-0 left-0 z-20">
       <Logo />
       <div className="flex items-start gap-6">
         <Navlinks isVisible={isMobileMenuActive ? true : false} />
@@ -23,7 +23,6 @@ const Navbar = () => {
           hasCloseIcon={isMobileMenuActive ? true : false}
           toggleMobileMenu={toggleMobileMenu}
         />
-        {/* {isMobileMenuActive ? 'X': <Hamburger/> } */}
       </div>
     </div>
   );

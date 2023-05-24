@@ -3,7 +3,7 @@ import React from "react";
 
 const NewsCard = () => {
   return (
-    <div className="transition duration-300 transform bg-white rounded shadow-sm hover:-translate-y-1 hover:shadow md:text-center">
+    <div className="transition duration-300 transform bg-primaryGray rounded shadow-sm hover:-translate-y-1 hover:shadow md:text-center">
       <div className="relative">
         <img
           className="object-cover w-full h-48 rounded-t lg:h-48 xl:h-48"
@@ -23,12 +23,6 @@ const NewsCard = () => {
           perspiciatis unde.
         </p>
 
-        {/* <button
-                type="submit"
-                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white bg-green-800 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-              >
-                więcej
-              </button> */}
         <button
           className="relative font-medium text-green-800 before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-green-800 before:transition hover:before:scale-100"
           href="/download"
@@ -38,7 +32,6 @@ const NewsCard = () => {
         </button>
       </div>
     </div>
-    //  </div>
   );
 };
 
