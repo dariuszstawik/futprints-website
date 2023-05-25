@@ -4,6 +4,7 @@ import HeaderTitle from "@/components/atoms/header-title";
 import SectionTitle from "@/components/atoms/section-title";
 import SupportButton from "@/components/atoms/support-button";
 import React from "react";
+import Slide from "react-reveal/Slide";
 
 const SupportSection = () => {
   return (
@@ -18,64 +19,69 @@ const SupportSection = () => {
         <div className="min-w-96 mx-auto mt-6 flex flex-col justify-center content-center items-center">
           <SectionTitle isWhite>Jak możesz pomóc</SectionTitle>
           <Divider isWhite />
-          <div className="py-10 flex flex-wrap justify-between">
-            <div>
-              <a
-                href="#"
-                className="w-80 block flex flex-col items-center text-xl font-medium text-white"
-              >
-                <img
-                  src="support-donate.svg"
-                  className="w-44 mb-6 mt-12 border border-white border-4 rounded-full p-8"
-                />
-                wpłać <span className="block font-bold mb-1">darowiznę</span>{" "}
-                <ArrowLong isLarge />
-              </a>
+          <Slide bottom>
+            <div className="py-10 flex flex-wrap justify-between">
+              <div>
+                <a
+                  href="#"
+                  className="w-80 block flex flex-col items-center text-xl font-medium text-white"
+                >
+                  <img
+                    src="support-donate.svg"
+                    className="w-44 mb-6 mt-12 border border-white border-4 rounded-full p-8"
+                  />
+                  wpłać <span className="block font-bold mb-1">darowiznę</span>{" "}
+                  <ArrowLong isLarge />
+                </a>
+              </div>
+              <div>
+                <a
+                  href="#"
+                  className="w-80 block flex flex-col items-center text-xl font-medium text-white"
+                >
+                  <img
+                    src="support-volunteer.svg"
+                    className="w-44 mb-6 mt-12 border border-white border-4 rounded-full p-8"
+                  />
+                  zostań{" "}
+                  <span className="block font-bold mb-1">
+                    wolontariuszem/ką
+                  </span>{" "}
+                  <ArrowLong isLarge />
+                </a>
+              </div>
+              <div>
+                <a
+                  href="#"
+                  className="w-80 block flex flex-col items-center text-xl font-medium text-white"
+                >
+                  <img
+                    src="support-clothes.svg"
+                    className="w-44 mb-6 mt-12 border border-white border-4 rounded-full p-8"
+                  />
+                  przekaż{" "}
+                  <span className="block font-bold mb-1">
+                    ubrania lub środki czystości
+                  </span>{" "}
+                  <ArrowLong isLarge />
+                </a>
+              </div>
+              <div>
+                <a
+                  href="#"
+                  className="w-80 block flex flex-col items-center text-xl font-medium text-white"
+                >
+                  <img
+                    src="support-collect.svg"
+                    className="w-44 mb-6 mt-12 border border-white border-4 rounded-full p-8"
+                  />
+                  zorganizuj{" "}
+                  <span className="block font-bold mb-1">zbiórkę</span>{" "}
+                  <ArrowLong isLarge />
+                </a>
+              </div>{" "}
             </div>
-            <div>
-              <a
-                href="#"
-                className="w-80 block flex flex-col items-center text-xl font-medium text-white"
-              >
-                <img
-                  src="support-volunteer.svg"
-                  className="w-44 mb-6 mt-12 border border-white border-4 rounded-full p-8"
-                />
-                zostań{" "}
-                <span className="block font-bold mb-1">wolontariuszem/ką</span>{" "}
-                <ArrowLong isLarge />
-              </a>
-            </div>
-            <div>
-              <a
-                href="#"
-                className="w-80 block flex flex-col items-center text-xl font-medium text-white"
-              >
-                <img
-                  src="support-clothes.svg"
-                  className="w-44 mb-6 mt-12 border border-white border-4 rounded-full p-8"
-                />
-                przekaż{" "}
-                <span className="block font-bold mb-1">
-                  ubrania lub środki czystości
-                </span>{" "}
-                <ArrowLong isLarge />
-              </a>
-            </div>
-            <div>
-              <a
-                href="#"
-                className="w-80 block flex flex-col items-center text-xl font-medium text-white"
-              >
-                <img
-                  src="support-collect.svg"
-                  className="w-44 mb-6 mt-12 border border-white border-4 rounded-full p-8"
-                />
-                zorganizuj <span className="block font-bold mb-1">zbiórkę</span>{" "}
-                <ArrowLong isLarge />
-              </a>
-            </div>{" "}
-          </div>
+          </Slide>
         </div>
       </div>
     </div>

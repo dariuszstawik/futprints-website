@@ -13,31 +13,25 @@ const Navlinks = ({ isVisible }) => {
           : "flex flex-col justify-center align-center items-center gap-14 lg:flex-row my-4 hidden lg:flex"
       }
     >
-      {/* <li>
-        <button className="p-1 text-white bg-green-600 rounded">
-          chcę pomóc{" "}
-        </button>
-      </li> */}
-      {/* <li>
-        <button className="p-1 text-white bg-green-600 rounded">
-          szukam pomocy
-        </button>
-      </li> */}
       <li>
-        <Navlink>aktualności</Navlink>
+        <Link className="text-lg text-neutral-600" href="">
+          aktualności
+        </Link>
       </li>
       <li>
-        <Link href="/aboutus">o nas</Link>
-      </li>
-      {/* <li>
-        <Navlink>chcę pomóc</Navlink>
-      </li> */}
-
-      <li>
-        <Navlink>quiz</Navlink>
+        <Link className="text-lg text-neutral-600" href="/aboutus">
+          o nas
+        </Link>
       </li>
       <li>
-        <Navlink>kontakt</Navlink>
+        <Link className="text-lg text-neutral-600" href="">
+          quiz
+        </Link>
+      </li>
+      <li>
+        <Link className="text-lg text-neutral-600" href="">
+          kontakt
+        </Link>
       </li>
       <li className="flex flex-col justify-center align-center items-center mx-auto my-auto">
         <Button>chcę pomóc</Button>

@@ -17,9 +17,9 @@ const HeaderContent = () => {
       <Divider />
       <HeaderParagraph>
         Wspieramy osoby w kryzysie bezdomności: doradzamy, pomagamy w
-        załatwianiu spraw urzędowych, rozdajemy kanapki na ulicach. Nasze
-        działania są jednak szersze: organizujemy wydarzenia integracyjne dla
-        społeczności lokalnej, w tym dla cudzoziemców. Działąmy w Katowicach.
+        załatwianiu spraw urzędowych, rozdajemy posiłki na ulicach. Udzielamy
+        się w społecznościach lokalnych: organizujemy pikniki, spotkania i
+        warsztaty, również dla cudzoziemców. Działamy w Katowicach.
       </HeaderParagraph>
       <Button>Poznaj nas</Button>
       {/* <Button isWhite>Informacje dla osób bezdomych w Katowicach</Button> */}
