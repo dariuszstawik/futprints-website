@@ -13,6 +13,7 @@ import { KitwindFeatures } from "@/components/organisms/kitwind-features";
 import Projects from "@/components/organisms/projects";
 import CardList from "@/components/organisms/card-list";
 import ProjectsSection from "@/components/organisms/projects-section";
+import { KometaNavbar } from "@/components/organisms/kometa-navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,11 +31,7 @@ export default function Home() {
         <Container>
           <Header />
           <CtaSection />
-          {/* <CardList /> */}
-          {/* <Projects /> */}
           <ActivitiesSection />
-          {/* <ProjectsSection /> */}
-          {/* <KitwindFeatures /> */}
           <SupportSection />
           <NewsSection />
         </Container>

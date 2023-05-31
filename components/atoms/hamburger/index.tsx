@@ -23,7 +23,7 @@ const Hamburger = ({ hasCloseIcon, toggleMobileMenu }) => {
       ) : (
         <svg
           onClick={toggleMobileMenu}
-          className="w-8 my-4 lg:hidden"
+          className="block w-8 my-4 lg:hidden"
           fill="none"
           stroke="currentColor"
           stroke-width="1.5"

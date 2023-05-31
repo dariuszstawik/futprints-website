@@ -6,7 +6,7 @@ import "react-awesome-slider/dist/styles.css";
 const HeaderSlider = () => {
   const AutoplaySlider = withAutoplay(AwesomeSlider);
   return (
-    <div className="w-7/12  mx-0 overflow-hidden">
+    <div className="w-full lg:w-7/12 mx-0 overflow-hidden">
       <AutoplaySlider
         className="bg-primaryGray p-0 justify-start items-start h-full"
         play={true}
@@ -15,17 +15,17 @@ const HeaderSlider = () => {
         bullets={false}
         organicArrows={false}
       >
-        <div className="h-full">
-          <img src="img3.jpg" className="object-fill" />
+        <div className="h-full bg-primaryGray">
+          <img src="img3.jpg" />
         </div>
-        <div className="h-full">
-          <img src="pomaganie5.jpg" className="object-fill" />
+        <div className="h-full bg-primaryGray">
+          <img src="pomaganie5.jpg" />
         </div>
-        <div className="h-full">
-          <img src="img13.jpg" className="object-cover" />
+        <div className="h-full bg-primaryGray">
+          <img src="img13.jpg" />
         </div>
-        <div className="h-full">
-          <img src="img15.jpg" className="object-cover" />
+        <div className="h-full bg-primaryGray">
+          <img src="img15.jpg" />
         </div>
       </AutoplaySlider>
     </div>

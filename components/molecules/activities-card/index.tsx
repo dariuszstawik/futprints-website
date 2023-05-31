@@ -8,7 +8,7 @@ interface ActivitiesCardProps {
 
 const ActivitiesCard = ({ title, img }: ActivitiesCardProps) => {
   return (
-    <div className="transition duration-300 transform bg-primaryGray rounded shadow-sm hover:-translate-y-1 hover:shadow md:text-center">
+    <div className="max-w-xl lg:max-w-2xl mx-auto transition duration-300 transform bg-primaryGray rounded shadow-sm hover:-translate-y-1 hover:shadow md:text-center">
       <div className="relative">
         <img
           className="object-cover w-full h-48 rounded-t lg:h-96 xl:h-96"
@@ -16,7 +16,6 @@ const ActivitiesCard = ({ title, img }: ActivitiesCardProps) => {
           alt=""
         />
         <div className="w-full h-6 bg-green-800" />
-        {/* <div className="absolute inset-0 bg-primary bg-opacity-25" /> */}
       </div>
       <div className="px-6 py-8 border border-t-0 rounded-b sm:px-8">
         <h5 className="mb-2 text-xl font-bold leading-none sm:text-2xl">

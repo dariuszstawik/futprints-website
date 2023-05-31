@@ -6,10 +6,9 @@ import React from "react";
 
 const HeaderContent = () => {
   return (
-    // <div className="col-start-1 col-end-2">
-    <div className="max-w-[500px] my-auto pb-8">
+    <div className="w-full lg:w-5/12 my-auto pb-8 pr-6">
       {/* <HeaderParagraph>Fundacja Futprints</HeaderParagraph> */}
-      {/* <p className="text-green-800 text-xl">Fundacja Futprints</p> */}
+      {/* <p className="text-primary text-lg">Fundacja Futprints</p> */}
       <HeaderTitle>
         <span className="block text-primary">Wspieramy osoby</span>{" "}
         <span className="leading-relaxed text-primary">w kryzysie</span>

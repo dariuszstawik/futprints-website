@@ -9,7 +9,7 @@ import Fade from "react-reveal/Fade";
 const ActivitiesSection = () => {
   return (
     <div className="my-10">
-      <div className="min-w-96 max-w-[800px] mx-auto flex flex-col items-center">
+      <div className="min-w-96 max-w-[800px] mx-auto my-6 flex flex-col items-center">
         <SectionTitle>Nasze działania</SectionTitle>
         <Divider />
       </div>
@@ -24,11 +24,11 @@ const ActivitiesSection = () => {
               img="streetworking.jpg"
               title="Streetworking w Katowicach"
             />
-            <ActivitiesCard img="schroniska.jpg" title="Pomoc w schroniskach" />
             <ActivitiesCard
               img="obcokrajowcy.jpg"
               title="Wsparcie dla cudzoziemców"
             />
+            <ActivitiesCard img="schroniska.jpg" title="Inne działania" />
           </Fade>
         </div>
       </div>

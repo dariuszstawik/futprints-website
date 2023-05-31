@@ -14,13 +14,14 @@ const SupportSection = () => {
         backgroundImage: 'url("/img14.jpg")',
         backgroundPosition: "center",
       }}
+      id="SupportSection"
     >
       <div className="support__content w-full px-24 pb-16 z-10">
-        <div className="min-w-96 mx-auto mt-6 flex flex-col justify-center content-center items-center">
+        <div className=" mx-auto mt-6 flex flex-col justify-center content-center items-center">
           <SectionTitle isWhite>Jak możesz pomóc</SectionTitle>
           <Divider isWhite />
           <Slide bottom>
-            <div className="py-10 flex flex-wrap justify-between">
+            <div className="py-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
               <div>
                 <a
                   href="#"

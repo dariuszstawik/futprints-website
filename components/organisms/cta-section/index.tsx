@@ -4,8 +4,10 @@ import Slide from "react-reveal/Slide";
 const CtaSection = () => {
   return (
     <Slide bottom>
-      <div className="w-full px-28 py-20 flex justify-between">
+      <div className="w-full px-8 pt-16 pb-8 flex justify-center flex-wrap">
+        {/* flex-column flex-start lg:justify-row lg:justify-between"> */}
         <svg
+          className="m-6"
           width="596"
           height="181"
           viewBox="0 0 596 181"
@@ -32,6 +34,7 @@ const CtaSection = () => {
         </svg>
 
         <svg
+          className="m-6"
           width="596"
           height="181"
           viewBox="0 0 596 181"
