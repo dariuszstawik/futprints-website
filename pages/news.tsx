@@ -8,14 +8,12 @@ import NewsSection from "@/components/organisms/news-section";
 const News = () => {
   return (
     <div>
-      <Navbar />
       <Container>
         <PageHeader>Aktualności</PageHeader>
         <div className="px-32 py-20">
           <NewsSection></NewsSection>
         </div>
       </Container>
-      <Footer />
     </div>
   );
 };

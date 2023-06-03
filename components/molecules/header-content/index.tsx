@@ -7,8 +7,6 @@ import React from "react";
 const HeaderContent = () => {
   return (
     <div className="w-full lg:w-5/12 my-auto pb-8 pr-6">
-      {/* <HeaderParagraph>Fundacja Futprints</HeaderParagraph> */}
-      {/* <p className="text-primary text-lg">Fundacja Futprints</p> */}
       <HeaderTitle>
         <span className="block text-primary">Wspieramy osoby</span>{" "}
         <span className="leading-relaxed text-primary">w kryzysie</span>
@@ -21,7 +19,7 @@ const HeaderContent = () => {
         warsztaty, również dla cudzoziemców. Działamy w Katowicach.
       </HeaderParagraph>
       <Button>Poznaj nas</Button>
-      {/* <Button isWhite>Informacje dla osób bezdomych w Katowicach</Button> */}
+
       <div></div>
     </div>
   );

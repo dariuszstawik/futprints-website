@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
 import Navbar from "@/components/organisms/navbar";
 import Container from "@/components/atoms/container";
 import Header from "@/components/organisms/header";
@@ -9,15 +8,20 @@ import SupportSection from "@/components/organisms/support-section";
 import NewsSection from "@/components/organisms/news-section";
 import Footer from "@/components/organisms/footer";
 import CtaSection from "@/components/organisms/cta-section";
-import { KitwindFeatures } from "@/components/organisms/kitwind-features";
-import Projects from "@/components/organisms/projects";
-import CardList from "@/components/organisms/card-list";
-import ProjectsSection from "@/components/organisms/projects-section";
-import { KometaNavbar } from "@/components/organisms/kometa-navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const handleScroll = (e) => {
+    e.preventDefault();
+    const href = e.currentTarget.href;
+    const targetId = href.replace(/.*\#/, "");
+    const elem = document.getElementById(targetId);
+    elem?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       <Head>
@@ -27,7 +31,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="relative">
-        <Navbar />
         <Container>
           <Header />
           <CtaSection />
@@ -35,7 +38,6 @@ export default function Home() {
           <SupportSection />
           <NewsSection />
         </Container>
-        <Footer />
       </div>
     </>
   );
