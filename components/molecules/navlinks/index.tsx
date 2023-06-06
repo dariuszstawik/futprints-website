@@ -50,7 +50,8 @@ const Navlinks = ({ isVisible, closeMobileMenu }) => {
         </Link>
       </li>
       <li className="flex flex-col justify-center align-center items-center mx-auto my-auto">
-        <Link href="#SupportSection">
+        {/* <Link href="#SupportSection"> */}
+        <Link href="/support">
           {" "}
           <Button onClick={closeMobileMenu}>chcę pomóc</Button>
         </Link>

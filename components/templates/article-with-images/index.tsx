@@ -13,7 +13,6 @@ const ArticleWithImages = () => {
 
   return (
     <div>
-      <Navbar />
       <Container>
         <PageHeader>Artykuł</PageHeader>
         <AboutSection title={title} img={img} content={content}></AboutSection>

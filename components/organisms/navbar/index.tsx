@@ -16,7 +16,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed w-full min-h-32 flex justify-between items-center px-28 py-4 bg-backgroundGray border-t-4 border-t-primary border-b-2 border-b-grey-100 top-0 left-0 z-20">
+    <div className="fixed w-full h-32 flex justify-between items-center px-28 py-4 bg-backgroundGray border-t-4 border-t-primary border-b-2 border-b-grey-100 top-0 left-0 z-20">
       <Logo closeMobileMenu={closeMobileMenu} />
       <div className="flex items-start gap-6">
         <Navlinks

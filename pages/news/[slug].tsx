@@ -10,13 +10,9 @@ const client = createClient({
 export const getStaticPaths = async () => {
   const res = await client.getEntries({ content_type: "news" });
 
-  console.log(res);
-
   const paths = res.items.map((item) => {
     return { params: { slug: item.fields.slug ? item.fields.slug : "" } };
   });
-
-  console.log("wyświetlam paths" + paths);
 
   return {
     paths,

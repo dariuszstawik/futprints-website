@@ -1,8 +1,6 @@
 import React from "react";
 import Container from "@/components/atoms/container";
 import PageHeader from "@/components/molecules/page-header";
-import Footer from "@/components/organisms/footer";
-import Navbar from "@/components/organisms/navbar";
 import SingleArticle from "@/components/templates/single-article";
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -23,10 +21,19 @@ export async function getStaticProps() {
 }
 
 const partnership = ({ partnership }) => {
+  console.log(partnership);
   const title = partnership[0].fields.titlePl;
   const lead = documentToReactComponents(partnership[0].fields.leadPl);
   const img = "img14.jpg";
   const content = documentToReactComponents(partnership[0].fields.contentPl);
+  // const content = (
+  //   <>
+  //     <b>Lorem ipsum dolor sit amet consectetur adipisicing elit</b>. Recusandae
+  //     veritatis vitae, aliquam commodi impedit vel quia molestiae eum quis
+  //     similique unde, sunt nihil tenetur officiis sit dicta. Inventore,
+  //     perspiciatis quidem
+  //   </>
+  // );
 
   return (
     <Container>

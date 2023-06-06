@@ -32,7 +32,7 @@ const aboutus = () => {
           isReverse
           content={content2}
         ></AboutSection>
-        <ActivitiesSection />
+        {/* <ActivitiesSection /> */}
         <SupportSection />
         <TeamSection></TeamSection>
         <Documents />
