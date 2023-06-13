@@ -65,7 +65,7 @@ const informationForHomeless = ({ informationForHomeless }) => {
   return (
     <Container>
       <PageHeader>Informacje dla osób bezdomnych</PageHeader>
-      <div className"max-w-3xl mx-auto mt-10 mb-16">
+      <div className="max-w-3xl mx-auto mt-10 mb-16">
         <TitleWithDevider>{titlePl}</TitleWithDevider>
         <img
           src={image.fields.file.url}

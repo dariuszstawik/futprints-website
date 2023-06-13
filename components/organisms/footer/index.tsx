@@ -1,4 +1,5 @@
 import Logo from "@/components/atoms/logo";
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -6,7 +7,7 @@ const Footer = () => {
     <footer aria-label="Site Footer" className="bg-primaryGray">
       <div className="relative mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:pt-24">
         <div className="absolute end-4 top-4 sm:end-6 sm:top-6 lg:end-8 lg:top-8">
-          <a
+          <Link
             className="inline-block rounded-full bg-primary p-2 text-white shadow transition hover:bg-teal-500 sm:p-3 lg:p-4"
             href="#MainContent"
           >
@@ -23,7 +24,7 @@ const Footer = () => {
                 clipRule="evenodd"
               />
             </svg>
-          </a>
+          </Link>
         </div>
 
         <div className="lg:flex lg:items-end lg:justify-between">
@@ -41,39 +42,39 @@ const Footer = () => {
           <nav aria-label="Footer Nav" className="mt-12 lg:mt-0">
             <ul className="flex flex-wrap justify-center gap-6 md:gap-8 lg:justify-end lg:gap-12">
               <li>
-                <a
+                <Link
                   className="text-gray-700 transition hover:text-gray-700/75"
                   href="/"
                 >
                   o nas
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
+                <Link
                   className="text-gray-700 transition hover:text-gray-700/75"
                   href="/"
                 >
                   chcę pomóc
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
+                <Link
                   className="text-gray-700 transition hover:text-gray-700/75"
                   href="/"
                 >
                   szukam pomocy
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
+                <Link
                   className="text-gray-700 transition hover:text-gray-700/75"
                   href="/"
                 >
                   kontakt
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
