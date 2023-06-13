@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 591 591">
-<g stroke-width="2.00" fill="none" stroke-linecap="butt">
-<path stroke="#b2a8a4" stroke-opacity="0.957" vector-effect="non-scaling-stroke" d="
+<g strokeWidth="2.00" fill="none" strokeLinecap="butt">
+<path stroke="#b2a8a4" strokeOpacity="0.957" vector-effect="non-scaling-stroke" d="
   M 385.29 191.00
   L 383.25 193.46"
 />
-<path stroke="#b2a8a4" stroke-opacity="0.957" vector-effect="non-scaling-stroke" d="
+<path stroke="#b2a8a4" strokeOpacity="0.957" vector-effect="non-scaling-stroke" d="
   M 376.71 190.25
   L 378.00 185.79"
 />
-<path stroke="#b2a8a4" stroke-opacity="0.957" vector-effect="non-scaling-stroke" d="
+<path stroke="#b2a8a4" strokeOpacity="0.957" vector-effect="non-scaling-stroke" d="
   M 248.46 262.50
   Q 251.33 262.27 250.46 259.75"
 />
-<path stroke="#b9afab" stroke-opacity="0.992" vector-effect="non-scaling-stroke" d="
+<path stroke="#b9afab" strokeOpacity="0.992" vector-effect="non-scaling-stroke" d="
   M 346.00 259.29
   Q 346.01 261.09 344.85 262.39
   A 1.37 0.94 -33.1 0 0 344.50 263.24
@@ -25,7 +25,7 @@
   Q 348.35 267.72 348.44 270.56
   Q 348.48 272.07 349.29 272.50"
 />
-<path stroke="#b9afab" stroke-opacity="0.992" vector-effect="non-scaling-stroke" d="
+<path stroke="#b9afab" strokeOpacity="0.992" vector-effect="non-scaling-stroke" d="
   M 331.75 265.71
   L 333.02 266.12
   A 1.00 0.89 -53.2 0 0 333.90 265.94
@@ -59,14 +59,14 @@
   Q 176.77 340.00 175.19 340.93
   Q 173.33 342.03 171.46 341.00"
 />
-<path stroke="#bbb1ae" stroke-opacity="0.992" vector-effect="non-scaling-stroke" d="
+<path stroke="#bbb1ae" strokeOpacity="0.992" vector-effect="non-scaling-stroke" d="
   M 175.00 336.71
   Q 175.49 336.77 175.85 337.06
   A 0.75 0.60 47.3 0 0 176.63 337.18
   Q 178.72 335.92 182.31 333.06
   Q 183.08 332.46 182.25 332.04"
 />
-<path stroke="#b5aaa7" stroke-opacity="0.992" vector-effect="non-scaling-stroke" d="
+<path stroke="#b5aaa7" strokeOpacity="0.992" vector-effect="non-scaling-stroke" d="
   M 472.71 193.72
   Q 473.03 195.62 472.95 193.35
   A 0.23 0.22 81.3 0 0 472.67 193.13
@@ -75,14 +75,14 @@
   Q 471.89 195.29 472.62 193.71
   Q 472.69 193.57 472.71 193.72"
 />
-<path stroke="#b5aaa7" stroke-opacity="0.992" vector-effect="non-scaling-stroke" d="
+<path stroke="#b5aaa7" strokeOpacity="0.992" vector-effect="non-scaling-stroke" d="
   M 29.42 334.28
   Q 30.74 333.82 29.80 333.76
   A 0.74 0.69 -62.2 0 0 29.28 333.94
   Q 25.49 337.19 29.21 334.39
   Q 29.31 334.31 29.42 334.28"
 />
-<path stroke="#b5aaa7" stroke-opacity="0.992" vector-effect="non-scaling-stroke" d="
+<path stroke="#b5aaa7" strokeOpacity="0.992" vector-effect="non-scaling-stroke" d="
   M 39.43 336.95
   A 1.72 1.72 -73.9 0 1 38.07 337.70
   Q 36.97 337.74 37.63 338.42

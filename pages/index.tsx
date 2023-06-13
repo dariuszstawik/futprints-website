@@ -21,17 +21,23 @@ export async function getStaticProps() {
   });
 
   const res = await client.getEntries({ content_type: "activities" });
+  const res2 = await client.getEntries({ content_type: "support1" });
+  const res3 = await client.getEntries({ content_type: "slider" });
+  const res4 = await client.getEntries({ content_type: "news" });
 
   return {
     props: {
       activities: res.items,
+      support1: res2.items,
+      slider: res3.items,
+      news: res4.items,
     },
   };
 }
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({ activities }) {
+export default function Home({ activities, support1, slider, news }) {
   const handleScroll = (e) => {
     e.preventDefault();
     const href = e.currentTarget.href;
@@ -52,38 +58,11 @@ export default function Home({ activities }) {
       </Head>
       <div className="relative">
         <Container>
-          <Header />
+          <Header slider={slider} />
           <CtaSection />
           <ActivitiesSection activities={activities} />
-          <section>
-            {/* <div className="my-10">
-              <div className="min-w-96 max-w-[800px] mx-auto my-6 flex flex-col items-center">
-                <SectionTitle>Nasze działania</SectionTitle>
-                <Divider />
-              </div>
-              <div className="px- py-1 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-4 lg:px-0 lg:py-10">
-                <div className="grid gap-6 row-gap-5 md:row-gap-8 sm:mx-auto lg:grid-cols-2">
-                  <Fade bottom>
-                    {activities.map((activity) => {
-                      return (
-                        <ActivitiesCard
-                          img={activity.fields.thumbnail.fields.file.url}
-                          title={
-                            activity.fields.titlePl
-                              ? activity.fields.titlePl
-                              : ""
-                          }
-                          href={`/single-activity/${activity.fields.slug}`}
-                        />
-                      );
-                    })}
-                  </Fade>
-                </div>
-              </div>
-            </div> */}
-          </section>
-          <SupportSection />
-          <NewsSection />
+          <SupportSection support1={support1} />
+          <NewsSection content={news} isHomepage />
         </Container>
       </div>
     </>

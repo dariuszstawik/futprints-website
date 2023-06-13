@@ -23,7 +23,7 @@ export async function getStaticProps() {
 const partnership = ({ partnership }) => {
   console.log(partnership);
   const title = partnership[0].fields.titlePl;
-  const lead = documentToReactComponents(partnership[0].fields.leadPl);
+  const lead = partnership[0].fields.leadPl;
   const img = "img14.jpg";
   const content = documentToReactComponents(partnership[0].fields.contentPl);
   // const content = (

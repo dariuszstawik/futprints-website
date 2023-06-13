@@ -5,7 +5,6 @@ const ChooseLanguage = () => {
     <form>
       <select>
         <option
-          selected
           style={{
             backgroundImage: 'url("/flagPL.svg")',
             backgroundPosition: "top",

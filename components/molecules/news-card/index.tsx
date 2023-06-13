@@ -1,7 +1,9 @@
 import ArrowLong from "@/components/atoms/arrow-long";
 import React from "react";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import Link from "next/link";
 
-const NewsCard = () => {
+const NewsCard = ({ title, content, slug }) => {
   return (
     // <div className="max-w-sm mx-auto transition duration-300 transform bg-primaryGray rounded shadow-sm hover:-translate-y-1 hover:shadow md:text-center">
     //   <div className="relative">
@@ -45,20 +47,16 @@ const NewsCard = () => {
       </div>
       <div className="flex flex-col justify-start items-start px-6 py-8 border border-t-0 rounded-b sm:px-8 shrink">
         <h5 className="mb-2 text-xl text-left font-bold leading-none sm:text-2xl">
-          Centrum Społecznościowe
+          {title}
         </h5>
-        <p className="mb-5 text-gray-700 text-left">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque rem aperiam, eaque ipsa quae. Sed ut
-          perspiciatis unde.
-        </p>
+        <div className="mb-5 text-gray-700 text-left">{content}</div>
 
-        <button
-          className="relative font-medium text-green-800 before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-green-800 before:transition hover:before:scale-100"
-          href="/download"
-        >
-          dowiedz się więcej
-          <ArrowLong />
+        <button className="relative font-medium text-green-800 before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-green-800 before:transition hover:before:scale-100">
+          {" "}
+          <Link href={`/news/${slug}`}>
+            dowiedz się więcej
+            <ArrowLong />
+          </Link>
         </button>
       </div>
     </div>

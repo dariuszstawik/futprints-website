@@ -31,9 +31,10 @@ const activitiespage = ({ activities }) => {
       <div className="px- py-1 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-4 lg:px-0 lg:py-10">
         <div className="grid gap-6 row-gap-5 md:row-gap-8 sm:mx-auto lg:grid-cols-2">
           <Fade bottom>
-            {activities.map((activity) => {
+            {activities.map((activity, i) => {
               return (
                 <ActivitiesCard
+                  key={i}
                   img={activity.fields.thumbnail.fields.file.url}
                   title={activity.fields.titlePl ? activity.fields.titlePl : ""}
                 />

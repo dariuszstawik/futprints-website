@@ -3,12 +3,12 @@
 <rect width="16" height="12" fill="white"/>
 </mask>
 <g mask="url(#mask0_270_51861)">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V12H16V0H0Z" fill="#F7FCFF"/>
+<path fillRule="evenodd" clipRule="evenodd" d="M0 0V12H16V0H0Z" fill="#F7FCFF"/>
 <mask id="mask1_270_51861" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="12">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V12H16V0H0Z" fill="white"/>
+<path fillRule="evenodd" clipRule="evenodd" d="M0 0V12H16V0H0Z" fill="white"/>
 </mask>
 <g mask="url(#mask1_270_51861)">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M0 6V12H16V6H0Z" fill="#C51918"/>
+<path fillRule="evenodd" clipRule="evenodd" d="M0 6V12H16V6H0Z" fill="#C51918"/>
 </g>
 </g>
 </svg>

@@ -3,8 +3,9 @@ import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
 
-const HeaderSlider = () => {
+const HeaderSlider = ({ images }) => {
   const AutoplaySlider = withAutoplay(AwesomeSlider);
+  console.log(images);
   return (
     <div className="w-full lg:w-7/12 mx-0 overflow-hidden">
       <AutoplaySlider
@@ -15,18 +16,16 @@ const HeaderSlider = () => {
         bullets={false}
         organicArrows={false}
       >
-        <div className="h-full bg-primaryGray">
-          <img src="img3.jpg" />
-        </div>
-        <div className="h-full bg-primaryGray">
-          <img src="pomaganie5.jpg" />
-        </div>
-        <div className="h-full bg-primaryGray">
-          <img src="img13.jpg" />
-        </div>
-        <div className="h-full bg-primaryGray">
-          <img src="img15.jpg" />
-        </div>
+        {images.map((image, i) => {
+          return (
+            <div className="h-full bg-primaryGray" key={i}>
+              <img
+                className="h-full object-cover"
+                src={image.fields.file.url}
+              />
+            </div>
+          );
+        })}
       </AutoplaySlider>
     </div>
   );

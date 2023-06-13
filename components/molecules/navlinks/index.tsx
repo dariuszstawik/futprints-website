@@ -2,6 +2,7 @@ import Button from "@/components/atoms/button";
 import Navlink from "@/components/atoms/navlink";
 import Link from "next/link";
 import React from "react";
+import { navLinksData } from "./navlinksData";
 
 // const Navlinks = ({toggleMobileMenu}:{toggleMobileMenu: ()=> void}) => {
 const Navlinks = ({ isVisible, closeMobileMenu }) => {
@@ -13,48 +14,24 @@ const Navlinks = ({ isVisible, closeMobileMenu }) => {
           : "flex flex-col justify-center align-center items-center gap-14 lg:flex-row my-4 hidden lg:flex"
       }
     >
-      <li>
-        <Link
-          className="text-lg text-neutral-600"
-          href="/news"
-          onClick={closeMobileMenu}
-        >
-          aktualności
-        </Link>
-      </li>
-      <li>
-        <Link
-          className="text-lg text-neutral-600"
-          href="/aboutus"
-          onClick={closeMobileMenu}
-        >
-          o nas
-        </Link>
-      </li>
-      <li>
-        <Link
-          className="text-lg text-neutral-600"
-          href="/partnership"
-          onClick={closeMobileMenu}
-        >
-          współpraca
-        </Link>
-      </li>
-      <li>
-        <Link
-          className="text-lg text-neutral-600"
-          href="/contact"
-          onClick={closeMobileMenu}
-        >
-          kontakt
-        </Link>
-      </li>
+      {navLinksData.map((navlink, i) => {
+        return (
+          <li key={i}>
+            <Link
+              className="text-lg text-neutral-600"
+              href={navlink.path}
+              onClick={closeMobileMenu}
+            >
+              {navlink.content}
+            </Link>
+          </li>
+        );
+      })}
+
       <li className="flex flex-col justify-center align-center items-center mx-auto my-auto">
-        {/* <Link href="#SupportSection"> */}
-        <Link href="/support">
-          {" "}
-          <Button onClick={closeMobileMenu}>chcę pomóc</Button>
-        </Link>
+        <Button onClick={closeMobileMenu}>
+          <Link href="/support"> chcę pomóc</Link>
+        </Button>
       </li>
     </ul>
   );
