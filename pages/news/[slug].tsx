@@ -10,9 +10,11 @@ const client = createClient({
 export const getStaticPaths = async () => {
   const res = await client.getEntries({ content_type: "news" });
 
-  const paths = res.items.map((item) => {
-    return { params: { slug: item.fields.slug ? item.fields.slug : "" } };
-  });
+  const paths = res.items
+    .filter((item) => Boolean(item.fields.slug))
+    .map((item) => {
+      return { params: { slug: item.fields.slug } };
+    });
 
   return {
     paths,
