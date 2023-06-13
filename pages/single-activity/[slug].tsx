@@ -56,12 +56,14 @@ const singleActivity = ({ activity }) => {
   return (
     <Container>
       <PageHeader>Nasze działania</PageHeader>
-      <AboutSection
-        title={activity.fields.paragraph1TitlePl}
-        img={activity.fields.paragraph1Img.fields.file.url}
-        content={documentToReactComponents(activity.fields.paragraph1TextPl)}
-      ></AboutSection>
-      {activity.fields.paragraph2TitlePl &&
+      {activity?.fields && (
+        <AboutSection
+          title={activity.fields.paragraph1TitlePl}
+          img={activity.fields.paragraph1Img.fields.file.url}
+          content={documentToReactComponents(activity.fields.paragraph1TextPl)}
+        ></AboutSection>
+      )}
+      {activity?.fields.paragraph2TitlePl &&
         activity.fields.paragraph2Img.fields.file.url &&
         activity.fields.paragraph2TextPl && (
           <AboutSection

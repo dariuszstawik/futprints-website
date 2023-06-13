@@ -37,6 +37,7 @@ const activitiespage = ({ activities }) => {
                   key={i}
                   img={activity.fields.thumbnail.fields.file.url}
                   title={activity.fields.titlePl ? activity.fields.titlePl : ""}
+                  href="#"
                 />
               );
             })}
