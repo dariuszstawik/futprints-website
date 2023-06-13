@@ -36,10 +36,10 @@ export async function getStaticProps({ params }) {
 }
 
 const singleActivity = ({ activity }) => {
-  console.log(activity);
-  console.log(activity.fields.paragraph1TitlePl);
-  console.log(activity.fields.paragraph1Img.fields.file.url);
-  console.log(documentToReactComponents(activity.fields.paragraph1TextPl));
+  // console.log(activity);
+  // console.log(activity.fields.paragraph1TitlePl);
+  // console.log(activity.fields.paragraph1Img.fields.file.url);
+  // console.log(documentToReactComponents(activity.fields.paragraph1TextPl));
 
   //   const {
   //     paragraph1TitlePl,
