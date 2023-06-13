@@ -56,7 +56,7 @@ const singleActivity = ({ activity }) => {
   return (
     <Container>
       <PageHeader>Nasze działania</PageHeader>
-      {activity?.fields && (
+      {activity?.fields && activity?.fields?.paragraph1Img?.fields && (
         <AboutSection
           title={activity.fields.paragraph1TitlePl}
           img={activity.fields.paragraph1Img.fields.file.url}
