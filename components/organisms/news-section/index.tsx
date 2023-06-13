@@ -14,17 +14,18 @@ const NewsSection = ({ content, isHomepage }) => {
       </div>
       <div className="px- py-1 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-4 lg:px-0 lg:py-10">
         <ul className="grid gap-6 row-gap-5 md:row-gap-8 sm:mx-auto md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
-          {content.map((item, i) => {
-            return (
-              <li key={i}>
-                <NewsCard
-                  title={item.fields.titlePl}
-                  content={item.fields.leadPl}
-                  slug={item.fields.slug}
-                />{" "}
-              </li>
-            );
-          })}
+          {content &&
+            content.map((item, i) => {
+              return (
+                <li key={i}>
+                  <NewsCard
+                    title={item.fields.titlePl}
+                    content={item.fields.leadPl}
+                    slug={item.fields.slug}
+                  />{" "}
+                </li>
+              );
+            })}
         </ul>
       </div>
     </div>
