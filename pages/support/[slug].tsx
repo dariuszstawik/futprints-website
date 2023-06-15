@@ -3,6 +3,8 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Container from "@/components/atoms/container";
 import PageHeader from "@/components/molecules/page-header";
 import SingleArticle from "@/components/templates/single-article";
+import RootContext from "@/context/RootContext";
+import { useContext } from "react";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -36,15 +38,29 @@ export async function getStaticProps({ params }) {
 }
 
 const SupportArticle = ({ support1 }) => {
-  const img = "img14.jpg";
-  console.log(support1);
+  // const img = "img14.jpg";
+  const { lang } = useContext(RootContext);
+
   return (
     <Container>
       <PageHeader>Jak możesz pomóc</PageHeader>
       <SingleArticle
-        title={support1.fields.titlePl}
-        lead={documentToReactComponents(support1.fields.leadPl)}
-        content={documentToReactComponents(support1.fields.textPl)}
+        title={
+          lang === "en" && support1.fields.titleEn
+            ? support1.fields.titleEn
+            : support1.fields.titlePl
+        }
+        lead={
+          lang === "en" && support1.fields.leadEn
+            ? support1.fields.leadEn
+            : support1.fields.leadPl
+        }
+        content={
+          lang === "en" && support1.fields.textEn
+            ? documentToReactComponents(support1.fields.textEn)
+            : documentToReactComponents(support1.fields.textPl)
+        }
+        // {documentToReactComponents({lang==="en" && support1.fields.textEn ? support1.fields.textEn : support1.fields.textPl})}
         img={support1.fields.icon.fields.file.url}
         hasIcon
       ></SingleArticle>

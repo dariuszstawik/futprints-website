@@ -1,20 +1,24 @@
 export const navLinksData = [
   {
-    content: "aktualności",
+    contentPl: "aktualności",
+    contentEn: "news",
     path: "/news",
   },
 
   {
-    content: "o nas",
+    contentPl: "o nas",
+    contentEn: "about us",
     path: "/aboutus",
   },
 
   {
-    content: "współpraca",
+    contentPl: "współpraca",
+    contentEn: "partnership",
     path: "/partnership",
   },
   {
-    content: "kontakt",
+    contentPl: "kontakt",
+    contentEn: "contact",
     path: "/contact",
   },
 ];

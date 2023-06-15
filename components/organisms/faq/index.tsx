@@ -1,7 +1,8 @@
 import Divider from "@/components/atoms/divider";
 import SectionTitle from "@/components/atoms/section-title";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import RootContext from "@/context/RootContext";
 
 const Item = ({ question, children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,6 +44,8 @@ const Item = ({ question, children }) => {
 };
 
 export const Faq = ({ content }) => {
+  const { lang } = useContext(RootContext);
+
   const {
     question1Pl,
     question2Pl,
@@ -79,50 +82,92 @@ export const Faq = ({ content }) => {
       <div className="max-w-xl sm:mx-auto lg:max-w-full">
         <div className="space-y-4">
           {question1Pl ? (
-            <Item question={question1Pl}>
-              {documentToReactComponents(answer1Pl)}
+            <Item
+              question={
+                lang === "en" && question1En ? question1En : question1Pl
+              }
+            >
+              {lang === "en" && answer1En
+                ? documentToReactComponents(answer1En)
+                : documentToReactComponents(answer1Pl)}
             </Item>
           ) : (
             ""
           )}
           {question2Pl ? (
-            <Item question={question2Pl}>
-              {documentToReactComponents(answer2Pl)}
+            <Item
+              question={
+                lang === "en" && question2En ? question2En : question2Pl
+              }
+            >
+              {lang === "en" && answer2En
+                ? documentToReactComponents(answer2En)
+                : documentToReactComponents(answer2Pl)}
             </Item>
           ) : (
             ""
           )}
           {question3Pl ? (
-            <Item question={question3Pl}>
-              {documentToReactComponents(answer3Pl)}
+            <Item
+              question={
+                lang === "en" && question3En ? question3En : question3Pl
+              }
+            >
+              {lang === "en" && answer3En
+                ? documentToReactComponents(answer3En)
+                : documentToReactComponents(answer3Pl)}
             </Item>
           ) : (
             ""
           )}
           {question4Pl ? (
-            <Item question={question4Pl}>
-              {documentToReactComponents(answer4Pl)}
+            <Item
+              question={
+                lang === "en" && question4En ? question4En : question4Pl
+              }
+            >
+              {lang === "en" && answer4En
+                ? documentToReactComponents(answer4En)
+                : documentToReactComponents(answer4Pl)}
             </Item>
           ) : (
             ""
           )}
           {question5Pl ? (
-            <Item question={question5Pl}>
-              {documentToReactComponents(answer5Pl)}
+            <Item
+              question={
+                lang === "en" && question5En ? question5En : question5Pl
+              }
+            >
+              {lang === "en" && answer5En
+                ? documentToReactComponents(answer5En)
+                : documentToReactComponents(answer5Pl)}
             </Item>
           ) : (
             ""
           )}
           {question6Pl ? (
-            <Item question={question6Pl}>
-              {documentToReactComponents(answer6Pl)}
+            <Item
+              question={
+                lang === "en" && question6En ? question6En : question6Pl
+              }
+            >
+              {lang === "en" && answer6En
+                ? documentToReactComponents(answer6En)
+                : documentToReactComponents(answer6Pl)}
             </Item>
           ) : (
             ""
           )}
           {question7Pl ? (
-            <Item question={question7Pl}>
-              {documentToReactComponents(answer7Pl)}
+            <Item
+              question={
+                lang === "en" && question7En ? question7En : question7Pl
+              }
+            >
+              {lang === "en" && answer7En
+                ? documentToReactComponents(answer7En)
+                : documentToReactComponents(answer7Pl)}
             </Item>
           ) : (
             ""

@@ -5,8 +5,9 @@ import AboutSection from "@/components/organisms/about-section";
 import ContactSection from "@/components/organisms/contact-section";
 import Navbar from "@/components/organisms/navbar";
 import ArticleWithImages from "@/components/templates/article-with-images";
+import RootContext from "@/context/RootContext";
 import { createClient } from "contentful";
-import React from "react";
+import React, { useContext } from "react";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -36,6 +37,8 @@ const contact = ({ contact }) => {
     image,
   } = contact[0].fields;
 
+  const { lang } = useContext(RootContext);
+
   return (
     <div>
       <Container>
@@ -47,7 +50,11 @@ const contact = ({ contact }) => {
           phoneNumber={phoneNumber}
           phoneNumber2={phoneNumber2}
           email={eMail}
-          img="map-kordeckiego.jpg"
+          img={
+            image?.fields.file.url
+              ? image.fields.file.url
+              : "map-kordeckiego.jpg"
+          }
         />
       </Container>
     </div>

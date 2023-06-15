@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Container from "@/components/atoms/container";
 import PageHeader from "@/components/molecules/page-header";
 import SingleArticle from "@/components/templates/single-article";
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import RootContext from "@/context/RootContext";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -21,24 +22,30 @@ export async function getStaticProps() {
 }
 
 const partnership = ({ partnership }) => {
-  console.log(partnership);
-  const title = partnership[0].fields.titlePl;
-  const lead = partnership[0].fields.leadPl;
-  const img = "img14.jpg";
-  const content = documentToReactComponents(partnership[0].fields.contentPl);
-  // const content = (
-  //   <>
-  //     <b>Lorem ipsum dolor sit amet consectetur adipisicing elit</b>. Recusandae
-  //     veritatis vitae, aliquam commodi impedit vel quia molestiae eum quis
-  //     similique unde, sunt nihil tenetur officiis sit dicta. Inventore,
-  //     perspiciatis quidem
-  //   </>
-  // );
+  const { titlePl, titleEn, leadPl, leadEn, contentPl, contentEn, image } =
+    partnership[0].fields;
+
+  const { lang } = useContext(RootContext);
+  console.log(lang);
+  // const title = {
+  //   lang === "en" && partnership[0].fields.titleEn
+  //     ? partnership[0].fields.titleEn
+  //     : partnership[0].fields.titlePl,
+  // };
 
   return (
     <Container>
       <PageHeader>Współpraca</PageHeader>
-      <SingleArticle title={title} lead={lead} content={content} img={img} />
+      <SingleArticle
+        title={lang === "en" && titleEn ? titleEn : titlePl}
+        lead={lang === "en" && leadEn ? leadEn : leadPl}
+        content={
+          lang === "en" && contentEn
+            ? documentToReactComponents(contentEn)
+            : documentToReactComponents(contentPl)
+        }
+        img={image.fields.file.url ? image.fields.file.url : ""}
+      />
     </Container>
   );
 };

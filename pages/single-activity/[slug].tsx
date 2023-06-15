@@ -3,6 +3,8 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Container from "@/components/atoms/container";
 import PageHeader from "@/components/molecules/page-header";
 import AboutSection from "@/components/organisms/about-section";
+import RootContext from "@/context/RootContext";
+import { useContext } from "react";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -36,6 +38,7 @@ export async function getStaticProps({ params }) {
 }
 
 const singleActivity = ({ activity }) => {
+  const { lang } = useContext(RootContext);
   // console.log(activity);
   // console.log(activity.fields.paragraph1TitlePl);
   // console.log(activity.fields.paragraph1Img.fields.file.url);
@@ -55,10 +58,16 @@ const singleActivity = ({ activity }) => {
 
   return (
     <Container>
-      <PageHeader>Nasze działania</PageHeader>
+      <PageHeader>
+        {lang === "en" ? "Activities" : "Nasze działania"}
+      </PageHeader>
       {activity?.fields && activity?.fields?.paragraph1Img?.fields && (
         <AboutSection
-          title={activity.fields.paragraph1TitlePl}
+          title={
+            lang === "en" && activity.fields.paragraph1TitleEn
+              ? activity.fields.paragraph1TitleEn
+              : activity.fields.paragraph1TitlePl
+          }
           img={activity.fields.paragraph1Img.fields.file.url}
           content={documentToReactComponents(activity.fields.paragraph1TextPl)}
         ></AboutSection>

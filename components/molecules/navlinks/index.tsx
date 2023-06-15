@@ -1,11 +1,18 @@
 import Button from "@/components/atoms/button";
-import Navlink from "@/components/atoms/navlink";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 import { navLinksData } from "./navlinksData";
+import RootContext from "@/context/RootContext";
 
 // const Navlinks = ({toggleMobileMenu}:{toggleMobileMenu: ()=> void}) => {
-const Navlinks = ({ isVisible, closeMobileMenu }) => {
+
+interface NavlinksProps {
+  closeMobileMenu: () => void;
+  isVisible: boolean;
+}
+
+const Navlinks = ({ isVisible, closeMobileMenu }: NavlinksProps) => {
+  const { lang } = useContext(RootContext);
   return (
     <ul
       className={
@@ -18,11 +25,13 @@ const Navlinks = ({ isVisible, closeMobileMenu }) => {
         return (
           <li key={i}>
             <Link
-              className="text-lg text-neutral-600"
+              className="text-sm xl:text-lg text-neutral-600"
               href={navlink.path}
               onClick={closeMobileMenu}
             >
-              {navlink.content}
+              {lang === "en" && navlink.contentEn
+                ? navlink.contentEn
+                : navlink.contentPl}
             </Link>
           </li>
         );
@@ -30,7 +39,10 @@ const Navlinks = ({ isVisible, closeMobileMenu }) => {
 
       <li className="flex flex-col justify-center align-center items-center mx-auto my-auto">
         <Button onClick={closeMobileMenu}>
-          <Link href="/support"> chcę pomóc</Link>
+          <Link href="/support">
+            {" "}
+            {lang === "en" ? "support us" : "chcę pomóc"}
+          </Link>
         </Button>
       </li>
     </ul>

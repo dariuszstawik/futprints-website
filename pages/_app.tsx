@@ -7,6 +7,12 @@ import React, { useState } from "react";
 export default function App({ Component, pageProps }: AppProps) {
   const [isMobileMenuActive, setIsMobileMenuActive] = useState(false);
 
+  const [lang, setLang] = useState("pl");
+
+  const changeLang = (chosenLang) => {
+    setLang(chosenLang);
+  };
+
   const toggleMobileMenu = () => {
     setIsMobileMenuActive(!isMobileMenuActive);
   };
@@ -16,8 +22,15 @@ export default function App({ Component, pageProps }: AppProps) {
   };
 
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <RootContext.Provider
+      value={{
+        lang,
+        changeLang,
+      }}
+    >
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </RootContext.Provider>
   );
 }

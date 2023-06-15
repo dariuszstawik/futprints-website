@@ -1,15 +1,28 @@
 import Logo from "@/components/atoms/logo";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
+import { footerData } from "./footerData";
+import RootContext from "@/context/RootContext";
 
 const Footer = () => {
+  const { lang } = useContext(RootContext);
+  const handleScroll = (e) => {
+    e.preventDefault();
+    const href = e.currentTarget.href;
+    const targetId = href.replace(/.*\#/, "");
+    const elem = document.getElementById(targetId);
+    elem?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
   return (
     <footer aria-label="Site Footer" className="bg-primaryGray">
       <div className="relative mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:pt-24">
         <div className="absolute end-4 top-4 sm:end-6 sm:top-6 lg:end-8 lg:top-8">
           <Link
-            className="inline-block rounded-full bg-primary p-2 text-white shadow transition hover:bg-teal-500 sm:p-3 lg:p-4"
-            href="#MainContent"
+            className="inline-block rounded-full bg-primary p-2 text-white shadow transition sm:p-3 lg:p-4"
+            href="#top"
+            onClick={handleScroll}
           >
             <span className="sr-only">Back to top</span>
             <svg
@@ -41,47 +54,24 @@ const Footer = () => {
 
           <nav aria-label="Footer Nav" className="mt-12 lg:mt-0">
             <ul className="flex flex-wrap justify-center gap-6 md:gap-8 lg:justify-end lg:gap-12">
-              <li>
-                <Link
-                  className="text-gray-700 transition hover:text-gray-700/75"
-                  href="/"
-                >
-                  o nas
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  className="text-gray-700 transition hover:text-gray-700/75"
-                  href="/"
-                >
-                  chcę pomóc
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  className="text-gray-700 transition hover:text-gray-700/75"
-                  href="/"
-                >
-                  szukam pomocy
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  className="text-gray-700 transition hover:text-gray-700/75"
-                  href="/"
-                >
-                  kontakt
-                </Link>
-              </li>
+              {footerData.map(({ contentPl, contentEn, path }, i) => {
+                return (
+                  <li key={i}>
+                    <Link
+                      className="text-gray-700 transition hover:text-gray-700/75"
+                      href={path}
+                    >
+                      {lang === "en" ? contentEn : contentPl}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
         </div>
 
         <p className="mt-12 text-center text-sm text-gray-500 lg:text-right">
-          Copyright &copy; 2022. All rights reserved.
+          Copyright &copy; 2023. All rights reserved.
         </p>
       </div>
     </footer>

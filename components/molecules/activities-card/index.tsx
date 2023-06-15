@@ -1,6 +1,7 @@
 import ArrowLong from "@/components/atoms/arrow-long";
+import RootContext from "@/context/RootContext";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 
 interface ActivitiesCardProps {
   img: React.ReactNode;
@@ -9,6 +10,7 @@ interface ActivitiesCardProps {
 }
 
 const ActivitiesCard = ({ title, img, href }: ActivitiesCardProps) => {
+  const { lang } = useContext(RootContext);
   return (
     <div className="max-w-xl lg:max-w-2xl mx-auto transition duration-300 transform bg-primaryGray rounded shadow-sm hover:-translate-y-1 hover:shadow md:text-center">
       <div className="relative">
@@ -25,7 +27,7 @@ const ActivitiesCard = ({ title, img, href }: ActivitiesCardProps) => {
         </h5>
         <Link href={href}>
           <button className="relative font-medium text-green-800 before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-green-800 before:transition hover:before:scale-100">
-            dowiedz się więcej
+            {lang === "en" ? "read more" : "dowiedz się więcej"}
             <ArrowLong />
           </button>
         </Link>

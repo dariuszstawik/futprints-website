@@ -5,8 +5,7 @@ import TitleWithDevider from "@/components/molecules/title-with-divider";
 import { Faq } from "@/components/organisms/faq";
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import React, { useContext } from "react";
-import RootContext from "@/context/RootContext";
+import React from "react";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -15,19 +14,17 @@ export async function getStaticProps() {
   });
 
   const res = await client.getEntries({
-    content_type: "informationForHomeless",
+    content_type: "informationForForeigners",
   });
 
   return {
     props: {
-      informationForHomeless: res.items,
+      informationForForeigners: res.items,
     },
   };
 }
 
-const informationForHomeless = ({ informationForHomeless }) => {
-  const { lang } = useContext(RootContext);
-
+const informationForForeigners = ({ informationForForeigners }) => {
   const {
     titlePl,
     titleEn,
@@ -62,24 +59,22 @@ const informationForHomeless = ({ informationForHomeless }) => {
     answer5En,
     answer6En,
     answer7En,
-  } = informationForHomeless[0].fields;
+  } = informationForForeigners[0].fields;
 
   return (
     <Container>
-      <PageHeader>Informacje dla osób bezdomnych</PageHeader>
+      <PageHeader>Information for foreigners</PageHeader>
       <div className="max-w-3xl mx-auto mt-10 mb-16">
-        <TitleWithDevider>
-          {lang === "en" && titleEn ? titleEn : titlePl}
-        </TitleWithDevider>
+        <TitleWithDevider>{titlePl}</TitleWithDevider>
         <img
           src={image.fields.file.url}
           className="w-full object-cover rounded-lg my-10"
         ></img>
-        <ArticleLead>{lang === "en" && leadEn ? leadEn : leadPl}</ArticleLead>
-        <Faq content={informationForHomeless}></Faq>
+        <ArticleLead>{leadPl}</ArticleLead>
+        <Faq content={informationForForeigners}></Faq>
       </div>
     </Container>
   );
 };
 
-export default informationForHomeless;
+export default informationForForeigners;

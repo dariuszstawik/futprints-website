@@ -1,10 +1,10 @@
 import Divider from "@/components/atoms/divider";
 import SectionTitle from "@/components/atoms/section-title";
 import TeamCard from "@/components/molecules/team-card";
-import React from "react";
-import ShuffleTeam from "../shuffle-team";
+import React, { useContext } from "react";
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import RootContext from "@/context/RootContext";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -22,37 +22,45 @@ export async function getStaticProps() {
 }
 
 const TeamSection = ({ teamMembers }) => {
-  console.log(teamMembers);
+  const { lang } = useContext(RootContext);
   return (
     <div>
       <div className="min-w-96 mx-auto my-6 flex flex-col items-center">
-        <SectionTitle>Nasz zespół</SectionTitle>
+        <SectionTitle>
+          {lang === "en" ? "Our team" : "Nasz zespół"}
+        </SectionTitle>
         <Divider />
       </div>
       <ul
-        className="
+        className=" w-full
         grid
         gap-12
-        mx-32
+        px-32
         my-16
         sm:grid-cols-2
         lg:grid-cols-4
-        lg:max-w-screen-lg"
+        "
       >
         {teamMembers.map((member, i) => {
           return (
             <li key={i}>
               <TeamCard
                 name={member.fields.name}
-                position={member.fields.positionPl}
-                description={documentToReactComponents(
-                  member.fields.descriptionPl
-                )}
-                // image={
-                //   member.fields.image.fields.file.url
-                //     ? member.fields.image.fields.file.url
-                //     : ""
-                // }
+                position={
+                  lang === "en" && member.fields.positionEn
+                    ? member.fields.positionEn
+                    : member.fields.positionPl
+                }
+                description={
+                  lang === "en" && member.fields.descriptionEn
+                    ? member.fields.descriptionEn
+                    : member.fields.descriptionPl
+                }
+                image={
+                  member.fields.image?.fields.file.url
+                    ? member.fields.image.fields.file.url
+                    : ""
+                }
               />
             </li>
           );

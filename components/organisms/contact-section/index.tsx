@@ -14,7 +14,7 @@ const ContactSection = ({
   img,
 }) => {
   return (
-    <div className={"w-full py-16 flex"}>
+    <div className={"w-full py-16 flex flex-col xl:flex-row"}>
       <div className="w-[700px] shrink-0">
         <img src={img} className="rounded-lg" />
       </div>

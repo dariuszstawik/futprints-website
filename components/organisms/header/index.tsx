@@ -2,6 +2,8 @@ import HeaderSlider from "@/components/atoms/header-slider";
 import HeaderContent from "@/components/molecules/header-content";
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { useContext } from "react";
+import RootContext from "@/context/RootContext";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -19,27 +21,33 @@ export async function getStaticProps() {
 }
 
 const Header = ({ slider }) => {
-  // const {
-  //   titlePl,
-  //   titlePl2Line,
-  //   titleEn,
-  //   titleEn2Line,
-  //   descriptionPl,
-  //   descriptionEn,
-  //   buttonPl,
-  //   buttonEn,
-  //   images,
-  // } = slider.fields;
-  console.log(slider[0]);
+  const {
+    titlePl,
+    titlePl2Line,
+    titleEn,
+    titleEn2Line,
+    descriptionPl,
+    descriptionEn,
+    buttonPl,
+    buttonEn,
+    images,
+  } = slider[0].fields;
+
+  const { lang } = useContext(RootContext);
 
   return (
-    <div className="w-full min-h-[calc(100vh-128px)] pl-28 bg-primaryGray flex flex-col lg:flex-row lg:justify-between">
+    <div
+      id="top"
+      className="w-full min-h-[calc(100vh-128px)] pl-28 bg-primaryGray flex flex-col lg:flex-row lg:justify-between"
+    >
       <HeaderContent
-        title={slider[0].fields.titlePl}
-        title2Line={slider[0].fields.titlePl2Line}
-        description={slider[0].fields.descriptionPl}
+        title={lang === "en" && titleEn ? titleEn : titlePl}
+        title2Line={lang === "en" && titleEn2Line ? titleEn2Line : titlePl2Line}
+        description={
+          lang === "en" && descriptionEn ? descriptionEn : descriptionPl
+        }
       />
-      <HeaderSlider images={slider[0].fields.images} />
+      <HeaderSlider images={images} />
     </div>
   );
 };
