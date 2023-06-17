@@ -1,6 +1,11 @@
 import React, { useContext } from "react";
 
-const Hamburger = ({ hasCloseIcon, toggleMobileMenu }) => {
+interface HamburgerProps {
+  hasCloseIcon?: boolean;
+  toggleMobileMenu: () => void;
+}
+
+const Hamburger = ({ hasCloseIcon, toggleMobileMenu }: HamburgerProps) => {
   return (
     <>
       {hasCloseIcon ? (

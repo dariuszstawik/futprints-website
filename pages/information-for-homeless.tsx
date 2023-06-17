@@ -7,6 +7,7 @@ import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import React, { useContext } from "react";
 import RootContext from "@/context/RootContext";
+import Image from "next/image";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -71,10 +72,12 @@ const informationForHomeless = ({ informationForHomeless }) => {
         <TitleWithDevider>
           {lang === "en" && titleEn ? titleEn : titlePl}
         </TitleWithDevider>
-        <img
-          src={image.fields.file.url}
+        <Image
+          src={`https://${image.fields.file.url}`}
+          width={image.fields?.file?.details?.image?.width}
+          height={image.fields?.file?.details?.image?.height}
           className="w-full object-cover rounded-lg my-10"
-        ></img>
+        />
         <ArticleLead>{lang === "en" && leadEn ? leadEn : leadPl}</ArticleLead>
         <Faq content={informationForHomeless}></Faq>
       </div>

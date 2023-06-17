@@ -1,7 +1,12 @@
 import React from "react";
 import ArrowLong from "../arrow-long";
 
-const Button = ({ isWhite, children }) => {
+interface ButtonProps {
+  children: string;
+  isWhite: boolean;
+}
+
+const Button = ({ isWhite, children }: ButtonProps) => {
   return (
     <button
       className={

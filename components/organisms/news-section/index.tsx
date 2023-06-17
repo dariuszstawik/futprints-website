@@ -1,21 +1,33 @@
+import Button from "@/components/atoms/button";
 import Divider from "@/components/atoms/divider";
 import SectionTitle from "@/components/atoms/section-title";
 import NewsCard from "@/components/molecules/news-card";
 import RootContext from "@/context/RootContext";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 const NewsSection = ({ content, isHomepage }) => {
   const { lang } = useContext(RootContext);
-  const newsSectionHomepageTitlePl = "Aktualności";
-  const newsSectionHomepageTitleEN = "News";
-  const newsSectionTitlePl = "Informacje i wydarzenia";
-  const newsSectionTitleEn = "News from the Futprints Foundation";
 
-  const newsList = () => {
+  const [maxAmount, setMaxAmount] = useState(1);
+
+  const increaseMaxAmount = () => {
+    setMaxAmount(maxAmount + 1);
+  };
+
+  let newsSectionHomepageTitle: string;
+  let newsSectionTitle: string;
+
+  newsSectionHomepageTitle = lang === "en" ? "News" : "Aktualności";
+
+  newsSectionTitle =
+    lang === "en"
+      ? "News from the Futprints Foundation"
+      : "Informacje i wydarzenia";
+
+  const newsList = (newsAmount) => {
     return (
       content &&
-      content.map((item, i) => {
-        // (i<3) &&
+      content.slice(0, newsAmount).map((item, i) => {
         return (
           <li key={i}>
             <NewsCard
@@ -30,11 +42,7 @@ const NewsSection = ({ content, isHomepage }) => {
                   : item.fields.leadPl
               }
               slug={item.fields.slug}
-              img={
-                item.fields.image.fields.file.url
-                  ? item.fields.image.fields.file.url
-                  : ""
-              }
+              img={item.fields.image ? item.fields.image : ""}
             />{" "}
           </li>
         );
@@ -46,20 +54,21 @@ const NewsSection = ({ content, isHomepage }) => {
     <div className="mt-10 mb-28">
       <div className="min-w-96 max-w-[800px] mx-auto my-6 flex flex-col items-center">
         <SectionTitle>
-          {" "}
-          Aktualności
-          {/* {isHomepage
-            ? lang === "en"
-              ? { newsSectionHomepageTitleEN }
-              : { newsSectionHomepageTitlePl }
-            : "Informacje i wydarzenia"} */}
+          {isHomepage ? newsSectionHomepageTitle : newsSectionTitle}
         </SectionTitle>
         <Divider />
       </div>
       <div className="px- py-1 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-4 lg:px-0 lg:py-10">
         <ul className="grid gap-6 row-gap-5 md:row-gap-8 sm:mx-auto md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
-          {newsList()}
+          {newsList(isHomepage ? 2 : maxAmount)}
         </ul>
+        <div className="flex justify-center m-16">
+          {!isHomepage && maxAmount <= content.length && (
+            <div onClick={increaseMaxAmount}>
+              <Button>{lang === "en" ? "Load more" : "Załaduj więcej"}</Button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -2,11 +2,9 @@ import React from "react";
 
 interface HeaderTitleProps {
   children: React.ReactNode;
-  isWhite: boolean;
-  isAlignedLeft: boolean;
+  isWhite?: boolean;
+  isAlignedLeft?: boolean;
 }
-
-// katalog: types / plik z interface do importu albo zostawić w tym samym pliku
 
 const SectionTitle = ({
   children,

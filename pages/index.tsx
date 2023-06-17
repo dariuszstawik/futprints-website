@@ -12,7 +12,7 @@ import { createClient } from "contentful";
 import SectionTitle from "@/components/atoms/section-title";
 import Divider from "@/components/atoms/divider";
 import ActivitiesCard from "@/components/molecules/activities-card";
-import Fade from "react-reveal/Fade";
+import Fade from "react-reveal/Fade"; //wpisać w konsolę:  npm i --save-dev @types/react-reveal
 
 export async function getStaticProps() {
   const client = createClient({

@@ -3,7 +3,6 @@ import SectionTitle from "@/components/atoms/section-title";
 import TeamCard from "@/components/molecules/team-card";
 import React, { useContext } from "react";
 import { createClient } from "contentful";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import RootContext from "@/context/RootContext";
 
 export async function getStaticProps() {
@@ -56,11 +55,7 @@ const TeamSection = ({ teamMembers }) => {
                     ? member.fields.descriptionEn
                     : member.fields.descriptionPl
                 }
-                image={
-                  member.fields.image?.fields.file.url
-                    ? member.fields.image.fields.file.url
-                    : ""
-                }
+                image={member.fields.image ? member.fields.image : ""}
               />
             </li>
           );

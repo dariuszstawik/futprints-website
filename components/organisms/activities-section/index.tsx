@@ -40,7 +40,8 @@ const ActivitiesSection = ({ activities }) => {
               return (
                 <ActivitiesCard
                   key={i}
-                  img={activity.fields.thumbnail.fields.file.url}
+                  // img={activity.fields.thumbnail.fields.file.url}
+                  img={activity.fields.thumbnail}
                   title={
                     lang === "en" && activity.fields.titleEn
                       ? activity.fields.titleEn

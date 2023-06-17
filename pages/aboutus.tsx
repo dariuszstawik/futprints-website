@@ -35,11 +35,6 @@ export async function getStaticProps() {
 
 const aboutus = ({ activities, support1, teamMembers, documents, aboutUs }) => {
   const { lang } = useContext(RootContext);
-  // const content1 =
-  //   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ut quo quidem et impedit, dolor iure placeat quae nesciunt, temporibus eaque distinctio culpa fugiat vel vitae dolore quam qui non? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi, libero earum cum reiciendis animi tenetur debitis inventore doloremque ut fugit adipisci accusamus? Corrupti, eius nisi doloribus esse consequatur ut eos. Lorem ipsum dolor.";
-
-  // const content2 =
-  //   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ut quo quidem et impedit, dolor iure placeat quae nesciunt, temporibus eaque distinctio culpa fugiat vel vitae dolore quam qui non? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi, libero earum cum reiciendis animi tenetur debitis inventore doloremque ut fugit adipisci accusamus? Corrupti, eius nisi doloribus esse consequatur ut eos. Lorem ipsum dolor.";
 
   const {
     paragraph1TitlePl,
@@ -79,7 +74,8 @@ const aboutus = ({ activities, support1, teamMembers, documents, aboutUs }) => {
                 ? paragraph1TitleEn
                 : paragraph1TitlePl
             }
-            img={paragraph1Img ? paragraph1Img.fields.file.url : "img12.jpg"}
+            // img={paragraph1Img ? paragraph1Img.fields.file.url : "img12.jpg"}
+            img={paragraph1Img ? paragraph1Img : ""}
             content={
               lang === "en" && paragraph1TextEn
                 ? documentToReactComponents(paragraph1TextEn)
@@ -97,7 +93,8 @@ const aboutus = ({ activities, support1, teamMembers, documents, aboutUs }) => {
                 ? paragraph2TitleEn
                 : paragraph2TitlePl
             }
-            img={paragraph2Img ? paragraph2Img.fields.file.url : "img12.jpg"}
+            // img={paragraph2Img ? paragraph2Img.fields.file.url : "img12.jpg"}
+            img={paragraph2Img ? paragraph2Img : ""}
             content={
               lang === "en" && paragraph2TextEn
                 ? documentToReactComponents(paragraph2TextEn)
@@ -114,7 +111,8 @@ const aboutus = ({ activities, support1, teamMembers, documents, aboutUs }) => {
                 ? paragraph3TitleEn
                 : paragraph3TitlePl
             }
-            img={paragraph3Img ? paragraph3Img.fields.file.url : "img12.jpg"}
+            // img={paragraph3Img ? paragraph3Img.fields.file.url : "img12.jpg"}
+            img={paragraph3Img ? paragraph3Img : ""}
             content={
               lang === "en" && paragraph3TextEn
                 ? documentToReactComponents(paragraph3TextEn)
@@ -132,7 +130,8 @@ const aboutus = ({ activities, support1, teamMembers, documents, aboutUs }) => {
                 ? paragraph4TitleEn
                 : paragraph4TitlePl
             }
-            img={paragraph4Img ? paragraph4Img.fields.file.url : "img12.jpg"}
+            // img={paragraph4Img ? paragraph4Img.fields.file.url : "img12.jpg"}
+            img={paragraph4Img ? paragraph4Img : ""}
             content={
               lang === "en" && paragraph4TextEn
                 ? documentToReactComponents(paragraph4TextEn)

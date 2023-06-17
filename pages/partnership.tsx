@@ -44,7 +44,7 @@ const partnership = ({ partnership }) => {
             ? documentToReactComponents(contentEn)
             : documentToReactComponents(contentPl)
         }
-        img={image.fields.file.url ? image.fields.file.url : ""}
+        img={image ? image : ""}
       />
     </Container>
   );

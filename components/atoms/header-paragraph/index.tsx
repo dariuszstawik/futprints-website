@@ -1,6 +1,11 @@
 import React from "react";
 
-const HeaderParagraph = ({ children, isCentered }) => {
+interface HeaderParagraphProps {
+  children: string;
+  isCentered?: boolean;
+}
+
+const HeaderParagraph = ({ children, isCentered }: HeaderParagraphProps) => {
   return (
     <p
       className={

@@ -2,10 +2,8 @@ import React from "react";
 
 interface HeaderTitleProps {
   children: React.ReactNode;
-  isWhite: boolean;
+  isWhite?: boolean;
 }
-
-// katalog: types / plik z interface do importu albo zostawić w tym samym pliku
 
 const HeaderTitle = ({ children, isWhite }: HeaderTitleProps) => {
   return (

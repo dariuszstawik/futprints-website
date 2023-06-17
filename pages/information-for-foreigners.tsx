@@ -67,7 +67,9 @@ const informationForForeigners = ({ informationForForeigners }) => {
       <div className="max-w-3xl mx-auto mt-10 mb-16">
         <TitleWithDevider>{titlePl}</TitleWithDevider>
         <img
-          src={image.fields.file.url}
+          src={`https://${image.fields.file.url}`}
+          width={image.fields?.file?.details?.image?.width}
+          height={image.fields?.file?.details?.image?.height}
           className="w-full object-cover rounded-lg my-10"
         ></img>
         <ArticleLead>{leadPl}</ArticleLead>

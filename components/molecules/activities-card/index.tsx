@@ -1,10 +1,11 @@
 import ArrowLong from "@/components/atoms/arrow-long";
 import RootContext from "@/context/RootContext";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useContext } from "react";
 
 interface ActivitiesCardProps {
-  img: React.ReactNode;
+  img: string;
   title: string;
   href: string;
 }
@@ -14,9 +15,11 @@ const ActivitiesCard = ({ title, img, href }: ActivitiesCardProps) => {
   return (
     <div className="max-w-xl lg:max-w-2xl mx-auto transition duration-300 transform bg-primaryGray rounded shadow-sm hover:-translate-y-1 hover:shadow md:text-center">
       <div className="relative">
-        <img
+        <Image
           className="object-cover w-full h-48 rounded-t lg:h-96 xl:h-96"
-          src={img}
+          src={img.fields?.file?.url ? "https:" + img.fields.file.url : ""}
+          width={img.fields?.file?.details?.image?.width}
+          height={img.fields?.file?.details?.image?.height}
           alt=""
         />
         <div className="w-full h-6 bg-green-800" />

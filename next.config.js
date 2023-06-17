@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["localhost:3000"],
+    domains: ["localhost:3000", "images.ctfassets.net"],
   },
   eslint: {
     ignoreDuringBuilds: true,

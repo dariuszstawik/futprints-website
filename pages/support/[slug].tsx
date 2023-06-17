@@ -30,15 +30,12 @@ export async function getStaticProps({ params }) {
     "fields.slug": params.slug,
   });
 
-  console.log(params);
-
   return {
     props: { support1: items[0] },
   };
 }
 
 const SupportArticle = ({ support1 }) => {
-  // const img = "img14.jpg";
   const { lang } = useContext(RootContext);
 
   return (
@@ -60,8 +57,7 @@ const SupportArticle = ({ support1 }) => {
             ? documentToReactComponents(support1.fields.textEn)
             : documentToReactComponents(support1.fields.textPl)
         }
-        // {documentToReactComponents({lang==="en" && support1.fields.textEn ? support1.fields.textEn : support1.fields.textPl})}
-        img={support1.fields.icon.fields.file.url}
+        img={support1.fields.icon ? support1.fields.icon : ""}
         hasIcon
       ></SingleArticle>
     </Container>

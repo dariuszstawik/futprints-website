@@ -1,9 +1,20 @@
+import Image from "next/image";
 import React from "react";
 import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
 
-const HeaderSlider = ({ images }) => {
+interface HeaderSliderProps {
+  images: {
+    fields: {
+      file: {
+        url: string;
+      };
+    };
+  }[];
+}
+
+const HeaderSlider = ({ images }: HeaderSliderProps) => {
   const AutoplaySlider = withAutoplay(AwesomeSlider);
   console.log(images);
   return (
@@ -19,9 +30,11 @@ const HeaderSlider = ({ images }) => {
         {images.map((image, i) => {
           return (
             <div className="h-full bg-primaryGray" key={i}>
-              <img
+              <Image
                 className="h-full object-cover"
-                src={image.fields.file.url}
+                src={`https://${image.fields.file.url}`}
+                width={image.fields.file.details.image.width}
+                height={image.fields.file.details.image.height}
               />
             </div>
           );

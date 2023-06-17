@@ -43,18 +43,14 @@ const contact = ({ contact }) => {
     <div>
       <Container>
         <PageHeader>Kontakt</PageHeader>
-        {/* <GoogleMap /> */}
         <ContactSection
           title={titlePl}
           address={address}
           phoneNumber={phoneNumber}
           phoneNumber2={phoneNumber2}
           email={eMail}
-          img={
-            image?.fields.file.url
-              ? image.fields.file.url
-              : "map-kordeckiego.jpg"
-          }
+          // img={image?.fields.file.url ? image.fields.file.url : ""}
+          img={image ? image : ""}
         />
       </Container>
     </div>

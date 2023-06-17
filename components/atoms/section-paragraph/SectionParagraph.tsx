@@ -1,6 +1,6 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
-const SectionParagraph = ({ children }) => {
+const SectionParagraph = ({ children }: { children: ReactNode }) => {
   return <div className="text-base leading-6 my-4">{children}</div>;
 };
 

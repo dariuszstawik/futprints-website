@@ -1,14 +1,17 @@
 import ArrowLong from "@/components/atoms/arrow-long";
 import React from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import Image from "next/image";
 
 const TeamCard = ({ name, position, description, image }) => {
   return (
     <div className="p-4 border rounded">
-      <img
+      <Image
         className="object-cover w-24 h-24 p-4 rounded-full shadow"
-        src={image ? image : "User.svg"}
+        src={image?.fields?.file?.url ? "https://" + image.fields.file.url : ""}
         alt="Person"
+        width={image.fields?.file?.details?.image?.width}
+        height={image.fields?.file?.details?.image?.height}
       />
       <div className="flex flex-col justify-center mt-2">
         <p className="text-lg font-bold">{name}</p>

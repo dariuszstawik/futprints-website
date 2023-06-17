@@ -2,13 +2,13 @@ import ArrowLong from "@/components/atoms/arrow-long";
 import Divider from "@/components/atoms/divider";
 import HeaderTitle from "@/components/atoms/header-title";
 import SectionTitle from "@/components/atoms/section-title";
-import SupportButton from "@/components/atoms/support-button";
 import React, { useContext } from "react";
 import Slide from "react-reveal/Slide";
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Link from "next/link";
 import RootContext from "@/context/RootContext";
+import Image from "next/image";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -56,14 +56,20 @@ const SupportSection = ({ support1 }) => {
                         className="w-80 block flex flex-col items-center text-xl font-medium text-white"
                         href={`/support/${item.fields.slug}`}
                       >
-                        <img
+                        <Image
                           className="w-44 mb-6 mt-12 border border-white border-4 rounded-full p-8"
                           src={
                             item.fields.icon
                               ? item.fields.icon.fields.file.url
                               : ""
                           }
-                        ></img>
+                          width={
+                            item.fields.icon.fields.file.details.image.width
+                          }
+                          height={
+                            item.fields.icon.fields.file.details.image.height
+                          }
+                        />
                         <span className="block">
                           {lang === "en" && item.fields.titleEn
                             ? item.fields.titleEn.split(" ")[0]

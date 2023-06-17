@@ -1,23 +1,24 @@
 import React from "react";
 
-const ArrowLong = ({ isLarge }: { isLarge?: boolean }) => {
+const DropdownIcon = ({ toggleLangMenu }) => {
   return (
     <svg
-      className={`ml-3 inline-block ${isLarge ? "w-6 h-8" : "w-5 h-6"}`}
+      onClick={toggleLangMenu}
+      className="inline-block mt-1 cursor-pointer"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.5"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
+      ariaHidden="true"
     >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
       ></path>
     </svg>
   );
 };
 
-export default ArrowLong;
+export default DropdownIcon;

@@ -21,7 +21,7 @@ const Footer = () => {
         <div className="absolute end-4 top-4 sm:end-6 sm:top-6 lg:end-8 lg:top-8">
           <Link
             className="inline-block rounded-full bg-primary p-2 text-white shadow transition sm:p-3 lg:p-4"
-            href="#top"
+            href="#websiteTop"
             onClick={handleScroll}
           >
             <span className="sr-only">Back to top</span>
