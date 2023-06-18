@@ -11,7 +11,6 @@ const LanguageDropdown = () => {
 
   const handleLanguageChange = (e) => {
     setSelectedLanguage(e.target.value);
-    // Add your logic to update the website language here
   };
 
   return (

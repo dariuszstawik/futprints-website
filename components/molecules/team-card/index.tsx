@@ -3,7 +3,26 @@ import React from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Image from "next/image";
 
-const TeamCard = ({ name, position, description, image }) => {
+interface TeamCardProps {
+  name: string;
+  position: string;
+  description: React.ReactNode;
+  image: {
+    fields: {
+      file: {
+        url: string;
+        details: {
+          image: {
+            width: number;
+            height: number;
+          };
+        };
+      };
+    };
+  };
+}
+
+const TeamCard = ({ name, position, description, image }: TeamCardProps) => {
   return (
     <div className="p-4 border rounded">
       <Image

@@ -9,6 +9,34 @@ import RootContext from "@/context/RootContext";
 import { createClient } from "contentful";
 import React, { useContext } from "react";
 
+interface ContactProps {
+  contact: {
+    fields: {
+      titlePl: string;
+      titleEn: string;
+      address: string;
+      phoneNumber: string;
+      phoneNumber2: string;
+      eMail: string;
+      textFieldPl: React.ReactNode;
+      textFirldEn: React.ReactNode;
+      image: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+    };
+  }[];
+}
+
 export async function getStaticProps() {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -24,7 +52,7 @@ export async function getStaticProps() {
   };
 }
 
-const contact = ({ contact }) => {
+const contact = ({ contact }: ContactProps) => {
   const {
     titlePl,
     titleEn,
@@ -42,14 +70,13 @@ const contact = ({ contact }) => {
   return (
     <div>
       <Container>
-        <PageHeader>Kontakt</PageHeader>
+        <PageHeader>{lang === "en" ? "Contact" : "Kontakt"}</PageHeader>
         <ContactSection
           title={titlePl}
           address={address}
           phoneNumber={phoneNumber}
           phoneNumber2={phoneNumber2}
           email={eMail}
-          // img={image?.fields.file.url ? image.fields.file.url : ""}
           img={image ? image : ""}
         />
       </Container>

@@ -6,7 +6,17 @@ import RootContext from "@/context/RootContext";
 import Link from "next/link";
 import React, { useContext } from "react";
 
-const HeaderContent = ({ title, title2Line, description }) => {
+interface HeaderContentProps {
+  title: string;
+  title2Line: string;
+  description: string;
+}
+
+const HeaderContent = ({
+  title,
+  title2Line,
+  description,
+}: HeaderContentProps) => {
   const { lang } = useContext(RootContext);
   return (
     <div className="w-full lg:w-5/12 my-auto pb-8 pr-6">

@@ -40,7 +40,9 @@ const SupportArticle = ({ support1 }) => {
 
   return (
     <Container>
-      <PageHeader>Jak możesz pomóc</PageHeader>
+      <PageHeader>
+        {lang === "en" ? "Support us" : "Jak możesz pomóc"}
+      </PageHeader>
       <SingleArticle
         title={
           lang === "en" && support1.fields.titleEn

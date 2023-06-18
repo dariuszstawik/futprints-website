@@ -4,8 +4,8 @@ import React from "react";
 
 interface TitleWithDeviderProps {
   children: React.ReactNode;
-  isWhite: boolean;
-  isAlignedLeft: boolean;
+  isWhite?: boolean;
+  isAlignedLeft?: boolean;
 }
 
 const TitleWithDevider = ({

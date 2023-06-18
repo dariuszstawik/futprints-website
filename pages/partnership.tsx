@@ -6,6 +6,32 @@ import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import RootContext from "@/context/RootContext";
 
+interface PartnershipProps {
+  partnership: {
+    fields: {
+      titlePl: string;
+      titleEn: string;
+      leadPl: string;
+      leadEn: string;
+      contentPl: string;
+      contentEn: string;
+      image: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+    };
+  }[];
+}
+
 export async function getStaticProps() {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -21,21 +47,15 @@ export async function getStaticProps() {
   };
 }
 
-const partnership = ({ partnership }) => {
+const partnership = ({ partnership }: PartnershipProps) => {
   const { titlePl, titleEn, leadPl, leadEn, contentPl, contentEn, image } =
     partnership[0].fields;
 
   const { lang } = useContext(RootContext);
-  console.log(lang);
-  // const title = {
-  //   lang === "en" && partnership[0].fields.titleEn
-  //     ? partnership[0].fields.titleEn
-  //     : partnership[0].fields.titlePl,
-  // };
 
   return (
     <Container>
-      <PageHeader>Współpraca</PageHeader>
+      <PageHeader>{lang === "en" ? "Partnership" : "Współpraca"}</PageHeader>
       <SingleArticle
         title={lang === "en" && titleEn ? titleEn : titlePl}
         lead={lang === "en" && leadEn ? leadEn : leadPl}

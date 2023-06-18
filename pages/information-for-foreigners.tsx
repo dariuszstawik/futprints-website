@@ -7,6 +7,58 @@ import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import React from "react";
 
+interface InformationForForeignersProps {
+  informationForForeigners: {
+    fields: {
+      titlePl: string;
+      titleEn: string;
+      leadPl: string;
+      leadEn: string;
+      question1Pl: string;
+      question2Pl: string;
+      question3Pl: string;
+      question4Pl: string;
+      question5Pl: string;
+      question6Pl: string;
+      question7Pl: string;
+      question1En: string;
+      question2En: string;
+      question3En: string;
+      question4En: string;
+      question5En: string;
+      question6En: string;
+      question7En: string;
+      answer1Pl: React.ReactNode;
+      answer2Pl: React.ReactNode;
+      answer3Pl: React.ReactNode;
+      answer4Pl: React.ReactNode;
+      answer5Pl: React.ReactNode;
+      answer6Pl: React.ReactNode;
+      answer7Pl: React.ReactNode;
+      answer1En: React.ReactNode;
+      answer2En: React.ReactNode;
+      answer3En: React.ReactNode;
+      answer4En: React.ReactNode;
+      answer5En: React.ReactNode;
+      answer6En: React.ReactNode;
+      answer7En: React.ReactNode;
+      image: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+    };
+  }[];
+}
+
 export async function getStaticProps() {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -24,7 +76,9 @@ export async function getStaticProps() {
   };
 }
 
-const informationForForeigners = ({ informationForForeigners }) => {
+const informationForForeigners = ({
+  informationForForeigners,
+}: InformationForForeignersProps) => {
   const {
     titlePl,
     titleEn,

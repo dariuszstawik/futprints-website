@@ -6,6 +6,84 @@ import Fade from "react-reveal/Fade";
 import { createClient } from "contentful";
 import RootContext from "@/context/RootContext";
 
+interface ActivitiesSectionProps {
+  activities: {
+    fields: {
+      button: string;
+      buttonEn: string;
+      slug: string;
+      paragraph1TitlePl: string;
+      paragraph1TitleEn: string;
+      paragraph2TitlePl: string;
+      paragraph2TitleEn: string;
+      paragraph3TitlePl: string;
+      paragraph3TitleEn: string;
+      paragraph4TitlePl: string;
+      paragraph4TitleEn: string;
+      paragraph1TextPl: React.ReactNode;
+      paragraph2TextPl: React.ReactNode;
+      paragraph3TextPl: React.ReactNode;
+      paragraph4TextPl: React.ReactNode;
+      paragraph1TextEn: React.ReactNode;
+      paragraph2TextEn: React.ReactNode;
+      paragraph3TextEn: React.ReactNode;
+      paragraph4TextEn: React.ReactNode;
+      paragraph1Img: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+      paragraph2Img: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+      paragraph3Img: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+      paragraph4Img: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+    };
+  };
+}
+
 export async function getStaticProps() {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -21,8 +99,7 @@ export async function getStaticProps() {
   };
 }
 
-const ActivitiesSection = ({ activities }) => {
-  // const { titlePl, thumbnail, buttonPl } = activities.fields;
+const ActivitiesSection = ({ activities }: ActivitiesSectionProps) => {
   const { lang } = useContext(RootContext);
 
   return (
@@ -40,7 +117,6 @@ const ActivitiesSection = ({ activities }) => {
               return (
                 <ActivitiesCard
                   key={i}
-                  // img={activity.fields.thumbnail.fields.file.url}
                   img={activity.fields.thumbnail}
                   title={
                     lang === "en" && activity.fields.titleEn

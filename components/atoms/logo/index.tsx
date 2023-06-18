@@ -4,7 +4,7 @@ import React from "react";
 
 interface LogoProps {
   closeMobileMenu: () => void;
-  isInFooter: boolean;
+  isInFooter?: boolean;
 }
 
 const Logo = ({ isInFooter, closeMobileMenu }: LogoProps) => {

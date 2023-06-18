@@ -5,7 +5,31 @@ import Image from "next/image";
 import React from "react";
 import Fade from "react-reveal/Fade";
 
-const AboutSection = ({ title, img, isReverse, content }) => {
+interface AboutSectionProps {
+  title: string;
+  isReverse?: boolean;
+  content: React.ReactNode;
+  img?: {
+    fields: {
+      file: {
+        url: string;
+        details: {
+          image: {
+            width: number;
+            height: number;
+          };
+        };
+      };
+    };
+  };
+}
+
+const AboutSection = ({
+  title,
+  img,
+  isReverse,
+  content,
+}: AboutSectionProps) => {
   return (
     <div
       className={`w-full py-16 flex flex-col lg:flex-row ${
@@ -14,12 +38,12 @@ const AboutSection = ({ title, img, isReverse, content }) => {
     >
       <Fade left>
         <div className="w-[700px] shrink-0">
-          {/* <img src={img} className="rounded-lg" /> */}
           <Image
             src={img.fields?.file?.url ? "https:" + img.fields.file.url : ""}
             width={img.fields?.file?.details?.image?.width}
             height={img.fields?.file?.details?.image?.height}
             className="rounded-lg"
+            alt=""
           />
         </div>
       </Fade>

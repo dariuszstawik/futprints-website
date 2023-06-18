@@ -1,8 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
 import Container from "@/components/atoms/container";
 import PageHeader from "@/components/molecules/page-header";
 import NewsSection from "@/components/organisms/news-section";
 import { createClient } from "contentful";
+import RootContext from "@/context/RootContext";
+
+interface NewsProps {
+  news: {
+    fields: {
+      titleEn: string;
+      titlePl: string;
+      leadPl: string;
+      leadEn: string;
+      slug: string;
+      contentPl: React.ReactNode;
+      contentEn: React.ReactNode;
+      image: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+    };
+  }[];
+}
 
 export async function getStaticProps() {
   const client = createClient({
@@ -19,11 +47,15 @@ export async function getStaticProps() {
   };
 }
 
-const News = ({ news }) => {
+const News = ({ news }: NewsProps) => {
+  const { lang } = useContext(RootContext);
+  console.log("wyświetlam news:" + news);
+  console.log(news);
+
   return (
     <div>
       <Container>
-        <PageHeader>Aktualności</PageHeader>
+        <PageHeader>{lang === "en" ? "News" : "Aktualności"}</PageHeader>
         <div className="px-32 py-10">
           <NewsSection content={news}></NewsSection>
         </div>

@@ -10,6 +10,227 @@ import { createClient } from "contentful";
 import React, { useContext } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
+interface AboutusProps {
+  activities: {
+    fields: {
+      button: string;
+      buttonEn: string;
+      slug: string;
+      paragraph1TitlePl: string;
+      paragraph1TitleEn: string;
+      paragraph2TitlePl: string;
+      paragraph2TitleEn: string;
+      paragraph3TitlePl: string;
+      paragraph3TitleEn: string;
+      paragraph4TitlePl: string;
+      paragraph4TitleEn: string;
+      paragraph1TextPl: React.ReactNode;
+      paragraph2TextPl: React.ReactNode;
+      paragraph3TextPl: React.ReactNode;
+      paragraph4TextPl: React.ReactNode;
+      paragraph1TextEn: React.ReactNode;
+      paragraph2TextEn: React.ReactNode;
+      paragraph3TextEn: React.ReactNode;
+      paragraph4TextEn: React.ReactNode;
+      paragraph1Img: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+      paragraph2Img: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+      paragraph3Img: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+      paragraph4Img: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+    };
+  };
+
+  support1: {
+    fields: {
+      titlePl: string;
+      titleEn: string;
+      leadPl: string;
+      leadEn: string;
+      textPl: React.ReactNode;
+      textEn: React.ReactNode;
+      icon: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+    };
+  };
+
+  teamMembers: {
+    fields: {
+      name: string;
+      positionPl: string;
+      positionEn: string;
+      descriptionPl: React.ReactNode;
+      descriptionEn: React.ReactNode;
+      image: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+    };
+  };
+  documents: {
+    fields: {
+      titlePl: string;
+      titleEn: string;
+      question1Pl: string;
+      question2Pl: string;
+      question3Pl: string;
+      question4Pl: string;
+      answer1Pl: React.ReactNode;
+      answer2Pl: React.ReactNode;
+      answer3Pl: React.ReactNode;
+      answer4Pl: React.ReactNode;
+      question1En: string;
+      question2En: string;
+      question3En: string;
+      question4En: string;
+      answer1En: React.ReactNode;
+      answer2En: React.ReactNode;
+      answer3En: React.ReactNode;
+      answer4En: React.ReactNode;
+    };
+  }[];
+  aboutUs: {
+    paragraph1TitlePl: string;
+    paragraph2TitlePl: string;
+    paragraph3TitlePl: string;
+    paragraph4TitlePl: string;
+    paragraph1TitleEn: string;
+    paragraph2TitleEn: string;
+    paragraph3TitleEn: string;
+    paragraph4TitleEn: string;
+    paragraph1TextPl: React.ReactNode;
+    paragraph2TextPl: React.ReactNode;
+    paragraph3TextPl: React.ReactNode;
+    paragraph4TextPl: React.ReactNode;
+    paragraph1TextEn: React.ReactNode;
+    paragraph2TextEn: React.ReactNode;
+    paragraph3TextEn: React.ReactNode;
+    paragraph4TextEn: React.ReactNode;
+    paragraph1Img: {
+      fields: {
+        file: {
+          url: string;
+          details: {
+            image: {
+              width: number;
+              height: number;
+            };
+          };
+        };
+      };
+    };
+    paragraph2Img: {
+      fields: {
+        file: {
+          url: string;
+          details: {
+            image: {
+              width: number;
+              height: number;
+            };
+          };
+        };
+      };
+    };
+    paragraph3Img: {
+      fields: {
+        file: {
+          url: string;
+          details: {
+            image: {
+              width: number;
+              height: number;
+            };
+          };
+        };
+      };
+    };
+    paragraph4Img: {
+      fields: {
+        file: {
+          url: string;
+          details: {
+            image: {
+              width: number;
+              height: number;
+            };
+          };
+        };
+      };
+    };
+    includeActivitiesSection: boolean;
+    includeSupportSection: boolean;
+    includeTeamSection: boolean;
+    includeDocumentSection: boolean;
+  }[];
+}
+
 export async function getStaticProps() {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -33,7 +254,13 @@ export async function getStaticProps() {
   };
 }
 
-const aboutus = ({ activities, support1, teamMembers, documents, aboutUs }) => {
+const aboutus = ({
+  activities,
+  support1,
+  teamMembers,
+  documents,
+  aboutUs,
+}: AboutusProps) => {
   const { lang } = useContext(RootContext);
 
   const {
@@ -74,7 +301,6 @@ const aboutus = ({ activities, support1, teamMembers, documents, aboutUs }) => {
                 ? paragraph1TitleEn
                 : paragraph1TitlePl
             }
-            // img={paragraph1Img ? paragraph1Img.fields.file.url : "img12.jpg"}
             img={paragraph1Img ? paragraph1Img : ""}
             content={
               lang === "en" && paragraph1TextEn
@@ -93,7 +319,6 @@ const aboutus = ({ activities, support1, teamMembers, documents, aboutUs }) => {
                 ? paragraph2TitleEn
                 : paragraph2TitlePl
             }
-            // img={paragraph2Img ? paragraph2Img.fields.file.url : "img12.jpg"}
             img={paragraph2Img ? paragraph2Img : ""}
             content={
               lang === "en" && paragraph2TextEn
@@ -111,7 +336,6 @@ const aboutus = ({ activities, support1, teamMembers, documents, aboutUs }) => {
                 ? paragraph3TitleEn
                 : paragraph3TitlePl
             }
-            // img={paragraph3Img ? paragraph3Img.fields.file.url : "img12.jpg"}
             img={paragraph3Img ? paragraph3Img : ""}
             content={
               lang === "en" && paragraph3TextEn
@@ -130,7 +354,6 @@ const aboutus = ({ activities, support1, teamMembers, documents, aboutUs }) => {
                 ? paragraph4TitleEn
                 : paragraph4TitlePl
             }
-            // img={paragraph4Img ? paragraph4Img.fields.file.url : "img12.jpg"}
             img={paragraph4Img ? paragraph4Img : ""}
             content={
               lang === "en" && paragraph4TextEn

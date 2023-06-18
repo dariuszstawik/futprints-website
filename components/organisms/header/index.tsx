@@ -1,9 +1,36 @@
 import HeaderSlider from "@/components/atoms/header-slider";
 import HeaderContent from "@/components/molecules/header-content";
 import { createClient } from "contentful";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { useContext } from "react";
 import RootContext from "@/context/RootContext";
+
+interface HeaderProps {
+  slider: {
+    fields: {
+      titlePl: string;
+      titlePl2Line: string;
+      titleEn: string;
+      titleEn2Line: string;
+      descriptionPl: string;
+      descriptionEn: string;
+      buttonPl: string;
+      buttonEn: string;
+      images: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+    };
+  }[];
+}
 
 export async function getStaticProps() {
   const client = createClient({
@@ -20,7 +47,7 @@ export async function getStaticProps() {
   };
 }
 
-const Header = ({ slider }) => {
+const Header = ({ slider }: HeaderProps) => {
   const {
     titlePl,
     titlePl2Line,

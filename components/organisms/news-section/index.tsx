@@ -5,7 +5,35 @@ import NewsCard from "@/components/molecules/news-card";
 import RootContext from "@/context/RootContext";
 import React, { useContext, useState } from "react";
 
-const NewsSection = ({ content, isHomepage }) => {
+interface NewsSectionProps {
+  isHomepage?: boolean;
+  content: {
+    fields: {
+      titleEn: string;
+      titlePl: string;
+      leadPl: string;
+      leadEn: string;
+      slug: string;
+      contentPl: React.ReactNode;
+      contentEn: React.ReactNode;
+      image: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+    };
+  }[];
+}
+
+const NewsSection = ({ content, isHomepage }: NewsSectionProps) => {
   const { lang } = useContext(RootContext);
 
   const [maxAmount, setMaxAmount] = useState(1);
@@ -24,7 +52,7 @@ const NewsSection = ({ content, isHomepage }) => {
       ? "News from the Futprints Foundation"
       : "Informacje i wydarzenia";
 
-  const newsList = (newsAmount) => {
+  const newsList = (newsAmount: number) => {
     return (
       content &&
       content.slice(0, newsAmount).map((item, i) => {

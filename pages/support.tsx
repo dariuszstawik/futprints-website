@@ -3,6 +3,32 @@ import SupportSection from "@/components/organisms/support-section";
 import { createClient } from "contentful";
 import React from "react";
 
+interface SupportProps {
+  support1: {
+    fields: {
+      titlePl: string;
+      titleEn: string;
+      leadPl: string;
+      leadEn: string;
+      textPl: React.ReactNode;
+      textEn: React.ReactNode;
+      icon: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+    };
+  };
+}
+
 export async function getStaticProps() {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -18,7 +44,7 @@ export async function getStaticProps() {
   };
 }
 
-const support = ({ support1 }) => {
+const support = ({ support1 }: SupportProps) => {
   return (
     <Container>
       <SupportSection support1={support1} />

@@ -5,6 +5,31 @@ import React, { useContext } from "react";
 import { createClient } from "contentful";
 import RootContext from "@/context/RootContext";
 
+interface TeamSectionProps {
+  teamMembers: {
+    fields: {
+      name: string;
+      positionPl: string;
+      positionEn: string;
+      descriptionPl: React.ReactNode;
+      descriptionEn: React.ReactNode;
+      image: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+    };
+  };
+}
+
 export async function getStaticProps() {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -20,7 +45,7 @@ export async function getStaticProps() {
   };
 }
 
-const TeamSection = ({ teamMembers }) => {
+const TeamSection = ({ teamMembers }: TeamSectionProps) => {
   const { lang } = useContext(RootContext);
   return (
     <div>

@@ -2,7 +2,15 @@ import RootContext from "@/context/RootContext";
 import React, { useContext } from "react";
 import { languagesData } from "./languagesData";
 
-const ChooseLanguage = ({ isLangMenuActive, closeLangMenu }) => {
+interface ChooseLanguageProps {
+  isLangMenuActive: boolean;
+  closeLangMenu: () => void;
+}
+
+const ChooseLanguage = ({
+  isLangMenuActive,
+  closeLangMenu,
+}: ChooseLanguageProps) => {
   const { lang, changeLang } = useContext(RootContext);
 
   const handleLangForm = (e) => {
@@ -22,7 +30,7 @@ const ChooseLanguage = ({ isLangMenuActive, closeLangMenu }) => {
       <ul className="bg-primaryGray p-4">
         {languagesData.map((language, i) => {
           return (
-            <li className="p-2" key={i}>
+            <li className="p-2 cursor-pointer" key={i}>
               <img
                 src={language.img}
                 onClick={() => {

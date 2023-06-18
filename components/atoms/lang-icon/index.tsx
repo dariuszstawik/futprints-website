@@ -2,7 +2,12 @@ import RootContext from "@/context/RootContext";
 import React, { useContext } from "react";
 import DropdownIcon from "../dropdown-icon";
 
-const LangIcon = ({ toggleLangMenu, isLangMenuActive }) => {
+interface LangIconProps {
+  toggleLangMenu: () => void;
+  isLangMenuActive: boolean;
+}
+
+const LangIcon = ({ toggleLangMenu, isLangMenuActive }: LangIconProps) => {
   const { lang } = useContext(RootContext);
 
   let flagSrc;

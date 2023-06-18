@@ -4,7 +4,35 @@ import { useContext, useState } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import RootContext from "@/context/RootContext";
 
-const Item = ({ question, children }) => {
+interface ItemProps {
+  question: string;
+  children: React.ReactNode;
+}
+
+interface FaqProps {
+  content: {
+    titlePl: string;
+    titleEn: string;
+    question1Pl: string;
+    question2Pl: string;
+    question3Pl: string;
+    question4Pl: string;
+    answer1Pl: React.ReactNode;
+    answer2Pl: React.ReactNode;
+    answer3Pl: React.ReactNode;
+    answer4Pl: React.ReactNode;
+    question1En: string;
+    question2En: string;
+    question3En: string;
+    question4En: string;
+    answer1En: React.ReactNode;
+    answer2En: React.ReactNode;
+    answer3En: React.ReactNode;
+    answer4En: React.ReactNode;
+  };
+}
+
+const Item = ({ question, children }: ItemProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -43,7 +71,7 @@ const Item = ({ question, children }) => {
   );
 };
 
-export const Faq = ({ content }) => {
+export const Faq = ({ content }: FaqProps) => {
   const { lang } = useContext(RootContext);
 
   const {
@@ -78,8 +106,8 @@ export const Faq = ({ content }) => {
   } = content[0].fields;
 
   return (
-    <div className="py-6 mx-auto sm:max-w-xl md:max-w-full">
-      <div className="max-w-xl sm:mx-auto lg:max-w-full">
+    <div className="py-6 mx-auto w-full">
+      <div className="max-w-2xl sm:mx-auto lg:max-w-full">
         <div className="space-y-4">
           {question1Pl ? (
             <Item

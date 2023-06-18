@@ -44,13 +44,12 @@ const SingleNews = ({ news }) => {
   const { lang } = useContext(RootContext);
 
   const { titlePl, leadPl, contentPl, image } = news.fields;
-  // const img = "img14.jpg";
   console.log(image);
   console.log("Wyśietlam w single news" + news.fields.image.fields.file.url);
 
   return (
     <Container>
-      <PageHeader>Jak możesz pomóc</PageHeader>
+      <PageHeader>{lang === "en" ? "News" : "Aktualności"}</PageHeader>
       <SingleArticle
         title={titlePl}
         lead={leadPl}

@@ -4,8 +4,6 @@ import React, { useContext } from "react";
 import { navLinksData } from "./navlinksData";
 import RootContext from "@/context/RootContext";
 
-// const Navlinks = ({toggleMobileMenu}:{toggleMobileMenu: ()=> void}) => {
-
 interface NavlinksProps {
   closeMobileMenu: () => void;
   isVisible: boolean;

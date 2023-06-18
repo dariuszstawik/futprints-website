@@ -4,12 +4,27 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import React, { useState } from "react";
 
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+  });
+
+  const res = await client.getEntries({ content_type: "footer" });
+
+  return {
+    props: {
+      footer: res.items,
+    },
+  };
+}
+
 export default function App({ Component, pageProps }: AppProps) {
   const [isMobileMenuActive, setIsMobileMenuActive] = useState(false);
 
   const [lang, setLang] = useState("pl");
 
-  const changeLang = (chosenLang) => {
+  const changeLang = (chosenLang: string) => {
     setLang(chosenLang);
   };
 

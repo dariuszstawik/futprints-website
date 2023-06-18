@@ -1,14 +1,37 @@
-import ArrowLong from "@/components/atoms/arrow-long";
 import Divider from "@/components/atoms/divider";
-import HeaderTitle from "@/components/atoms/header-title";
 import SectionTitle from "@/components/atoms/section-title";
 import React, { useContext } from "react";
 import Slide from "react-reveal/Slide";
 import { createClient } from "contentful";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Link from "next/link";
 import RootContext from "@/context/RootContext";
 import Image from "next/image";
+
+interface SupportSectionProps {
+  support1: {
+    fields: {
+      titlePl: string;
+      titleEn: string;
+      leadPl: string;
+      leadEn: string;
+      textPl: React.ReactNode;
+      textEn: React.ReactNode;
+      icon: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+    };
+  };
+}
 
 export async function getStaticProps() {
   const client = createClient({
@@ -25,7 +48,7 @@ export async function getStaticProps() {
   };
 }
 
-const SupportSection = ({ support1 }) => {
+const SupportSection = ({ support1 }: SupportSectionProps) => {
   console.log(support1);
   const { lang } = useContext(RootContext);
 
@@ -69,6 +92,7 @@ const SupportSection = ({ support1 }) => {
                           height={
                             item.fields.icon.fields.file.details.image.height
                           }
+                          alt=""
                         />
                         <span className="block">
                           {lang === "en" && item.fields.titleEn

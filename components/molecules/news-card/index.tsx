@@ -4,8 +4,31 @@ import Link from "next/link";
 import RootContext from "@/context/RootContext";
 import Image from "next/image";
 
-const NewsCard = ({ title, content, slug, img }) => {
+interface NewsCardProps {
+  title: string;
+  content: string;
+  slug: string;
+  img: {
+    fields: {
+      file: {
+        url: string;
+        details: {
+          image: {
+            width: number;
+            height: number;
+          };
+        };
+      };
+    };
+  };
+}
+
+const NewsCard = ({ title, content, slug, img }: NewsCardProps) => {
   const { lang } = useContext(RootContext);
+  console.log("typ title:" + typeof title);
+  console.log("typ content:" + typeof content);
+  console.log("typ slug:" + typeof slug);
+  console.log("typ img:" + typeof img);
 
   return (
     <div className="max-w-xl mx-auto transition duration-300 transform bg-primaryGray border rounded shadow-sm hover:-translate-y-1 hover:shadow md:text-center flex">
@@ -18,7 +41,6 @@ const NewsCard = ({ title, content, slug, img }) => {
           alt=""
         />
         <div className=" h-6 bg-green-800" />
-        {/* <div className="absolute inset-0 bg-gray-800 bg-opacity-25" /> */}
       </div>
       <div className="w-1/2 flex flex-col justify-between items-start px-6 py-8  rounded-b sm:px-8">
         <div className="flex flex-col justify-start items-start">

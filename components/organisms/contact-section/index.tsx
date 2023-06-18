@@ -7,6 +7,27 @@ import Image from "next/image";
 import React from "react";
 import Fade from "react-reveal/Fade";
 
+interface ContactSectionProps {
+  title: string;
+  address: string;
+  phoneNumber: string;
+  phoneNumber2: string;
+  email: string;
+  img: {
+    fields: {
+      file: {
+        url: string;
+        details: {
+          image: {
+            width: number;
+            height: number;
+          };
+        };
+      };
+    };
+  };
+}
+
 const ContactSection = ({
   title,
   address,
@@ -14,18 +35,17 @@ const ContactSection = ({
   phoneNumber2,
   email,
   img,
-}) => {
-  console.log(img);
+}: ContactSectionProps) => {
   return (
     <div className={"w-full py-16 flex flex-col xl:flex-row"}>
       <Fade left>
         <div className="w-[700px] shrink-0">
           <Image
-            // src={`https://${img.fields.file.url}`}
             src={"https:" + img.fields.file.url}
             width={img.fields.file.details.image.width}
             height={img.fields.file.details.image.height}
             className="rounded-lg"
+            alt=""
           />
         </div>
       </Fade>

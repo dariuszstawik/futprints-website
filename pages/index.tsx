@@ -9,10 +9,157 @@ import NewsSection from "@/components/organisms/news-section";
 
 import CtaSection from "@/components/organisms/cta-section";
 import { createClient } from "contentful";
-import SectionTitle from "@/components/atoms/section-title";
-import Divider from "@/components/atoms/divider";
-import ActivitiesCard from "@/components/molecules/activities-card";
 import Fade from "react-reveal/Fade"; //wpisać w konsolę:  npm i --save-dev @types/react-reveal
+
+interface HomeProps {
+  activities: {
+    fields: {
+      button: string;
+      buttonEn: string;
+      slug: string;
+      paragraph1TitlePl: string;
+      paragraph1TitleEn: string;
+      paragraph2TitlePl: string;
+      paragraph2TitleEn: string;
+      paragraph3TitlePl: string;
+      paragraph3TitleEn: string;
+      paragraph4TitlePl: string;
+      paragraph4TitleEn: string;
+      paragraph1TextPl: React.ReactNode;
+      paragraph2TextPl: React.ReactNode;
+      paragraph3TextPl: React.ReactNode;
+      paragraph4TextPl: React.ReactNode;
+      paragraph1TextEn: React.ReactNode;
+      paragraph2TextEn: React.ReactNode;
+      paragraph3TextEn: React.ReactNode;
+      paragraph4TextEn: React.ReactNode;
+      paragraph1Img: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+      paragraph2Img: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+      paragraph3Img: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+      paragraph4Img: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+    };
+  };
+  support1: {
+    fields: {
+      titlePl: string;
+      titleEn: string;
+      leadPl: string;
+      leadEn: string;
+      textPl: React.ReactNode;
+      textEn: React.ReactNode;
+      icon: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+    };
+  };
+  slider: {
+    fields: {
+      titlePl: string;
+      titlePl2Line: string;
+      titleEn: string;
+      titleEn2Line: string;
+      descriptionPl: string;
+      descriptionEn: string;
+      buttonPl: string;
+      buttonEn: string;
+      images: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+    };
+  }[];
+  news: {
+    fields: {
+      titleEn: string;
+      titlePl: string;
+      leadPl: string;
+      leadEn: string;
+      slug: string;
+      contentPl: React.ReactNode;
+      contentEn: React.ReactNode;
+      image: {
+        fields: {
+          file: {
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        };
+      };
+    };
+  }[];
+}
 
 export async function getStaticProps() {
   const client = createClient({
@@ -37,7 +184,12 @@ export async function getStaticProps() {
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({ activities, support1, slider, news }) {
+export default function Home({
+  activities,
+  support1,
+  slider,
+  news,
+}: HomeProps) {
   const handleScroll = (e) => {
     e.preventDefault();
     const href = e.currentTarget.href;

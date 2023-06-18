@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 import { footerData } from "./footerData";
 import RootContext from "@/context/RootContext";
 
-const Footer = () => {
+const Footer = ({ tagline }) => {
   const { lang } = useContext(RootContext);
   const handleScroll = (e) => {
     e.preventDefault();
@@ -47,8 +47,9 @@ const Footer = () => {
             </div>
 
             <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 lg:text-left">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
-              consequuntur amet culpa cum itaque neque.
+              Zapraszamy do Centrum Społecznościowego w Katowicach - znajdziecie
+              nas przy ul. Kordeckiego 5.
+              {/* {tagline} */}
             </p>
           </div>
 
