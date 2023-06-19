@@ -13,13 +13,13 @@ const ChooseLanguage = ({
 }: ChooseLanguageProps) => {
   const { lang, changeLang } = useContext(RootContext);
 
-  const handleLangForm = (e) => {
-    e.preventDefault();
+  // const handleLangForm = (e) => {
+  //   e.preventDefault();
 
-    const langValue = e.target.value;
+  //   const langValue = e.target.value;
 
-    changeLang(langValue);
-  };
+  //   changeLang(langValue);
+  // };
 
   return (
     <div

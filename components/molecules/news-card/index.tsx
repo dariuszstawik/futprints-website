@@ -35,7 +35,9 @@ const NewsCard = ({ title, content, slug, img }: NewsCardProps) => {
       <div className=" relative w-1/2">
         <Image
           className="object-cover h-48 rounded-t lg:h-48 xl:h-56"
-          src={img ? `https://${img.fields.file.url}` : ""}
+          // src={img?.fields?.file?.url ? "https:" + img.fields.file.url : ""}
+
+          src={img ? `https:${img.fields.file.url}` : ""}
           width={img.fields.file.details.image.width}
           height={img.fields.file.details.image.height}
           alt=""

@@ -1,5 +1,7 @@
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { BLOCKS } from "@contentful/rich-text-types"; // Add this import
+
 import SingleArticle from "@/components/templates/single-article";
 import Container from "@/components/atoms/container";
 import PageHeader from "@/components/molecules/page-header";
@@ -35,12 +37,42 @@ export async function getStaticProps({ params }) {
   };
 }
 
+// const Article = ({ article }) => {
+//   const { lang } = useContext(RootContext);
+
+//   const { titlePl, leadPl, contentPl, image } = article.fields;
+
+//   console.log(contentPl);
+
+//   return (
+//     <Container>
+//       <PageHeader>{lang === "en" ? "Article" : "Artykuł"}</PageHeader>
+//       <SingleArticle
+//         title={titlePl}
+//         lead={leadPl}
+//         content={documentToReactComponents(contentPl)}
+//         img={article.fields.image ? article.fields.image : ""}
+//       ></SingleArticle>
+//     </Container>
+//   );
+// };
+
 const Article = ({ article }) => {
   const { lang } = useContext(RootContext);
 
   const { titlePl, leadPl, contentPl, image } = article.fields;
 
-  console.log(contentPl);
+  const options = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: (node) => {
+        const { title, description, file } = node.data.target.fields;
+        const imageUrl = file.url;
+        const imageAlt = title || description || "Image";
+
+        return <img src={imageUrl} alt={imageAlt} />;
+      },
+    },
+  };
 
   return (
     <Container>
@@ -48,7 +80,7 @@ const Article = ({ article }) => {
       <SingleArticle
         title={titlePl}
         lead={leadPl}
-        content={documentToReactComponents(contentPl)}
+        content={documentToReactComponents(contentPl, options)} // Use the options for rendering
         img={article.fields.image ? article.fields.image : ""}
       ></SingleArticle>
     </Container>

@@ -25,15 +25,13 @@ const HeaderContent = ({
         <span className="leading-relaxed text-primary">{title2Line}</span>
       </HeaderTitle>
       <Divider />
-      <HeaderParagraph> {description}</HeaderParagraph>
+      <HeaderParagraph>{description}</HeaderParagraph>
       <Button>
         <Link href="/aboutus">
           {" "}
           {lang === "en" ? "Get to know us" : "Poznaj nas"}
         </Link>
       </Button>
-
-      <div></div>
     </div>
   );
 };

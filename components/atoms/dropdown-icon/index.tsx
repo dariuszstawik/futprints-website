@@ -1,6 +1,6 @@
 import React from "react";
 
-const DropdownIcon = ({ toggleLangMenu }) => {
+const DropdownIcon = ({ toggleLangMenu }: { toggleLangMenu: () => void }) => {
   return (
     <svg
       onClick={toggleLangMenu}
@@ -10,7 +10,7 @@ const DropdownIcon = ({ toggleLangMenu }) => {
       strokeWidth="1.5"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      ariaHidden="true"
+      aria-hidden="true"
     >
       <path
         strokeLinecap="round"

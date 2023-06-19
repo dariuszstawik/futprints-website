@@ -2,7 +2,6 @@ import Hamburger from "@/components/atoms/hamburger";
 import LangIcon from "@/components/atoms/lang-icon";
 import Logo from "@/components/atoms/logo";
 import ChooseLanguage from "@/components/molecules/choose-language";
-import LanguageDropdown from "@/components/molecules/language-dropdown";
 import Navlinks from "@/components/molecules/navlinks";
 import React, { useState } from "react";
 

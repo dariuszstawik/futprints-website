@@ -1,11 +1,12 @@
 import ArrowLong from "@/components/atoms/arrow-long";
 import RootContext from "@/context/RootContext";
+import { ImageProps } from "@/pages";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useContext } from "react";
 
 interface ActivitiesCardProps {
-  img: string;
+  img: ImageProps;
   title: string;
   href: string;
 }

@@ -91,10 +91,10 @@ const NewsSection = ({ content, isHomepage }: NewsSectionProps) => {
           {newsList(isHomepage ? 2 : maxAmount)}
         </ul>
         <div className="flex justify-center m-16">
-          {!isHomepage && maxAmount <= content.length && (
-            <div onClick={increaseMaxAmount}>
-              <Button>{lang === "en" ? "Load more" : "Załaduj więcej"}</Button>
-            </div>
+          {!isHomepage && maxAmount < content.length && (
+            <Button onClick={increaseMaxAmount}>
+              {lang === "en" ? "Load more" : "Załaduj więcej"}
+            </Button>
           )}
         </div>
       </div>

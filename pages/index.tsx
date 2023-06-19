@@ -11,6 +11,20 @@ import CtaSection from "@/components/organisms/cta-section";
 import { createClient } from "contentful";
 import Fade from "react-reveal/Fade"; //wpisać w konsolę:  npm i --save-dev @types/react-reveal
 
+export interface ImageProps {
+  fields: {
+    file: {
+      url: string;
+      details: {
+        image: {
+          width: number;
+          height: number;
+        };
+      };
+    };
+  };
+}
+
 interface HomeProps {
   activities: {
     fields: {
