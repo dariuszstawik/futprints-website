@@ -22,6 +22,16 @@ body {
   background-color: #FAFAFA;
 }
 
+p {
+  font-size: 1rem;
+  line-height:1.5rem;
+  padding: 0.3rem;
+}
+
+p ul {
+  list-style-type: disc;
+}
+
 .aws-btn {
 
   --slider-height-percentage: 100%;

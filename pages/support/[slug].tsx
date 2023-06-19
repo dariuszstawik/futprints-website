@@ -37,6 +37,7 @@ export async function getStaticProps({ params }) {
 
 const SupportArticle = ({ support1 }) => {
   const { lang } = useContext(RootContext);
+  console.log(support1.fields.textPl);
 
   return (
     <Container>
