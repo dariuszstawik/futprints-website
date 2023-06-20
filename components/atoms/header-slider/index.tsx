@@ -38,7 +38,11 @@ const HeaderSlider = ({ images }: HeaderSliderProps) => {
             <div className="h-full bg-primaryGray" key={i}>
               <Image
                 className="h-full object-cover"
-                src={`https:${image.fields.file.url}`}
+                src={
+                  `https:${image.fields.file.url}`
+                    ? `https:${image.fields.file.url}`
+                    : ""
+                }
                 width={image.fields.file.details.image.width}
                 height={image.fields.file.details.image.height}
                 alt=""
