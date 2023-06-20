@@ -56,7 +56,7 @@ const TeamSection = ({ teamMembers }: TeamSectionProps) => {
         <Divider />
       </div>
       <ul
-        className=" w-full
+        className=" list-none w-full
         grid
         gap-12
         px-32

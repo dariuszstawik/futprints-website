@@ -9,7 +9,7 @@ import NewsSection from "@/components/organisms/news-section";
 
 import CtaSection from "@/components/organisms/cta-section";
 import { createClient } from "contentful";
-import Fade from "react-reveal/Fade"; //wpisać w konsolę:  npm i --save-dev @types/react-reveal
+const Fade = require("react-reveal/Fade");
 
 export interface ImageProps {
   fields: {
@@ -176,6 +176,12 @@ interface HomeProps {
 }
 
 export async function getStaticProps() {
+  if (!process.env.CONTENTFUL_SPACE_ID || !process.env.CONTENTFUL_ACCESS_KEY) {
+    // throw error
+    throw Error("Env variable error");
+    // lub return
+  }
+
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
@@ -204,7 +210,7 @@ export default function Home({
   slider,
   news,
 }: HomeProps) {
-  const handleScroll = (e) => {
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
     const href = e.currentTarget.href;
     const targetId = href.replace(/.*\#/, "");

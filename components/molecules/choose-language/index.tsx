@@ -27,7 +27,7 @@ const ChooseLanguage = ({
         isLangMenuActive ? "block" : "hidden"
       }`}
     >
-      <ul className="bg-primaryGray p-4">
+      <ul className="bg-primaryGray p-4 list-none">
         {languagesData.map((language, i) => {
           return (
             <li className="p-2 cursor-pointer" key={i}>

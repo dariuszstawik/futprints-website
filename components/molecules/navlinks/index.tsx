@@ -15,8 +15,8 @@ const Navlinks = ({ isVisible, closeMobileMenu }: NavlinksProps) => {
     <ul
       className={
         isVisible
-          ? "absolute z-40 w-full top-full left-0 bg-backgroundGray py-4 flex flex-col justify-center align-center items-center gap-14 lg:static lg:flex-row my-4"
-          : "flex-col justify-center align-center items-center gap-14 lg:flex-row my-4 hidden lg:flex"
+          ? "list-none absolute z-40 w-full top-full left-0 bg-backgroundGray py-4 flex flex-col justify-center align-center items-center gap-14 lg:static lg:flex-row my-4"
+          : "list-none flex-col justify-center align-center items-center gap-14 lg:flex-row my-4 hidden lg:flex"
       }
     >
       {navLinksData.map((navlink, i) => {

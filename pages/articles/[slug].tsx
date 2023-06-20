@@ -37,30 +37,13 @@ export async function getStaticProps({ params }) {
   };
 }
 
-// const Article = ({ article }) => {
-//   const { lang } = useContext(RootContext);
-
-//   const { titlePl, leadPl, contentPl, image } = article.fields;
-
-//   console.log(contentPl);
-
-//   return (
-//     <Container>
-//       <PageHeader>{lang === "en" ? "Article" : "Artykuł"}</PageHeader>
-//       <SingleArticle
-//         title={titlePl}
-//         lead={leadPl}
-//         content={documentToReactComponents(contentPl)}
-//         img={article.fields.image ? article.fields.image : ""}
-//       ></SingleArticle>
-//     </Container>
-//   );
-// };
-
 const Article = ({ article }) => {
   const { lang } = useContext(RootContext);
 
-  const { titlePl, leadPl, contentPl, image } = article.fields;
+  const { titlePl, leadPl, contentPl, image, gallery } = article.fields;
+
+  console.log("artykuł z galerią" + article);
+  console.log(article);
 
   const options = {
     renderNode: {
@@ -82,7 +65,8 @@ const Article = ({ article }) => {
         lead={leadPl}
         content={documentToReactComponents(contentPl, options)} // Use the options for rendering
         img={article.fields.image ? article.fields.image : ""}
-      ></SingleArticle>
+        gallery={article.fields.gallery ? article.fields.gallery : ""}
+      />
     </Container>
   );
 };

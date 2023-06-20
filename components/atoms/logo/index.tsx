@@ -9,7 +9,7 @@ interface LogoProps {
 
 const Logo = ({ isInFooter, closeMobileMenu }: LogoProps) => {
   return (
-    <Link href="./" onClick={closeMobileMenu}>
+    <Link href="/" onClick={closeMobileMenu}>
       <img
         className="w-32 sm:w-40 mr-10"
         src={isInFooter ? "logo-footer.svg" : "logo.svg"}

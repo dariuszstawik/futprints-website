@@ -71,7 +71,7 @@ const SupportSection = ({ support1 }: SupportSectionProps) => {
           <Divider isWhite />
           <Slide bottom>
             <div>
-              <ul className="py-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+              <ul className="list-none py-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
                 {support1.map((item, i) => {
                   return (
                     <li key={i}>

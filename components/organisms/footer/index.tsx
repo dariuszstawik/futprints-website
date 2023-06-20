@@ -54,7 +54,7 @@ const Footer = ({ tagline }) => {
           </div>
 
           <nav aria-label="Footer Nav" className="mt-12 lg:mt-0">
-            <ul className="flex flex-wrap justify-center gap-6 md:gap-8 lg:justify-end lg:gap-12">
+            <ul className="list-none flex flex-wrap justify-center gap-6 md:gap-8 lg:justify-end lg:gap-12">
               {footerData.map(({ contentPl, contentEn, path }, i) => {
                 return (
                   <li key={i}>
