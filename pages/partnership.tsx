@@ -125,8 +125,9 @@ const partnership = ({ partnership }: PartnershipProps) => {
         lead={lang === "en" && leadEn ? leadEn : leadPl}
         content={
           lang === "en" && contentEn
-            ? documentToReactComponents(contentEn )//as Document) // renderOptions)
-            : documentToReactComponents(contentPl )
+            ? documentToReactComponents(contentEn) //as Document) // renderOptions)
+            : documentToReactComponents(contentPl)
+        }
         img={image ? image : ""}
       />
     </Container>
