@@ -6,10 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "codegen": "contentful-typescript-codegen --output @types/generated/contentful.d.ts"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.0.0",
+    "@contentful/rich-text-types": "^16.2.0",
     "@types/node": "18.16.3",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.1",
@@ -26,6 +28,9 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
+    "contentful-management": "^10.36.0",
+    "contentful-typescript-codegen": "^3.4.0",
+    "dotenv": "^16.3.1",
     "postcss": "^8.4.23",
     "tailwindcss": "^3.3.2"
   }
