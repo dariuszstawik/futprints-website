@@ -12,7 +12,7 @@ const CtaSection = () => {
         <Link href="/information-for-homeless">
           {lang === "en" ? (
             <svg
-              className="m6"
+              className="m-6 w-80 md:w-[596px]"
               width="596"
               height="181"
               viewBox="0 0 596 181"
@@ -39,7 +39,7 @@ const CtaSection = () => {
             </svg>
           ) : (
             <svg
-              className="m-6"
+              className="m-6 w-80 md:w-[596px]"
               width="596"
               height="181"
               viewBox="0 0 596 181"
@@ -68,7 +68,7 @@ const CtaSection = () => {
         </Link>
         <Link href="/information-for-foreigners">
           <svg
-            className="m-6"
+            className="m-6 w-80 md:w-[596px]"
             width="596"
             height="181"
             viewBox="0 0 596 181"

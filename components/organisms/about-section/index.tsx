@@ -47,7 +47,13 @@ const AboutSection = ({
           />
         </div>
       </Fade>
-      <div className={isReverse ? "ml-32 mr-16" : "ml-16 mr-32"}>
+      <div
+        className={
+          isReverse
+            ? "ml-16 mr-16 lg:ml-32 lg:mr-16"
+            : "ml-16 mr-16 lg:ml-16 lg:mr-32"
+        }
+      >
         <SectionTitle isAlignedLeft>{title}</SectionTitle>
         <Divider isLeft />
         <SectionParagraph>{content}</SectionParagraph>

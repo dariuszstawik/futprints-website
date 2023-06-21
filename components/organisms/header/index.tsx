@@ -65,7 +65,7 @@ const Header = ({ slider }: HeaderProps) => {
   return (
     <div
       id="top"
-      className="w-full min-h-[calc(100vh-128px)] pl-28 bg-primaryGray flex flex-col lg:flex-row lg:justify-between"
+      className="w-full min-h-[calc(100vh-128px)] pl-16 bg-primaryGray flex flex-col lg:flex-row lg:justify-between lg:pl-28"
     >
       <HeaderContent
         title={lang === "en" && titleEn ? titleEn : titlePl}
