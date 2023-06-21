@@ -1,4 +1,3 @@
-import ArrowLong from "@/components/atoms/arrow-long";
 import React from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Image from "next/image";
@@ -29,10 +28,22 @@ const TeamCard = ({ name, position, description, image }: TeamCardProps) => {
     <div className="p-4 border rounded">
       <Image
         className="object-cover w-24 h-24 p-4 rounded-full shadow"
-        src={image?.fields?.file?.url ? "https://" + image.fields.file.url : ""}
+        src={
+          image?.fields?.file?.url
+            ? "https://" + image.fields.file.url
+            : "User.svg"
+        }
         alt="Person"
-        width={image.fields?.file?.details?.image?.width}
-        height={image.fields?.file?.details?.image?.height}
+        width={
+          image.fields?.file?.details?.image?.width
+            ? image.fields.file.details.image.width
+            : 24
+        }
+        height={
+          image.fields?.file?.details?.image?.height
+            ? image.fields?.file?.details?.image?.height
+            : 24
+        }
       />
       <div className="flex flex-col justify-center mt-2">
         <p className="text-lg font-bold">{name}</p>

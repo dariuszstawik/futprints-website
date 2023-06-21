@@ -39,10 +39,6 @@ export async function getStaticProps({ params }) {
 
 const singleActivity = ({ activity }) => {
   const { lang } = useContext(RootContext);
-  // console.log(activity);
-  // console.log(activity.fields.paragraph1TitlePl);
-  // console.log(activity.fields.paragraph1Img.fields.file.url);
-  // console.log(documentToReactComponents(activity.fields.paragraph1TextPl));
 
   //   const {
   //     paragraph1TitlePl,
@@ -68,36 +64,52 @@ const singleActivity = ({ activity }) => {
               ? activity.fields.paragraph1TitleEn
               : activity.fields.paragraph1TitlePl
           }
-          img={activity.fields.paragraph1Img.fields.file.url}
-          content={documentToReactComponents(activity.fields.paragraph1TextPl)}
+          img={
+            activity.fields.paragraph1Img ? activity.fields.paragraph1Img : ""
+          }
+          content={
+            lang === "en" && activity.fields.paragraph1TextEn
+              ? documentToReactComponents(activity.fields.paragraph1TextEn)
+              : documentToReactComponents(activity.fields.paragraph1TextPl)
+          }
         ></AboutSection>
       )}
-      {activity?.fields?.paragraph2Img?.fields?.file?.url &&
-        activity?.fields?.paragraph2TextPl && (
-          <AboutSection
-            isReverse
-            title={
-              activity.fields.paragraph2TitlePl
-                ? activity.fields.paragraph2TitlePl
-                : ""
-            }
-            img={
-              activity.fields.paragraph2Img.fields.file.url
-                ? activity.fields.paragraph2Img.fields.file.url
-                : ""
-            }
-            content={documentToReactComponents(
-              activity.fields.paragraph2TextPl
-                ? activity.fields.paragraph2TextPl
-                : ""
-            )}
-          ></AboutSection>
-        )}
-      {/* <AboutSection
-        title={activity.fields.paragraph3TitlePl}
-        img={activity.fields.paragraph3Img.fields.file.url}
-        content={documentToReactComponents(activity.fields.paragraph3TextPl)}
-      ></AboutSection> */}
+      {activity?.fields?.paragraph2TextPl && (
+        <AboutSection
+          isReverse
+          title={
+            lang === "en" && activity.fields.paragraph1TitleEn
+              ? activity.fields.paragraph1TitleEn
+              : activity.fields.paragraph1TitlePl
+          }
+          img={
+            activity.fields.paragraph2Img ? activity.fields.paragraph2Img : ""
+          }
+          content={
+            lang === "en" && activity.fields.paragraph2TextEn
+              ? documentToReactComponents(activity.fields.paragraph2TextEn)
+              : documentToReactComponents(activity.fields.paragraph2TextPl)
+          }
+        ></AboutSection>
+      )}
+      {activity?.fields?.paragraph3TextPl && (
+        <AboutSection
+          isReverse
+          title={
+            activity.fields.paragraph3TitlePl
+              ? activity.fields.paragraph3TitlePl
+              : ""
+          }
+          img={
+            activity.fields.paragraph3Img ? activity.fields.paragraph3Img : ""
+          }
+          content={
+            lang === "en" && activity.fields.paragraph3TextEn
+              ? documentToReactComponents(activity.fields.paragraph3TextEn)
+              : documentToReactComponents(activity.fields.paragraph3TextPl)
+          }
+        ></AboutSection>
+      )}
     </Container>
   );
 };

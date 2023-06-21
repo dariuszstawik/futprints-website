@@ -4,7 +4,7 @@ import ArrowLong from "../arrow-long";
 interface ButtonProps {
   children: React.ReactNode | string;
   isWhite?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const Button = ({ isWhite, children, onClick }: ButtonProps) => {

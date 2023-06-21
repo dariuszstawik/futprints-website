@@ -49,7 +49,7 @@ const NewsCard = ({ title, content, slug, img }: NewsCardProps) => {
           <h5 className="mb-2 text-xl text-left font-bold leading-none sm:text-2xl">
             {title}
           </h5>
-          <div className="mb-5 text-gray-700 text-left">{content}</div>
+          {/* <div className="mb-5 text-gray-700 text-left">{content}</div> */}
         </div>
         <button className="relative font-medium text-green-800 before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-green-800 before:transition hover:before:scale-100">
           {" "}

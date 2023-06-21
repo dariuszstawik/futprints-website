@@ -26,12 +26,9 @@ const HeaderContent = ({
       </HeaderTitle>
       <Divider />
       <HeaderParagraph>{description}</HeaderParagraph>
-      <Button>
-        <Link href="/aboutus">
-          {" "}
-          {lang === "en" ? "Get to know us" : "Poznaj nas"}
-        </Link>
-      </Button>
+      <Link href="/aboutus">
+        <Button>{lang === "en" ? "Get to know us" : "Poznaj nas"}</Button>
+      </Link>
     </div>
   );
 };

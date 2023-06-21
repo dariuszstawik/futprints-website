@@ -36,12 +36,11 @@ const Navlinks = ({ isVisible, closeMobileMenu }: NavlinksProps) => {
       })}
 
       <li className="flex flex-col justify-center align-center items-center mx-auto my-auto">
-        <Button onClick={closeMobileMenu}>
-          <Link href="/support">
-            {" "}
+        <Link href="/support">
+          <Button onClick={closeMobileMenu}>
             {lang === "en" ? "support us" : "chcę pomóc"}
-          </Link>
-        </Button>
+          </Button>
+        </Link>
       </li>
     </ul>
   );
