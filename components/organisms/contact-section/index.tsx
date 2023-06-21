@@ -49,7 +49,7 @@ const ContactSection = ({
           />
         </div>
       </Fade>
-      <div className="ml-16 mr-32">
+      <div className="ml-16 mr-16">
         <SectionTitle isAlignedLeft>{title}</SectionTitle>
         <Divider isLeft />
         <div className="flex flex-col gap-4 my-6">
