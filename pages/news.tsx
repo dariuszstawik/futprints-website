@@ -33,6 +33,9 @@ interface NewsProps {
 }
 
 export async function getStaticProps() {
+  if (!process.env.CONTENTFUL_SPACE_ID || !process.env.CONTENTFUL_ACCESS_KEY) {
+    throw Error("Env variable error");
+  }
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,

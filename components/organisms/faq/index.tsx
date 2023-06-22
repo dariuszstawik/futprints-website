@@ -1,5 +1,3 @@
-import Divider from "@/components/atoms/divider";
-import SectionTitle from "@/components/atoms/section-title";
 import { useContext, useState } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import RootContext from "@/context/RootContext";

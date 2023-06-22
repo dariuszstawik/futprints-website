@@ -29,7 +29,8 @@ export async function getStaticProps() {
 const Layout = ({ children, footer }: LayoutProps) => {
   const { lang } = useContext(RootContext);
 
-  console.log("wyświetlam w layout" + footer);
+  console.log("wyświetlam w layout");
+  console.log(footer);
 
   let tagline;
 

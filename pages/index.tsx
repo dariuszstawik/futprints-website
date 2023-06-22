@@ -177,9 +177,7 @@ interface HomeProps {
 
 export async function getStaticProps() {
   if (!process.env.CONTENTFUL_SPACE_ID || !process.env.CONTENTFUL_ACCESS_KEY) {
-    // throw error
     throw Error("Env variable error");
-    // lub return
   }
 
   const client = createClient({

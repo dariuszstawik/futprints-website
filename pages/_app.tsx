@@ -1,10 +1,14 @@
 import Layout from "@/components/templates/layout";
 import RootContext from "@/context/RootContext";
 import "@/styles/globals.css";
+import { createClient } from "contentful";
 import type { AppProps } from "next/app";
 import React, { useState } from "react";
 
 export async function getStaticProps() {
+  if (!process.env.CONTENTFUL_SPACE_ID || !process.env.CONTENTFUL_ACCESS_KEY) {
+    throw Error("Env variable error");
+  }
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
@@ -19,7 +23,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: AppProps, { footer }) {
   const [isMobileMenuActive, setIsMobileMenuActive] = useState(false);
 
   const [lang, setLang] = useState("pl");
@@ -43,7 +47,7 @@ export default function App({ Component, pageProps }: AppProps) {
         changeLang,
       }}
     >
-      <Layout>
+      <Layout footer={footer}>
         <Component {...pageProps} />
       </Layout>
     </RootContext.Provider>
