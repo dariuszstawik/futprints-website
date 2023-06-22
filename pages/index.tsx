@@ -218,6 +218,9 @@ export default function Home({
     });
   };
 
+  console.log("wyświetlam w home");
+  console.log(news);
+
   return (
     <>
       <Head>

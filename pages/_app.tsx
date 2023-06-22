@@ -5,17 +5,14 @@ import { createClient } from "contentful";
 import type { AppProps } from "next/app";
 import React, { useState } from "react";
 
-export async function getStaticProps() {
-  if (!process.env.CONTENTFUL_SPACE_ID || !process.env.CONTENTFUL_ACCESS_KEY) {
-    throw Error("Env variable error");
-  }
+export async function getInitialProps() {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
   });
 
   const res = await client.getEntries({ content_type: "footer" });
-
+  console.log("--------------", res);
   return {
     props: {
       footer: res.items,
@@ -23,7 +20,12 @@ export async function getStaticProps() {
   };
 }
 
-export default function App({ Component, pageProps }: AppProps, { footer }) {
+export default function App({
+  Component,
+  pageProps,
+  footer,
+}: AppProps & { footer: any }) {
+  console.log("-----" + footer);
   const [isMobileMenuActive, setIsMobileMenuActive] = useState(false);
 
   const [lang, setLang] = useState("pl");

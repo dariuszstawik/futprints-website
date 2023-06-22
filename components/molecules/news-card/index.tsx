@@ -8,7 +8,7 @@ interface NewsCardProps {
   title: string;
   content: string;
   slug: string;
-  img: {
+  img?: {
     fields: {
       file: {
         url: string;
@@ -35,11 +35,17 @@ const NewsCard = ({ title, content, slug, img }: NewsCardProps) => {
       <div className=" relative w-1/2">
         <Image
           className="object-cover h-48 rounded-t lg:h-48 xl:h-56"
-          // src={img?.fields?.file?.url ? "https:" + img.fields.file.url : ""}
-
           src={img ? `https:${img.fields.file.url}` : ""}
-          width={img.fields.file.details.image.width}
-          height={img.fields.file.details.image.height}
+          width={
+            img?.fields?.file?.details?.image?.width
+              ? img.fields.file.details.image.width
+              : ""
+          }
+          height={
+            img?.fields?.file?.details?.image?.height
+              ? img.fields.file.details.image.height
+              : ""
+          }
           alt=""
         />
         <div className=" h-6 bg-green-800" />
@@ -49,7 +55,6 @@ const NewsCard = ({ title, content, slug, img }: NewsCardProps) => {
           <h5 className="mb-2 text-xl text-left font-bold leading-none sm:text-2xl">
             {title}
           </h5>
-          {/* <div className="mb-5 text-gray-700 text-left">{content}</div> */}
         </div>
         <button className="relative font-medium text-green-800 before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-green-800 before:transition hover:before:scale-100">
           {" "}

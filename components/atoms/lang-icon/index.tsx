@@ -13,11 +13,11 @@ const LangIcon = ({ toggleLangMenu, isLangMenuActive }: LangIconProps) => {
   let flagSrc;
 
   if (lang === "pl") {
-    flagSrc = "flagPL.svg";
+    flagSrc = "/flagPL.svg";
   } else if (lang === "en") {
-    flagSrc = "flagGB.svg";
+    flagSrc = "/flagGB.svg";
   } else {
-    flagSrc = "flagUA.svg";
+    flagSrc = "/flagUA.svg";
   }
 
   return (

@@ -6,7 +6,7 @@ interface TeamCardProps {
   name: string;
   position: string;
   description: React.ReactNode;
-  image: {
+  image?: {
     fields: {
       file: {
         url: string;
@@ -30,7 +30,7 @@ const TeamCard = ({ name, position, description, image }: TeamCardProps) => {
         className="object-cover w-24 h-24 p-4 rounded-full shadow"
         src={
           image?.fields?.file?.url
-            ? "https://" + image.fields.file.url
+            ? "https:" + image.fields.file.url
             : "User.svg"
         }
         alt="Person"
