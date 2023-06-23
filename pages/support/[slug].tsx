@@ -7,8 +7,7 @@ import RootContext from "@/context/RootContext";
 import { useContext } from "react";
 
 if (!process.env.CONTENTFUL_SPACE_ID || !process.env.CONTENTFUL_ACCESS_KEY) {
-  // throw Error("Env variable error");
-  console.log("Env variable error");
+  throw Error("Env variable error");
 }
 
 const client = createClient({
