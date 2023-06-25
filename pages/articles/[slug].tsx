@@ -8,9 +8,27 @@ import PageHeader from "@/components/molecules/page-header";
 import RootContext from "@/context/RootContext";
 import { useContext } from "react";
 
+// const client = createClient({
+//   space: process.env.CONTENTFUL_SPACE_ID,
+//   accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+// });
+
+// if (!process.env.CONTENTFUL_SPACE_ID || !process.env.CONTENTFUL_ACCESS_KEY) {
+//   throw Error("Env variable error");
+// }
+
+if (
+  !process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID ||
+  !process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_KEY
+) {
+  throw Error("Env variable error");
+}
+
 const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID,
-  accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+  // space: process.env.CONTENTFUL_SPACE_ID,
+  // accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_KEY,
 });
 
 export const getStaticPaths = async () => {
