@@ -7,8 +7,14 @@ import RootContext from "@/context/RootContext";
 import { useContext } from "react";
 
 const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID,
-  accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+  space: process.env.CONTENTFUL_SPACE_ID
+    ? process.env.CONTENTFUL_SPACE_ID
+    : process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_ACCESS_KEY
+    ? process.env.CONTENTFUL_ACCESS_KEY
+    : process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_KEY,
+  // space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+  // accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_KEY,
 });
 
 export const getStaticPaths = async () => {
