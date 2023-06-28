@@ -55,7 +55,7 @@ const SingleArticle = ({
             width={img?.fields?.file?.details?.image?.width}
             height={img?.fields?.file?.details?.image?.height}
             className="w-full object-cover rounded-lg my-10"
-            alt={img?.fields.description ? img?.fields.description : ""}
+            alt={img?.fields?.description ? img.fields.description : ""}
           />
         )}
       </div>

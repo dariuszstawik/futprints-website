@@ -40,7 +40,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -50,12 +50,24 @@ export async function getStaticProps({ params }) {
     "fields.slug": params.slug,
   });
 
+  if (!items.length) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
   return {
     props: { news: items[0] },
+    revalidate: 10,
   };
 }
 
 const SingleNews = ({ news }) => {
+  if (!news) return <div>No such address</div>;
+
   const { lang } = useContext(RootContext);
 
   const { titlePl, leadPl, contentPl, image } = news.fields;
@@ -68,7 +80,7 @@ const SingleNews = ({ news }) => {
         lead={leadPl}
         content={documentToReactComponents(contentPl)}
         img={news?.fields?.image ? news.fields.image : ""}
-        gallery={news?.fields.gallery ? news.fields.gallery : ""}
+        gallery={news?.fields?.gallery ? news.fields.gallery : ""}
       ></SingleArticle>
     </Container>
   );

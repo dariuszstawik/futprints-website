@@ -205,6 +205,7 @@ export async function getStaticProps() {
       slider: res3.items,
       news: res4.items,
     },
+    revalidate: 10,
   };
 }
 

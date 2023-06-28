@@ -73,7 +73,7 @@ interface ActivitiesSectionProps {
       };
       paragraph4Img: {
         fields: {
-          description?: string;
+          description: string;
           file: {
             url: string;
             details: {

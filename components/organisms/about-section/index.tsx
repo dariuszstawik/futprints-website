@@ -44,7 +44,7 @@ const AboutSection = ({
             width={img?.fields?.file?.details?.image?.width}
             height={img?.fields?.file?.details?.image?.height}
             className="rounded-lg"
-            alt={img?.fields.description ? img?.fields.description : ""}
+            alt={img?.fields?.description ? img?.fields.description : ""}
           />
         </div>
       </Fade>

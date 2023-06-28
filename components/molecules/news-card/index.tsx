@@ -35,7 +35,7 @@ const NewsCard = ({ title, content, slug, img }: NewsCardProps) => {
           src={img ? `https:${img.fields.file.url}` : ""}
           width={img?.fields?.file?.details?.image?.width}
           height={img?.fields?.file?.details?.image?.height}
-          alt={img?.fields.description ? img.fields.description : ""}
+          alt={img?.fields?.description ? img.fields.description : ""}
         />
         <div className=" h-6 bg-green-800" />
       </div>
