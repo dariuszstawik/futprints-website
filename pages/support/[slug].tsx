@@ -74,6 +74,7 @@ const SupportArticle = ({ support1 }) => {
             : documentToReactComponents(support1.fields.textPl)
         }
         img={support1.fields.icon ? support1.fields.icon : ""}
+        gallery={support1.fields.gallery ? support1.fields.gallery : ""}
         hasIcon
       ></SingleArticle>
     </Container>
