@@ -17,7 +17,7 @@ interface HeaderProps {
       buttonEn: string;
       images: {
         fields: {
-          description: string;
+          description?: string;
           file: {
             url: string;
             details: {

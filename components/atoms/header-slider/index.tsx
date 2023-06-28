@@ -7,7 +7,7 @@ import "react-awesome-slider/dist/styles.css";
 interface HeaderSliderProps {
   images: {
     fields: {
-      description: string;
+      description?: string;
       file: {
         url: string;
         details: {

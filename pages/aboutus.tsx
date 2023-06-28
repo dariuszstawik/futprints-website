@@ -34,6 +34,7 @@ interface AboutusProps {
       paragraph4TextEn: React.ReactNode;
       paragraph1Img: {
         fields: {
+          description?: string;
           file: {
             url: string;
             details: {
@@ -47,6 +48,7 @@ interface AboutusProps {
       };
       paragraph2Img: {
         fields: {
+          description?: string;
           file: {
             url: string;
             details: {
@@ -60,6 +62,7 @@ interface AboutusProps {
       };
       paragraph3Img: {
         fields: {
+          description?: string;
           file: {
             url: string;
             details: {
@@ -73,6 +76,7 @@ interface AboutusProps {
       };
       paragraph4Img: {
         fields: {
+          description?: string;
           file: {
             url: string;
             details: {
@@ -97,6 +101,7 @@ interface AboutusProps {
       textEn: React.ReactNode;
       icon: {
         fields: {
+          description?: string;
           file: {
             url: string;
             details: {
@@ -120,6 +125,7 @@ interface AboutusProps {
       descriptionEn: React.ReactNode;
       image: {
         fields: {
+          description?: string;
           file: {
             url: string;
             details: {
@@ -174,6 +180,7 @@ interface AboutusProps {
     paragraph4TextEn: React.ReactNode;
     paragraph1Img: {
       fields: {
+        description?: string;
         file: {
           url: string;
           details: {
@@ -187,6 +194,7 @@ interface AboutusProps {
     };
     paragraph2Img: {
       fields: {
+        description?: string;
         file: {
           url: string;
           details: {
@@ -200,6 +208,7 @@ interface AboutusProps {
     };
     paragraph3Img: {
       fields: {
+        description?: string;
         file: {
           url: string;
           details: {
@@ -213,6 +222,7 @@ interface AboutusProps {
     };
     paragraph4Img: {
       fields: {
+        description?: string;
         file: {
           url: string;
           details: {

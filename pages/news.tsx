@@ -17,6 +17,7 @@ interface NewsProps {
       contentEn: React.ReactNode;
       image: {
         fields: {
+          description?: string;
           file: {
             url: string;
             details: {

@@ -21,6 +21,7 @@ interface ContactProps {
       textFieldPl: React.ReactNode;
       textFirldEn: React.ReactNode;
       image: {
+        description?: string;
         fields: {
           file: {
             url: string;

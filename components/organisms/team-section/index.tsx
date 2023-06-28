@@ -15,6 +15,7 @@ interface TeamSectionProps {
       descriptionEn: React.ReactNode;
       image: {
         fields: {
+          description?: string;
           file: {
             url: string;
             details: {

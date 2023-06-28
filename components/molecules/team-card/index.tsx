@@ -9,7 +9,7 @@ interface TeamCardProps {
   description: Document;
   image?: {
     fields: {
-      description: string;
+      description?: string;
       file: {
         url: string;
         details: {

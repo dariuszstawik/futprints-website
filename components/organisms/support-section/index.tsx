@@ -18,7 +18,7 @@ interface SupportSectionProps {
       textEn: React.ReactNode;
       icon: {
         fields: {
-          description: string;
+          description?: string;
           file: {
             url: string;
             details: {

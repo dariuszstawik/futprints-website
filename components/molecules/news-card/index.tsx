@@ -10,7 +10,7 @@ interface NewsCardProps {
   slug: string;
   img?: {
     fields: {
-      description: string;
+      description?: string;
       file: {
         url: string;
         details: {

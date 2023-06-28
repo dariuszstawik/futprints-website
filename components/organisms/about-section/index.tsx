@@ -11,7 +11,7 @@ interface AboutSectionProps {
   content: React.ReactNode;
   img?: {
     fields: {
-      description: string;
+      description?: string;
       file: {
         url: string;
         details: {

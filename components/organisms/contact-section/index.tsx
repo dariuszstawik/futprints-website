@@ -16,7 +16,7 @@ interface ContactSectionProps {
   email: string;
   img: {
     fields: {
-      description: string;
+      description?: string;
       file: {
         url: string;
         details: {

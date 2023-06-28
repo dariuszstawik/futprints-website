@@ -45,7 +45,7 @@ interface InformationForForeignersProps {
       answer7En: React.ReactNode;
       image: {
         fields: {
-          description: string;
+          description?: string;
           file: {
             url: string;
             details: {

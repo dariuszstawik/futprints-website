@@ -14,6 +14,7 @@ interface SupportProps {
       textEn: React.ReactNode;
       icon: {
         fields: {
+          description?: string;
           file: {
             url: string;
             details: {

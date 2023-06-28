@@ -13,6 +13,7 @@ const Fade = require("react-reveal/Fade");
 
 export interface ImageProps {
   fields: {
+    description?: string;
     file: {
       url: string;
       details: {
@@ -49,6 +50,7 @@ interface HomeProps {
       paragraph4TextEn: React.ReactNode;
       paragraph1Img: {
         fields: {
+          description?: string;
           file: {
             url: string;
             details: {
@@ -62,6 +64,7 @@ interface HomeProps {
       };
       paragraph2Img: {
         fields: {
+          description?: string;
           file: {
             url: string;
             details: {
@@ -75,6 +78,7 @@ interface HomeProps {
       };
       paragraph3Img: {
         fields: {
+          description?: string;
           file: {
             url: string;
             details: {
@@ -88,6 +92,7 @@ interface HomeProps {
       };
       paragraph4Img: {
         fields: {
+          description?: string;
           file: {
             url: string;
             details: {
@@ -111,6 +116,7 @@ interface HomeProps {
       textEn: React.ReactNode;
       icon: {
         fields: {
+          description?: string;
           file: {
             url: string;
             details: {
@@ -136,6 +142,7 @@ interface HomeProps {
       buttonEn: string;
       images: {
         fields: {
+          description?: string;
           file: {
             url: string;
             details: {
@@ -160,6 +167,7 @@ interface HomeProps {
       contentEn: React.ReactNode;
       image: {
         fields: {
+          description?: string;
           file: {
             url: string;
             details: {

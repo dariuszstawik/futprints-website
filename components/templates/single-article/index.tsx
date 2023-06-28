@@ -13,7 +13,7 @@ interface SingleArticleProps {
   gallery?: Asset[];
   img?: {
     fields: {
-      description: string;
+      description?: string;
       file: {
         url: string;
         details: {
