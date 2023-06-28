@@ -61,8 +61,6 @@ const SingleNews = ({ news }) => {
   const { lang } = useContext(RootContext);
 
   const { titlePl, leadPl, contentPl, image } = news.fields;
-  console.log(image);
-  console.log("Wyśietlam w single news" + news);
 
   return (
     <Container>

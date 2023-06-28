@@ -23,8 +23,9 @@ const Layout = ({ children, footer }: LayoutProps) => {
     if (
       !process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID ||
       !process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_KEY
-    )
+    ) {
       console.log("nie ma danych z envów");
+    }
 
     const client = createClient({
       space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -42,16 +43,10 @@ const Layout = ({ children, footer }: LayoutProps) => {
       });
   }, []);
 
-  // console.log(data[0]?.fields.taglineEn ? data[0].fields.taglineEn : "");
-
   if (data) {
     tagline =
       lang === "en" ? data[0].fields.taglineEn : data[0].fields.taglinePl;
   }
-
-  // tagline = data ? data[0].fields.taglinePl : "";
-
-  // tagline = lang === "en" ? data[0].fields.taglineEn : data[0].fields.taglinePl;
 
   return (
     <>

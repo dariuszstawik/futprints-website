@@ -15,8 +15,7 @@ const Footer = ({ tagline }) => {
       behavior: "smooth",
     });
   };
-  console.log("wyśwetlam tagline w footer");
-  console.log(tagline);
+
   return (
     <footer aria-label="Site Footer" className="bg-primaryGray">
       <div className="relative mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:pt-24">

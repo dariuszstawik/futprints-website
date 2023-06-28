@@ -5,7 +5,8 @@ import PhoneIcon from "@/components/atoms/phone-icon";
 import SectionTitle from "@/components/atoms/section-title";
 import Image from "next/image";
 import React from "react";
-import Fade from "react-reveal/Fade";
+// import Fade from "react-reveal/Fade";
+const Fade = require("react-reveal/Fade");
 
 interface ContactSectionProps {
   title: string;
@@ -69,7 +70,6 @@ const ContactSection = ({
             <EmailIcon />
             {email}
           </p>
-          {/* <SectionParagraph>{content}</SectionParagraph> */}
         </div>
       </div>
     </div>

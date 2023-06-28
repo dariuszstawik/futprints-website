@@ -22,8 +22,6 @@ interface TeamCardProps {
 }
 
 const TeamCard = ({ name, position, description, image }: TeamCardProps) => {
-  console.log("description w teamCard" + description);
-  console.log(description);
   return (
     <div className="p-4 border rounded">
       <Image

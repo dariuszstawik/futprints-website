@@ -60,9 +60,6 @@ const Article = ({ article }) => {
 
   const { titlePl, leadPl, contentPl, image, gallery } = article.fields;
 
-  console.log("artykuł z galerią" + article);
-  console.log(article);
-
   const options = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node) => {

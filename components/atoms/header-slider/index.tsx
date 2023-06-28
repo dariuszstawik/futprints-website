@@ -22,7 +22,6 @@ interface HeaderSliderProps {
 
 const HeaderSlider = ({ images }: HeaderSliderProps) => {
   const AutoplaySlider = withAutoplay(AwesomeSlider);
-  console.log(images);
   return (
     <div className="w-full lg:w-7/12 mx-0 overflow-hidden">
       <AutoplaySlider

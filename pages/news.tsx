@@ -52,8 +52,6 @@ export async function getStaticProps() {
 
 const News = ({ news }: NewsProps) => {
   const { lang } = useContext(RootContext);
-  console.log("wyświetlam news:" + news);
-  console.log(news);
 
   return (
     <div>

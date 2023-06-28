@@ -12,7 +12,7 @@ export async function getInitialProps() {
   });
 
   const res = await client.getEntries({ content_type: "footer" });
-  console.log("--------------", res);
+
   return {
     props: {
       footer: res.items,
@@ -25,7 +25,6 @@ export default function App({
   pageProps,
   footer,
 }: AppProps & { footer: any }) {
-  console.log("-----" + footer);
   const [isMobileMenuActive, setIsMobileMenuActive] = useState(false);
 
   const [lang, setLang] = useState("pl");

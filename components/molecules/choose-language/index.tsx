@@ -13,14 +13,6 @@ const ChooseLanguage = ({
 }: ChooseLanguageProps) => {
   const { lang, changeLang } = useContext(RootContext);
 
-  // const handleLangForm = (e) => {
-  //   e.preventDefault();
-
-  //   const langValue = e.target.value;
-
-  //   changeLang(langValue);
-  // };
-
   return (
     <div
       className={`absolute w-full top-full left-0 border rounded ${

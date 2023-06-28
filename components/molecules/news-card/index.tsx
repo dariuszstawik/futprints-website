@@ -25,10 +25,6 @@ interface NewsCardProps {
 
 const NewsCard = ({ title, content, slug, img }: NewsCardProps) => {
   const { lang } = useContext(RootContext);
-  console.log("typ title:" + typeof title);
-  console.log("typ content:" + typeof content);
-  console.log("typ slug:" + typeof slug);
-  console.log("typ img:" + typeof img);
 
   return (
     <div className="max-w-xl mx-auto transition duration-300 transform bg-primaryGray border rounded shadow-sm hover:-translate-y-1 hover:shadow md:text-center flex">

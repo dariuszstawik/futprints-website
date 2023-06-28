@@ -30,8 +30,6 @@ export async function getStaticProps({ params }) {
     "fields.slug": params.slug,
   });
 
-  console.log(params);
-
   return {
     props: { activity: items[0] },
   };
