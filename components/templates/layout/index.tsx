@@ -15,43 +15,49 @@ interface LayoutProps {
 const Layout = ({ children, footer }: LayoutProps) => {
   const { lang } = useContext(RootContext);
 
-  const [data, setData] = useState();
+  // const [data, setData] = useState();
 
-  let tagline;
+  let tagline = "abc";
 
-  useEffect(() => {
-    if (
-      !process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID ||
-      !process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_KEY
-    )
-      console.log("nie ma danych z envów");
+  // useEffect(() => {
+  //   console.log("in use effect start");
 
-    const client = createClient({
-      space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-      accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_KEY,
-    });
+  //   if (!process.env.CONTENTFUL_SPACE_ID || !process.env.CONTENTFUL_ACCESS_KEY)
+  //     return;
+  //   console.log(
+  //     "in use effect start2",
+  //     process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID
+  //   );
+  //   console.log(
+  //     "in use effect start2",
+  //     process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_KEY
+  //   );
 
-    client
-      .getEntries({ content_type: "footer" })
-      .then((res) => {
-        setData(res.items);
-        console.log("in use effect", res.items[0]);
-      })
-      .catch((e) => {
-        console.log("ERRORR", e);
-      });
-  }, []);
+  //   const client = createClient({
+  //     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+  //     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_KEY,
+  //   });
 
-  // console.log(data[0]?.fields.taglineEn ? data[0].fields.taglineEn : "");
-
-  if (data) {
-    tagline =
-      lang === "en" ? data[0].fields.taglineEn : data[0].fields.taglinePl;
-  }
-
-  // tagline = data ? data[0].fields.taglinePl : "";
+  //   client
+  //     .getEntries({ content_type: "footer" })
+  //     .then((res) => {
+  //       setData(res.items);
+  //       console.log("in use effect", res);
+  //     })
+  //     .catch((e) => {
+  //       console.log("ERRORR", e);
+  //     });
+  //   tagline = data ? data[0].fields.taglinePl : "nie ma daty";
+  // }, []);
 
   // tagline = lang === "en" ? data[0].fields.taglineEn : data[0].fields.taglinePl;
+
+  // console.log("wyświetlam w layout 2");
+  // console.log(tagline);
+
+  // let tagline;
+
+  // let tagline = data ? data[0].fields.taglinePl : "nie ma daty";
 
   return (
     <>
