@@ -33,20 +33,20 @@ interface HeaderProps {
   }[];
 }
 
-export async function getStaticProps() {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-  });
+// export async function getStaticProps() {
+//   const client = createClient({
+//     space: process.env.CONTENTFUL_SPACE_ID,
+//     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+//   });
 
-  const res = await client.getEntries({ content_type: "slider" });
+//   const res = await client.getEntries({ content_type: "slider" });
 
-  return {
-    props: {
-      slider: res.items,
-    },
-  };
-}
+//   return {
+//     props: {
+//       slider: res.items,
+//     },
+//   };
+// }
 
 const Header = ({ slider }: HeaderProps) => {
   const {

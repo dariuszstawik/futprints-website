@@ -34,20 +34,20 @@ interface SupportSectionProps {
   };
 }
 
-export async function getStaticProps() {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-  });
+// export async function getStaticProps() {
+//   const client = createClient({
+//     space: process.env.CONTENTFUL_SPACE_ID,
+//     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+//   });
 
-  const res = await client.getEntries({ content_type: "support1" });
+//   const res = await client.getEntries({ content_type: "support1" });
 
-  return {
-    props: {
-      support1: res.items,
-    },
-  };
-}
+//   return {
+//     props: {
+//       support1: res.items,
+//     },
+//   };
+// }
 
 const SupportSection = ({ support1 }: SupportSectionProps) => {
   const { lang } = useContext(RootContext);
