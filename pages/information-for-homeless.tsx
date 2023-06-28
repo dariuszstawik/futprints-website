@@ -79,6 +79,7 @@ export async function getStaticProps() {
     props: {
       informationForHomeless: res.items,
     },
+    revalidate: 10,
   };
 }
 

@@ -53,6 +53,7 @@ export async function getStaticProps() {
     props: {
       partnership: res.items,
     },
+    revalidate: 10,
   };
 }
 

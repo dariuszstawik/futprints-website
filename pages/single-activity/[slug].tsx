@@ -24,7 +24,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -34,12 +34,25 @@ export async function getStaticProps({ params }) {
     "fields.slug": params.slug,
   });
 
+  if (!items.length) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
   return {
     props: { activity: items[0] },
+    revalidate: 10,
   };
 }
 
 const singleActivity = ({ activity }) => {
+
+  if (!activity) return <div>No such address</div>;
+
   const { lang } = useContext(RootContext);
 
   //   const {

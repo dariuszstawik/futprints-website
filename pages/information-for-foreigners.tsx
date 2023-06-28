@@ -78,6 +78,7 @@ export async function getStaticProps() {
     props: {
       informationForForeigners: res.items,
     },
+    revalidate: 10,
   };
 }
 

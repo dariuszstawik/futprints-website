@@ -33,7 +33,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -43,12 +43,25 @@ export async function getStaticProps({ params }) {
     "fields.slug": params.slug,
   });
 
+  if (!items.length) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
   return {
     props: { support1: items[0] },
+    revalidate: 10,
   };
 }
 
 const SupportArticle = ({ support1 }) => {
+
+  if (!support1) return <div>No such address</div>;
+  
   const { lang } = useContext(RootContext);
   console.log(support1.fields.textPl);
 

@@ -1,7 +1,5 @@
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BLOCKS } from "@contentful/rich-text-types"; // Add this import
-
 import SingleArticle from "@/components/templates/single-article";
 import Container from "@/components/atoms/container";
 import PageHeader from "@/components/molecules/page-header";
@@ -22,7 +20,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -32,12 +30,26 @@ export async function getStaticProps({ params }) {
     "fields.slug": params.slug,
   });
 
+  if (!items.length) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
   return {
     props: { article: items[0] },
+    revalidate: 10,
   };
+  
 }
 
 const Article = ({ article }) => {
+
+  if (!article) return <div>No such address</div>;
+
   const { lang } = useContext(RootContext);
 
   const { titlePl, leadPl, contentPl, image, gallery } = article.fields;

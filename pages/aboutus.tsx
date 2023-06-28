@@ -261,6 +261,7 @@ export async function getStaticProps() {
       documents: res4.items,
       aboutUs: res5.items,
     },
+    revalidate: 10,
   };
 }
 
