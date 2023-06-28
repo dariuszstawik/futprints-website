@@ -8,27 +8,9 @@ import PageHeader from "@/components/molecules/page-header";
 import RootContext from "@/context/RootContext";
 import { useContext } from "react";
 
-// const client = createClient({
-//   space: process.env.CONTENTFUL_SPACE_ID,
-//   accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-// });
-
-// if (!process.env.CONTENTFUL_SPACE_ID || !process.env.CONTENTFUL_ACCESS_KEY) {
-//   throw Error("Env variable error");
-// }
-
-// if (
-//   !process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID ||
-//   !process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_KEY
-// ) {
-//   throw Error("Env variable error");
-// }
-
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-  // space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-  // accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_KEY,
 });
 
 export const getStaticPaths = async () => {
@@ -60,25 +42,13 @@ const Article = ({ article }) => {
 
   const { titlePl, leadPl, contentPl, image, gallery } = article.fields;
 
-  const options = {
-    renderNode: {
-      [BLOCKS.EMBEDDED_ASSET]: (node) => {
-        const { title, description, file } = node.data.target.fields;
-        const imageUrl = file.url;
-        const imageAlt = title || description || "Image";
-
-        return <img src={imageUrl} alt={imageAlt} />;
-      },
-    },
-  };
-
   return (
     <Container>
       <PageHeader>{lang === "en" ? "Article" : "Artykuł"}</PageHeader>
       <SingleArticle
         title={titlePl}
         lead={leadPl}
-        content={documentToReactComponents(contentPl, options)} // Use the options for rendering
+        content={documentToReactComponents(contentPl)}
         img={article.fields.image ? article.fields.image : ""}
         gallery={article.fields.gallery ? article.fields.gallery : ""}
       />

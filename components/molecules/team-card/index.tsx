@@ -1,13 +1,15 @@
 import React from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Image from "next/image";
+import { Document } from "@contentful/rich-text-types";
 
 interface TeamCardProps {
   name: string;
   position: string;
-  description: React.ReactNode;
+  description: Document;
   image?: {
     fields: {
+      description: string;
       file: {
         url: string;
         details: {
@@ -31,14 +33,14 @@ const TeamCard = ({ name, position, description, image }: TeamCardProps) => {
             ? "https:" + image.fields.file.url
             : "User.svg"
         }
-        alt="Person"
+        alt={image?.fields.description ? image?.fields.description : "Person"}
         width={
-          image.fields?.file?.details?.image?.width
+          image?.fields?.file?.details?.image?.width
             ? image.fields.file.details.image.width
             : 24
         }
         height={
-          image.fields?.file?.details?.image?.height
+          image?.fields?.file?.details?.image?.height
             ? image.fields?.file?.details?.image?.height
             : 24
         }

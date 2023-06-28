@@ -16,6 +16,7 @@ interface ContactSectionProps {
   email: string;
   img: {
     fields: {
+      description: string;
       file: {
         url: string;
         details: {
@@ -46,7 +47,7 @@ const ContactSection = ({
             width={img.fields.file.details.image.width}
             height={img.fields.file.details.image.height}
             className="rounded-lg"
-            alt=""
+            alt={img.fields.description ? img.fields.description : ""}
           />
         </div>
       </Fade>

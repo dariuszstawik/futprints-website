@@ -11,6 +11,7 @@ interface AboutSectionProps {
   content: React.ReactNode;
   img?: {
     fields: {
+      description: string;
       file: {
         url: string;
         details: {
@@ -39,11 +40,11 @@ const AboutSection = ({
       <Fade left>
         <div className="w-[700px] shrink-0">
           <Image
-            src={img.fields?.file?.url ? "https:" + img.fields.file.url : ""}
-            width={img.fields?.file?.details?.image?.width}
-            height={img.fields?.file?.details?.image?.height}
+            src={img?.fields?.file?.url ? "https:" + img.fields.file.url : ""}
+            width={img?.fields?.file?.details?.image?.width}
+            height={img?.fields?.file?.details?.image?.height}
             className="rounded-lg"
-            alt=""
+            alt={img?.fields.description ? img?.fields.description : ""}
           />
         </div>
       </Fade>

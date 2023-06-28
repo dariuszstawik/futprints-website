@@ -13,6 +13,7 @@ interface SingleArticleProps {
   gallery?: Asset[];
   img?: {
     fields: {
+      description: string;
       file: {
         url: string;
         details: {
@@ -42,16 +43,8 @@ const SingleArticle = ({
           <div className="my-10 bg-primary flex justify-center items-center relative w-full py-12 border rounded-lg">
             <Image
               src={img?.fields?.file?.url ? "https:" + img.fields.file.url : ""}
-              width={
-                img?.fields?.file?.details?.image?.width
-                  ? img.fields.file.details.image.width
-                  : ""
-              }
-              height={
-                img?.fields?.file?.details?.image?.height
-                  ? img.fields.file.details.image.height
-                  : ""
-              }
+              width={img?.fields?.file?.details?.image?.width}
+              height={img?.fields?.file?.details?.image?.height}
               className="w-44 border-white border-4 rounded-full p-8 z-10"
               alt=""
             />
@@ -62,7 +55,7 @@ const SingleArticle = ({
             width={img?.fields?.file?.details?.image?.width}
             height={img?.fields?.file?.details?.image?.height}
             className="w-full object-cover rounded-lg my-10"
-            alt=""
+            alt={img?.fields.description ? img?.fields.description : ""}
           />
         )}
       </div>

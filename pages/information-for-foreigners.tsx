@@ -128,7 +128,7 @@ const informationForForeigners = ({
       <div className="max-w-3xl mx-auto mt-10 mb-16">
         <TitleWithDevider>{titlePl}</TitleWithDevider>
         <Image
-          src={`https://${image.fields.file.url}`}
+          src={`https:${image.fields.file.url}`}
           width={image.fields?.file?.details?.image?.width}
           height={image.fields?.file?.details?.image?.height}
           alt={image.fields.description ? image.fields.description : ""}

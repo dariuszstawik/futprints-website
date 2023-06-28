@@ -46,6 +46,7 @@ interface InformationForHomelessProps {
       answer7En: React.ReactNode;
       image: {
         fields: {
+          description: string;
           file: {
             url: string;
             details: {
@@ -138,7 +139,7 @@ const informationForHomeless = ({
           width={image.fields?.file?.details?.image?.width}
           height={image.fields?.file?.details?.image?.height}
           className="w-full object-cover rounded-lg my-10"
-          alt=""
+          alt={image.fields.description ? image.fields.description : ""}
         />
         <ArticleLead>{lang === "en" && leadEn ? leadEn : leadPl}</ArticleLead>
         <Faq content={informationForHomeless}></Faq>

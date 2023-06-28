@@ -31,6 +31,7 @@ interface ActivitiesSectionProps {
       paragraph4TextEn: React.ReactNode;
       paragraph1Img: {
         fields: {
+          description: string;
           file: {
             url: string;
             details: {
@@ -44,6 +45,7 @@ interface ActivitiesSectionProps {
       };
       paragraph2Img: {
         fields: {
+          description: string;
           file: {
             url: string;
             details: {
@@ -57,6 +59,7 @@ interface ActivitiesSectionProps {
       };
       paragraph3Img: {
         fields: {
+          description: string;
           file: {
             url: string;
             details: {
@@ -70,6 +73,7 @@ interface ActivitiesSectionProps {
       };
       paragraph4Img: {
         fields: {
+          description: string;
           file: {
             url: string;
             details: {

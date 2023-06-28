@@ -18,6 +18,7 @@ interface SupportSectionProps {
       textEn: React.ReactNode;
       icon: {
         fields: {
+          description: string;
           file: {
             url: string;
             details: {
@@ -91,7 +92,11 @@ const SupportSection = ({ support1 }: SupportSectionProps) => {
                           height={
                             item.fields.icon.fields.file.details.image.height
                           }
-                          alt=""
+                          alt={
+                            item.fields.icon.fields.description
+                              ? item.fields.icon.fields.description
+                              : ""
+                          }
                         />
                         <span className="block">
                           {lang === "en" && item.fields.titleEn
