@@ -30,20 +30,20 @@ interface TeamSectionProps {
   };
 }
 
-// export async function getStaticProps() {
-//   const client = createClient({
-//     space: process.env.CONTENTFUL_SPACE_ID,
-//     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-//   });
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+  });
 
-//   const res = await client.getEntries({ content_type: "teamMembers" });
+  const res = await client.getEntries({ content_type: "teamMembers" });
 
-//   return {
-//     props: {
-//       teamMembers: res.items,
-//     },
-//   };
-// }
+  return {
+    props: {
+      teamMembers: res.items,
+    },
+  };
+}
 
 const TeamSection = ({ teamMembers }: TeamSectionProps) => {
   const { lang } = useContext(RootContext);
