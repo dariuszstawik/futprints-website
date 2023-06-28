@@ -33,7 +33,7 @@ const TeamCard = ({ name, position, description, image }: TeamCardProps) => {
             ? "https:" + image.fields.file.url
             : "User.svg"
         }
-        alt={image?.fields.description ? image?.fields.description : "Person"}
+        alt={image?.fields?.description ? image.fields.description : "Person"}
         width={
           image?.fields?.file?.details?.image?.width
             ? image.fields.file.details.image.width
