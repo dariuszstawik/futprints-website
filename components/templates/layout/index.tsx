@@ -23,8 +23,10 @@ const Layout = ({ children, footer }: LayoutProps) => {
     if (
       !process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID ||
       !process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_KEY
-    )
+    ) {
       console.log("nie ma danych z envów");
+      return;
+    }
 
     const client = createClient({
       space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
