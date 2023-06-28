@@ -7,6 +7,7 @@ import "react-awesome-slider/dist/styles.css";
 interface HeaderSliderProps {
   images: {
     fields: {
+      description: string;
       file: {
         url: string;
         details: {
@@ -22,6 +23,9 @@ interface HeaderSliderProps {
 
 const HeaderSlider = ({ images }: HeaderSliderProps) => {
   const AutoplaySlider = withAutoplay(AwesomeSlider);
+
+  console.log(images);
+
   return (
     <div className="w-full lg:w-7/12 mx-0 overflow-hidden">
       <AutoplaySlider
@@ -44,7 +48,7 @@ const HeaderSlider = ({ images }: HeaderSliderProps) => {
                 }
                 width={image.fields.file.details.image.width}
                 height={image.fields.file.details.image.height}
-                alt=""
+                alt={image.fields.description ? image.fields.description : ""}
               />
             </div>
           );

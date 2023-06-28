@@ -6,6 +6,7 @@ import { Faq } from "@/components/organisms/faq";
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import React from "react";
+import Image from "next/image";
 
 interface InformationForForeignersProps {
   informationForForeigners: {
@@ -44,6 +45,7 @@ interface InformationForForeignersProps {
       answer7En: React.ReactNode;
       image: {
         fields: {
+          description: string;
           file: {
             url: string;
             details: {
@@ -118,17 +120,20 @@ const informationForForeigners = ({
     answer7En,
   } = informationForForeigners[0].fields;
 
+  console.log(image);
+
   return (
     <Container>
       <PageHeader>Information for foreigners</PageHeader>
       <div className="max-w-3xl mx-auto mt-10 mb-16">
         <TitleWithDevider>{titlePl}</TitleWithDevider>
-        <img
+        <Image
           src={`https://${image.fields.file.url}`}
           width={image.fields?.file?.details?.image?.width}
           height={image.fields?.file?.details?.image?.height}
+          alt={image.fields.description ? image.fields.description : ""}
           className="w-full object-cover rounded-lg my-10"
-        ></img>
+        />
         <ArticleLead>{leadPl}</ArticleLead>
         <Faq content={informationForForeigners}></Faq>
       </div>

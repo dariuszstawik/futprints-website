@@ -10,6 +10,7 @@ interface NewsCardProps {
   slug: string;
   img?: {
     fields: {
+      description: string;
       file: {
         url: string;
         details: {
@@ -32,17 +33,9 @@ const NewsCard = ({ title, content, slug, img }: NewsCardProps) => {
         <Image
           className="object-cover h-48 rounded-t lg:h-48 xl:h-56"
           src={img ? `https:${img.fields.file.url}` : ""}
-          width={
-            img?.fields?.file?.details?.image?.width
-              ? img.fields.file.details.image.width
-              : ""
-          }
-          height={
-            img?.fields?.file?.details?.image?.height
-              ? img.fields.file.details.image.height
-              : ""
-          }
-          alt=""
+          width={img?.fields?.file?.details?.image?.width}
+          height={img?.fields?.file?.details?.image?.height}
+          alt={img?.fields.description ? img.fields.description : ""}
         />
         <div className=" h-6 bg-green-800" />
       </div>

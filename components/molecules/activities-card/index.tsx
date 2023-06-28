@@ -21,7 +21,7 @@ const ActivitiesCard = ({ title, img, href }: ActivitiesCardProps) => {
           src={img.fields?.file?.url ? "https:" + img.fields.file.url : ""}
           width={img.fields?.file?.details?.image?.width}
           height={img.fields?.file?.details?.image?.height}
-          alt=""
+          alt={img.fields.description ? img.fields.description : ""}
         />
         <div className="w-full h-6 bg-green-800" />
       </div>
