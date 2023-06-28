@@ -44,16 +44,13 @@ const Layout = ({ children, footer }: LayoutProps) => {
       });
   }, []);
 
-  // console.log(data[0]?.fields.taglineEn ? data[0].fields.taglineEn : "");
-
   if (data) {
     tagline =
       lang === "en" ? data[0].fields.taglineEn : data[0].fields.taglinePl;
+  } else {
+    tagline =
+      lang === "en" ? "We invite you to the Community Center in Katowice, you can find us at 5 Kordeckiego Street." : "Zapraszamy do Centrum Społecznościowego w Katowicach, znajdziecie nas przy ul. Kordeckiego 5."
   }
-
-  // tagline = data ? data[0].fields.taglinePl : "";
-
-  // tagline = lang === "en" ? data[0].fields.taglineEn : data[0].fields.taglinePl;
 
   return (
     <>

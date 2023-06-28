@@ -80,7 +80,7 @@ const NewsSection = ({ content, isHomepage }: NewsSectionProps) => {
   };
 
   return (
-    <div className="mt-10 mb-28">
+    <div className="mt-10 mb-16">
       <div className="min-w-96 max-w-[800px] mx-auto my-6 flex flex-col items-center">
         <SectionTitle>
           {isHomepage ? newsSectionHomepageTitle : newsSectionTitle}
