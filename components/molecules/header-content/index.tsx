@@ -26,9 +26,14 @@ const HeaderContent = ({
       </HeaderTitle>
       <Divider />
       <HeaderParagraph>{description}</HeaderParagraph>
-      <Link href="/aboutus">
-        <Button>{lang === "en" ? "Get to know us" : "Poznaj nas"}</Button>
-      </Link>
+      <div className="flex gap-6">
+        <Link href="https://www.facebook.com/futprintspl">
+          <img src="facebook.svg" className="w-11" />
+        </Link>
+        <Link href="/aboutus">
+          <Button>{lang === "en" ? "Get to know us" : "Poznaj nas"}</Button>
+        </Link>
+      </div>
     </div>
   );
 };

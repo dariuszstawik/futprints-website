@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useContext } from "react";
 import { navLinksData } from "./navlinksData";
 import RootContext from "@/context/RootContext";
+import { useRouter } from "next/router";
 
 interface NavlinksProps {
   closeMobileMenu: () => void;
@@ -11,6 +12,9 @@ interface NavlinksProps {
 
 const Navlinks = ({ isVisible, closeMobileMenu }: NavlinksProps) => {
   const { lang } = useContext(RootContext);
+
+  const router = useRouter();
+
   return (
     <ul
       className={
@@ -20,10 +24,14 @@ const Navlinks = ({ isVisible, closeMobileMenu }: NavlinksProps) => {
       }
     >
       {navLinksData.map((navlink, i) => {
+        const isActive = router.pathname === navlink.path;
+
         return (
           <li key={i}>
             <Link
-              className="text-sm xl:text-lg text-neutral-600"
+              className={`text-sm xl:text-lg text-neutral-600 ${
+                isActive ? "text-primary" : ""
+              }`}
               href={navlink.path}
               onClick={closeMobileMenu}
             >
