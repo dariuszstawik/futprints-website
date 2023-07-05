@@ -1,12 +1,10 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
-
 import Container from "@/components/atoms/container";
 import Header from "@/components/organisms/header";
 import ActivitiesSection from "@/components/organisms/activities-section";
 import SupportSection from "@/components/organisms/support-section";
 import NewsSection from "@/components/organisms/news-section";
-
 import CtaSection from "@/components/organisms/cta-section";
 import { createClient } from "contentful";
 const Fade = require("react-reveal/Fade");
@@ -105,7 +103,7 @@ interface HomeProps {
         };
       };
     };
-  };
+  }[];
   support1: {
     fields: {
       titlePl: string;
@@ -129,7 +127,7 @@ interface HomeProps {
         };
       };
     };
-  };
+  }[];
   slider: {
     fields: {
       titlePl: string;

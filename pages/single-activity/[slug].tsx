@@ -54,18 +54,6 @@ const singleActivity = ({ activity }) => {
 
   const { lang } = useContext(RootContext);
 
-  //   const {
-  //     paragraph1TitlePl,
-  //     paragraph2TitlePl,
-  //     paragraph3TitlePl,
-  //     paragraph1TextPl,
-  //     paragraph2TextPl,
-  //     paragraph3TextPl,
-  //     paragraph1Img,
-  //     paragraph2Img,
-  //     paragraph3Img,
-  //   } = activity.fields;
-
   return (
     <Container>
       <PageHeader>

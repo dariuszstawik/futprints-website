@@ -2,17 +2,17 @@ import Divider from "@/components/atoms/divider";
 import SectionTitle from "@/components/atoms/section-title";
 import ActivitiesCard from "@/components/molecules/activities-card";
 import React, { useContext } from "react";
-// import Fade from "react-reveal/Fade";
 const Fade = require("react-reveal/Fade");
-import { createClient } from "contentful";
 import RootContext from "@/context/RootContext";
+import { Asset } from "contentful";
 
 interface ActivitiesSectionProps {
   activities: {
     fields: {
-      button: string;
-      buttonEn: string;
+      titleEn: string;
+      titlePl: string;
       slug: string;
+      thumbnail: Asset | undefined;
       paragraph1TitlePl: string;
       paragraph1TitleEn: string;
       paragraph2TitlePl: string;
@@ -86,23 +86,8 @@ interface ActivitiesSectionProps {
         };
       };
     };
-  };
+  }[];
 }
-
-// export async function getStaticProps() {
-//   const client = createClient({
-//     space: process.env.CONTENTFUL_SPACE_ID,
-//     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-//   });
-
-//   const res = await client.getEntries({ content_type: "activities" });
-
-//   return {
-//     props: {
-//       activities: res.items,
-//     },
-//   };
-// }
 
 const ActivitiesSection = ({ activities }: ActivitiesSectionProps) => {
   const { lang } = useContext(RootContext);

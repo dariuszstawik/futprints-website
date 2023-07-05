@@ -27,7 +27,7 @@ interface FaqProps {
     answer2En: React.ReactNode;
     answer3En: React.ReactNode;
     answer4En: React.ReactNode;
-  };
+  }[];
 }
 
 const Item = ({ question, children }: ItemProps) => {

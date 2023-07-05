@@ -1,15 +1,15 @@
 import Divider from "@/components/atoms/divider";
 import SectionTitle from "@/components/atoms/section-title";
 import React, { useContext } from "react";
-import Slide from "react-reveal/Slide";
-import { createClient } from "contentful";
 import Link from "next/link";
 import RootContext from "@/context/RootContext";
 import Image from "next/image";
+const Slide = require("react-reveal/Slide");
 
 interface SupportSectionProps {
   support1: {
     fields: {
+      slug: string;
       titlePl: string;
       titleEn: string;
       leadPl: string;
@@ -31,29 +31,11 @@ interface SupportSectionProps {
         };
       };
     };
-  };
+  }[];
 }
-
-// export async function getStaticProps() {
-//   const client = createClient({
-//     space: process.env.CONTENTFUL_SPACE_ID,
-//     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-//   });
-
-//   const res = await client.getEntries({ content_type: "support1" });
-
-//   return {
-//     props: {
-//       support1: res.items,
-//     },
-//   };
-// }
 
 const SupportSection = ({ support1 }: SupportSectionProps) => {
   const { lang } = useContext(RootContext);
-
-  // const { titlePl, titleEn, icon, leadPl, leadEn, textPl, textEn } =
-  //   support1.fields;
 
   return (
     <div
@@ -76,11 +58,11 @@ const SupportSection = ({ support1 }: SupportSectionProps) => {
                   return (
                     <li key={i}>
                       <Link
-                        className="w-80 block flex flex-col items-center text-xl font-medium text-white"
+                        className="w-80 flex flex-col items-center text-xl font-medium text-white"
                         href={`/support/${item.fields.slug}`}
                       >
                         <Image
-                          className="w-44 mb-6 mt-12 border border-white border-4 rounded-full p-8"
+                          className="w-44 mb-6 mt-12 border-white border-4 rounded-full p-8"
                           src={
                             item.fields.icon
                               ? item.fields.icon.fields.file.url

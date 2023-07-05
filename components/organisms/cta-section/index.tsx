@@ -1,7 +1,6 @@
 import RootContext from "@/context/RootContext";
 import Link from "next/link";
 import React, { useContext } from "react";
-// import Slide from "react-reveal/Slide";
 const Slide = require("react-reveal/Slide");
 
 const CtaSection = () => {

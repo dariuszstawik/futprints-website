@@ -5,7 +5,6 @@ import PhoneIcon from "@/components/atoms/phone-icon";
 import SectionTitle from "@/components/atoms/section-title";
 import Image from "next/image";
 import React from "react";
-// import Fade from "react-reveal/Fade";
 const Fade = require("react-reveal/Fade");
 
 interface ContactSectionProps {
@@ -53,7 +52,7 @@ const ContactSection = ({
       </Fade>
       <div className="ml-16 mr-16">
         <SectionTitle isAlignedLeft>{title}</SectionTitle>
-        <Divider isLeft />
+        <Divider/>
         <div className="flex flex-col gap-4 my-6">
           <p>
             <AddressIcon />

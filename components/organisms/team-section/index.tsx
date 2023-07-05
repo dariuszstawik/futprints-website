@@ -2,7 +2,6 @@ import Divider from "@/components/atoms/divider";
 import SectionTitle from "@/components/atoms/section-title";
 import TeamCard from "@/components/molecules/team-card";
 import React, { useContext } from "react";
-import { createClient } from "contentful";
 import RootContext from "@/context/RootContext";
 
 interface TeamSectionProps {
@@ -28,23 +27,8 @@ interface TeamSectionProps {
         };
       };
     };
-  };
+  }[];
 }
-
-// export async function getStaticProps() {
-//   const client = createClient({
-//     space: process.env.CONTENTFUL_SPACE_ID,
-//     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-//   });
-
-//   const res = await client.getEntries({ content_type: "teamMembers" });
-
-//   return {
-//     props: {
-//       teamMembers: res.items,
-//     },
-//   };
-// }
 
 const TeamSection = ({ teamMembers }: TeamSectionProps) => {
   const { lang } = useContext(RootContext);

@@ -4,7 +4,6 @@ import PageHeader from "@/components/molecules/page-header";
 import TitleWithDevider from "@/components/molecules/title-with-divider";
 import { Faq } from "@/components/organisms/faq";
 import { createClient } from "contentful";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import React from "react";
 import Image from "next/image";
 

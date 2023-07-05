@@ -3,7 +3,7 @@ import SectionParagraph from "@/components/atoms/section-paragraph/SectionParagr
 import SectionTitle from "@/components/atoms/section-title";
 import Image from "next/image";
 import React from "react";
-import Fade from "react-reveal/Fade";
+const Fade = require("react-reveal/Fade");
 
 interface AboutSectionProps {
   title: string;
@@ -56,7 +56,7 @@ const AboutSection = ({
         }
       >
         <SectionTitle isAlignedLeft>{title}</SectionTitle>
-        <Divider isLeft />
+        <Divider />
         <SectionParagraph>{content}</SectionParagraph>
       </div>
     </div>

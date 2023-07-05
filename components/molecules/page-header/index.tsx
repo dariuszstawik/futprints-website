@@ -1,5 +1,4 @@
 import HeaderTitle from "@/components/atoms/header-title";
-import SectionTitle from "@/components/atoms/section-title";
 import React from "react";
 
 const PageHeader = ({ children }: { children: string }) => {

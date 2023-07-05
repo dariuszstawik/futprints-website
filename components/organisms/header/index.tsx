@@ -1,6 +1,5 @@
 import HeaderSlider from "@/components/atoms/header-slider";
 import HeaderContent from "@/components/molecules/header-content";
-import { createClient } from "contentful";
 import { useContext } from "react";
 import RootContext from "@/context/RootContext";
 
@@ -32,21 +31,6 @@ interface HeaderProps {
     };
   }[];
 }
-
-// export async function getStaticProps() {
-//   const client = createClient({
-//     space: process.env.CONTENTFUL_SPACE_ID,
-//     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-//   });
-
-//   const res = await client.getEntries({ content_type: "slider" });
-
-//   return {
-//     props: {
-//       slider: res.items,
-//     },
-//   };
-// }
 
 const Header = ({ slider }: HeaderProps) => {
   const {

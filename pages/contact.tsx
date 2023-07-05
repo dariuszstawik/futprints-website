@@ -1,10 +1,6 @@
 import Container from "@/components/atoms/container";
-import GoogleMap from "@/components/molecules/google-map";
 import PageHeader from "@/components/molecules/page-header";
-import AboutSection from "@/components/organisms/about-section";
 import ContactSection from "@/components/organisms/contact-section";
-import Navbar from "@/components/organisms/navbar";
-import ArticleWithImages from "@/components/templates/article-with-images";
 import RootContext from "@/context/RootContext";
 import { createClient } from "contentful";
 import React, { useContext } from "react";
