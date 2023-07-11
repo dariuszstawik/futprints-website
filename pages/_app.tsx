@@ -12,7 +12,7 @@ export async function getInitialProps() {
   });
 
   const res = await client.getEntries({ content_type: "footer" });
-
+  console.log("FFFFFFFFFFFFFFFF", res);
   return {
     props: {
       footer: res.items,
@@ -48,9 +48,9 @@ export default function App({
         changeLang,
       }}
     >
-      <Layout footer={footer}>
-        <Component {...pageProps} />
-      </Layout>
+      {/* <Layout footer={footer}> */}
+      <Component {...pageProps} />
+      {/* </Layout> */}
     </RootContext.Provider>
   );
 }

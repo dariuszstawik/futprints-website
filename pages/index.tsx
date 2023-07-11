@@ -7,6 +7,8 @@ import SupportSection from "@/components/organisms/support-section";
 import NewsSection from "@/components/organisms/news-section";
 import CtaSection from "@/components/organisms/cta-section";
 import { createClient } from "contentful";
+import Layout from "@/components/templates/layout";
+
 const Fade = require("react-reveal/Fade");
 
 export interface ImageProps {
@@ -195,13 +197,15 @@ export async function getStaticProps() {
   const res2 = await client.getEntries({ content_type: "support1" });
   const res3 = await client.getEntries({ content_type: "slider" });
   const res4 = await client.getEntries({ content_type: "news" });
-
+  const resFooter = await client.getEntries({ content_type: "footer" });
+  // zmienić nazwy resów
   return {
     props: {
       activities: res.items,
       support1: res2.items,
       slider: res3.items,
       news: res4.items,
+      footer: resFooter.items,
     },
     revalidate: 10,
   };
@@ -214,6 +218,7 @@ export default function Home({
   support1,
   slider,
   news,
+  footer,
 }: HomeProps) {
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
@@ -225,8 +230,9 @@ export default function Home({
     });
   };
 
+  console.log(footer);
   return (
-    <>
+    <Layout footer={footer}>
       <Head>
         <title>Fundacja Futprints</title>
         <meta
@@ -245,6 +251,6 @@ export default function Home({
           <NewsSection content={news} isHomepage />
         </Container>
       </div>
-    </>
+    </Layout>
   );
 }
