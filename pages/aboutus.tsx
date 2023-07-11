@@ -9,6 +9,7 @@ import RootContext from "@/context/RootContext";
 import { createClient } from "contentful";
 import React, { useContext } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import Layout from "@/components/templates/layout";
 
 interface AboutusProps {
   activities: {
@@ -243,11 +244,12 @@ interface AboutusProps {
 
 export async function getStaticProps() {
   const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID ? process.env.CONTENTFUL_SPACE_ID : "",
+    space: process.env.CONTENTFUL_SPACE_ID
+      ? process.env.CONTENTFUL_SPACE_ID
+      : "",
     accessToken: process.env.CONTENTFUL_ACCESS_KEY
       ? process.env.CONTENTFUL_ACCESS_KEY
       : "",
-  
   });
 
   const res = await client.getEntries({ content_type: "activities" });
@@ -255,6 +257,7 @@ export async function getStaticProps() {
   const res3 = await client.getEntries({ content_type: "teamMembers" });
   const res4 = await client.getEntries({ content_type: "documents" });
   const res5 = await client.getEntries({ content_type: "aboutUs" });
+  const resLayout = await client.getEntries({ content_type: "footer" });
 
   return {
     props: {
@@ -263,6 +266,7 @@ export async function getStaticProps() {
       teamMembers: res3.items,
       documents: res4.items,
       aboutUs: res5.items,
+      footer: resLayout.items,
     },
     revalidate: 10,
   };
@@ -274,6 +278,7 @@ const aboutus = ({
   teamMembers,
   documents,
   aboutUs,
+  footer,
 }: AboutusProps) => {
   const { lang } = useContext(RootContext);
 
@@ -305,88 +310,90 @@ const aboutus = ({
   } = aboutUs[0].fields;
 
   return (
-    <div className="relative">
-      <Container>
-        <PageHeader>{lang === "en" ? "About us" : "O nas"}</PageHeader>
-        {paragraph1TitlePl || paragraph1TitleEn ? (
-          <AboutSection
-            title={
-              lang === "en" && paragraph1TitleEn
-                ? paragraph1TitleEn
-                : paragraph1TitlePl
-            }
-            img={paragraph1Img ? paragraph1Img : ""}
-            content={
-              lang === "en" && paragraph1TextEn
-                ? documentToReactComponents(paragraph1TextEn)
-                : documentToReactComponents(paragraph1TextPl)
-            }
-          ></AboutSection>
-        ) : (
-          ""
-        )}
-        {paragraph2TitlePl || paragraph2TitleEn ? (
-          <AboutSection
-            isReverse
-            title={
-              lang === "en" && paragraph2TitleEn
-                ? paragraph2TitleEn
-                : paragraph2TitlePl
-            }
-            img={paragraph2Img ? paragraph2Img : ""}
-            content={
-              lang === "en" && paragraph2TextEn
-                ? documentToReactComponents(paragraph2TextEn)
-                : documentToReactComponents(paragraph2TextPl)
-            }
-          ></AboutSection>
-        ) : (
-          ""
-        )}
-        {paragraph3TitlePl || paragraph3TitleEn ? (
-          <AboutSection
-            title={
-              lang === "en" && paragraph3TitleEn
-                ? paragraph3TitleEn
-                : paragraph3TitlePl
-            }
-            img={paragraph3Img ? paragraph3Img : ""}
-            content={
-              lang === "en" && paragraph3TextEn
-                ? documentToReactComponents(paragraph3TextEn)
-                : documentToReactComponents(paragraph3TextPl)
-            }
-          ></AboutSection>
-        ) : (
-          ""
-        )}
-        {paragraph4TitlePl || paragraph4TitleEn ? (
-          <AboutSection
-            isReverse
-            title={
-              lang === "en" && paragraph4TitleEn
-                ? paragraph4TitleEn
-                : paragraph4TitlePl
-            }
-            img={paragraph4Img ? paragraph4Img : ""}
-            content={
-              lang === "en" && paragraph4TextEn
-                ? documentToReactComponents(paragraph4TextEn)
-                : documentToReactComponents(paragraph4TextPl)
-            }
-          ></AboutSection>
-        ) : (
-          ""
-        )}
+    <Layout footer={footer}>
+      <div className="relative">
+        <Container>
+          <PageHeader>{lang === "en" ? "About us" : "O nas"}</PageHeader>
+          {paragraph1TitlePl || paragraph1TitleEn ? (
+            <AboutSection
+              title={
+                lang === "en" && paragraph1TitleEn
+                  ? paragraph1TitleEn
+                  : paragraph1TitlePl
+              }
+              img={paragraph1Img ? paragraph1Img : ""}
+              content={
+                lang === "en" && paragraph1TextEn
+                  ? documentToReactComponents(paragraph1TextEn)
+                  : documentToReactComponents(paragraph1TextPl)
+              }
+            ></AboutSection>
+          ) : (
+            ""
+          )}
+          {paragraph2TitlePl || paragraph2TitleEn ? (
+            <AboutSection
+              isReverse
+              title={
+                lang === "en" && paragraph2TitleEn
+                  ? paragraph2TitleEn
+                  : paragraph2TitlePl
+              }
+              img={paragraph2Img ? paragraph2Img : ""}
+              content={
+                lang === "en" && paragraph2TextEn
+                  ? documentToReactComponents(paragraph2TextEn)
+                  : documentToReactComponents(paragraph2TextPl)
+              }
+            ></AboutSection>
+          ) : (
+            ""
+          )}
+          {paragraph3TitlePl || paragraph3TitleEn ? (
+            <AboutSection
+              title={
+                lang === "en" && paragraph3TitleEn
+                  ? paragraph3TitleEn
+                  : paragraph3TitlePl
+              }
+              img={paragraph3Img ? paragraph3Img : ""}
+              content={
+                lang === "en" && paragraph3TextEn
+                  ? documentToReactComponents(paragraph3TextEn)
+                  : documentToReactComponents(paragraph3TextPl)
+              }
+            ></AboutSection>
+          ) : (
+            ""
+          )}
+          {paragraph4TitlePl || paragraph4TitleEn ? (
+            <AboutSection
+              isReverse
+              title={
+                lang === "en" && paragraph4TitleEn
+                  ? paragraph4TitleEn
+                  : paragraph4TitlePl
+              }
+              img={paragraph4Img ? paragraph4Img : ""}
+              content={
+                lang === "en" && paragraph4TextEn
+                  ? documentToReactComponents(paragraph4TextEn)
+                  : documentToReactComponents(paragraph4TextPl)
+              }
+            ></AboutSection>
+          ) : (
+            ""
+          )}
 
-        {includeActivitiesSection && (
-          <ActivitiesSection activities={activities} />
-        )}
-        {includeSupportSection && <SupportSection support1={support1} />}
-        {includeTeamSection && <TeamSection teamMembers={teamMembers} />}
-        {includeDocumentSection && <Documents content={documents} />}
-      </Container>
-    </div>
+          {includeActivitiesSection && (
+            <ActivitiesSection activities={activities} />
+          )}
+          {includeSupportSection && <SupportSection support1={support1} />}
+          {includeTeamSection && <TeamSection teamMembers={teamMembers} />}
+          {includeDocumentSection && <Documents content={documents} />}
+        </Container>
+      </div>
+    </Layout>
   );
 };
 

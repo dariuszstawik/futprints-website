@@ -9,6 +9,7 @@ import {
 } from "@contentful/rich-text-react-renderer";
 import RootContext from "@/context/RootContext";
 import { IPartnershipFields } from "@/@types/generated/contentful";
+import Layout from "@/components/templates/layout";
 // import { Document } from "@contentful/rich-text-react-renderer"; // Import Document from rich-text-react-renderer
 
 interface PartnershipProps {
@@ -48,16 +49,18 @@ export async function getStaticProps() {
   });
 
   const res = await client.getEntries({ content_type: "partnership" });
+  const resFooter = await client.getEntries({ content_type: "footer" });
 
   return {
     props: {
       partnership: res.items,
+      footer: resFooter.items,
     },
     revalidate: 10,
   };
 }
 
-const partnership = ({ partnership }: PartnershipProps) => {
+const partnership = ({ partnership, footer }: PartnershipProps) => {
   const {
     titlePl,
     titleEn,
@@ -71,19 +74,21 @@ const partnership = ({ partnership }: PartnershipProps) => {
   const { lang } = useContext(RootContext);
 
   return (
-    <Container>
-      <PageHeader>{lang === "en" ? "Partnership" : "Współpraca"}</PageHeader>
-      <SingleArticle
-        title={lang === "en" && titleEn ? titleEn : titlePl}
-        lead={lang === "en" && leadEn ? leadEn : leadPl}
-        content={
-          lang === "en" && contentEn
-            ? documentToReactComponents(contentEn) //as Document) // renderOptions)
-            : documentToReactComponents(contentPl)
-        }
-        img={image ? image : ""}
-      />
-    </Container>
+    <Layout footer={footer}>
+      <Container>
+        <PageHeader>{lang === "en" ? "Partnership" : "Współpraca"}</PageHeader>
+        <SingleArticle
+          title={lang === "en" && titleEn ? titleEn : titlePl}
+          lead={lang === "en" && leadEn ? leadEn : leadPl}
+          content={
+            lang === "en" && contentEn
+              ? documentToReactComponents(contentEn) //as Document) // renderOptions)
+              : documentToReactComponents(contentPl)
+          }
+          img={image ? image : ""}
+        />
+      </Container>
+    </Layout>
   );
 };
 

@@ -5,6 +5,7 @@ import Container from "@/components/atoms/container";
 import PageHeader from "@/components/molecules/page-header";
 import RootContext from "@/context/RootContext";
 import { useContext } from "react";
+import Layout from "@/components/templates/layout";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -30,6 +31,8 @@ export async function getStaticProps({ params }) {
     "fields.slug": params.slug,
   });
 
+  const resFooter = await client.getEntries({ content_type: "footer" });
+
   if (!items.length) {
     return {
       redirect: {
@@ -40,14 +43,12 @@ export async function getStaticProps({ params }) {
   }
 
   return {
-    props: { article: items[0] },
+    props: { article: items[0], footer: resFooter.items },
     revalidate: 10,
   };
-  
 }
 
-const Article = ({ article }) => {
-
+const Article = ({ article, footer }) => {
   if (!article) return <div>No such address</div>;
 
   const { lang } = useContext(RootContext);
@@ -55,16 +56,18 @@ const Article = ({ article }) => {
   const { titlePl, leadPl, contentPl, image, gallery } = article.fields;
 
   return (
-    <Container>
-      <PageHeader>{lang === "en" ? "Article" : "Artykuł"}</PageHeader>
-      <SingleArticle
-        title={titlePl}
-        lead={leadPl}
-        content={documentToReactComponents(contentPl)}
-        img={article.fields.image ? article.fields.image : ""}
-        gallery={article.fields.gallery ? article.fields.gallery : ""}
-      />
-    </Container>
+    <Layout footer={footer}>
+      <Container>
+        <PageHeader>{lang === "en" ? "Article" : "Artykuł"}</PageHeader>
+        <SingleArticle
+          title={titlePl}
+          lead={leadPl}
+          content={documentToReactComponents(contentPl)}
+          img={article.fields.image ? article.fields.image : ""}
+          gallery={article.fields.gallery ? article.fields.gallery : ""}
+        />
+      </Container>
+    </Layout>
   );
 };
 

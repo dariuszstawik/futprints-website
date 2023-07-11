@@ -6,6 +6,7 @@ import { Faq } from "@/components/organisms/faq";
 import { createClient } from "contentful";
 import React from "react";
 import Image from "next/image";
+import Layout from "@/components/templates/layout";
 
 interface InformationForForeignersProps {
   informationForForeigners: {
@@ -73,9 +74,14 @@ export async function getStaticProps() {
     content_type: "informationForForeigners",
   });
 
+  const resFooter = await client.getEntries({
+    content_type: "footer",
+  });
+
   return {
     props: {
       informationForForeigners: res.items,
+      footer: resFooter.items,
     },
     revalidate: 10,
   };
@@ -83,6 +89,7 @@ export async function getStaticProps() {
 
 const informationForForeigners = ({
   informationForForeigners,
+  footer,
 }: InformationForForeignersProps) => {
   const {
     titlePl,
@@ -120,24 +127,24 @@ const informationForForeigners = ({
     answer7En,
   } = informationForForeigners[0].fields;
 
-  console.log(image);
-
   return (
-    <Container>
-      <PageHeader>Information for foreigners</PageHeader>
-      <div className="max-w-3xl mx-auto mt-10 mb-16">
-        <TitleWithDevider>{titlePl}</TitleWithDevider>
-        <Image
-          src={`https:${image.fields.file.url}`}
-          width={image.fields?.file?.details?.image?.width}
-          height={image.fields?.file?.details?.image?.height}
-          alt={image.fields.description ? image.fields.description : ""}
-          className="w-full object-cover rounded-lg my-10"
-        />
-        <ArticleLead>{leadPl}</ArticleLead>
-        <Faq content={informationForForeigners}></Faq>
-      </div>
-    </Container>
+    <Layout footer={footer}>
+      <Container>
+        <PageHeader>Information for foreigners</PageHeader>
+        <div className="max-w-3xl mx-auto mt-10 mb-16">
+          <TitleWithDevider>{titlePl}</TitleWithDevider>
+          <Image
+            src={`https:${image.fields.file.url}`}
+            width={image.fields?.file?.details?.image?.width}
+            height={image.fields?.file?.details?.image?.height}
+            alt={image.fields.description ? image.fields.description : ""}
+            className="w-full object-cover rounded-lg my-10"
+          />
+          <ArticleLead>{leadPl}</ArticleLead>
+          <Faq content={informationForForeigners}></Faq>
+        </div>
+      </Container>
+    </Layout>
   );
 };
 

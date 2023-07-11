@@ -1,5 +1,6 @@
 import Container from "@/components/atoms/container";
 import SupportSection from "@/components/organisms/support-section";
+import Layout from "@/components/templates/layout";
 import { createClient } from "contentful";
 import React from "react";
 
@@ -41,20 +42,24 @@ export async function getStaticProps() {
   });
 
   const res = await client.getEntries({ content_type: "support1" });
+  const resFooter = await client.getEntries({ content_type: "footer" });
 
   return {
     props: {
       support1: res.items,
+      footer: resFooter.items,
     },
     revalidate: 10,
   };
 }
 
-const support = ({ support1 }: SupportProps) => {
+const support = ({ support1, footer }: SupportProps) => {
   return (
-    <Container>
-      <SupportSection support1={support1} />
-    </Container>
+    <Layout footer={footer}>
+      <Container>
+        <SupportSection support1={support1} />
+      </Container>
+    </Layout>
   );
 };
 

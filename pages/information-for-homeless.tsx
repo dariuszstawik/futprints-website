@@ -7,6 +7,7 @@ import { createClient } from "contentful";
 import React, { useContext } from "react";
 import RootContext from "@/context/RootContext";
 import Image from "next/image";
+import Layout from "@/components/templates/layout";
 
 interface InformationForHomelessProps {
   informationForHomeless: {
@@ -74,9 +75,14 @@ export async function getStaticProps() {
     content_type: "informationForHomeless",
   });
 
+  const resFooter = await client.getEntries({
+    content_type: "footer",
+  });
+
   return {
     props: {
       informationForHomeless: res.items,
+      footer: resFooter.items,
     },
     revalidate: 10,
   };
@@ -84,6 +90,7 @@ export async function getStaticProps() {
 
 const informationForHomeless = ({
   informationForHomeless,
+  footer,
 }: InformationForHomelessProps) => {
   const { lang } = useContext(RootContext);
 
@@ -124,27 +131,29 @@ const informationForHomeless = ({
   } = informationForHomeless[0].fields;
 
   return (
-    <Container>
-      <PageHeader>
-        {lang === "en"
-          ? "Information for homeless"
-          : "Informacje dla osób bezdomnych"}
-      </PageHeader>
-      <div className="max-w-3xl mx-auto mt-10 mb-16">
-        <TitleWithDevider>
-          {lang === "en" && titleEn ? titleEn : titlePl}
-        </TitleWithDevider>
-        <Image
-          src={`https:${image.fields.file.url}`}
-          width={image.fields?.file?.details?.image?.width}
-          height={image.fields?.file?.details?.image?.height}
-          className="w-full object-cover rounded-lg my-10"
-          alt={image.fields.description ? image.fields.description : ""}
-        />
-        <ArticleLead>{lang === "en" && leadEn ? leadEn : leadPl}</ArticleLead>
-        <Faq content={informationForHomeless}></Faq>
-      </div>
-    </Container>
+    <Layout footer={footer}>
+      <Container>
+        <PageHeader>
+          {lang === "en"
+            ? "Information for homeless"
+            : "Informacje dla osób bezdomnych"}
+        </PageHeader>
+        <div className="max-w-3xl mx-auto mt-10 mb-16">
+          <TitleWithDevider>
+            {lang === "en" && titleEn ? titleEn : titlePl}
+          </TitleWithDevider>
+          <Image
+            src={`https:${image.fields.file.url}`}
+            width={image.fields?.file?.details?.image?.width}
+            height={image.fields?.file?.details?.image?.height}
+            className="w-full object-cover rounded-lg my-10"
+            alt={image.fields.description ? image.fields.description : ""}
+          />
+          <ArticleLead>{lang === "en" && leadEn ? leadEn : leadPl}</ArticleLead>
+          <Faq content={informationForHomeless}></Faq>
+        </div>
+      </Container>
+    </Layout>
   );
 };
 

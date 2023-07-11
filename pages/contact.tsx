@@ -1,6 +1,7 @@
 import Container from "@/components/atoms/container";
 import PageHeader from "@/components/molecules/page-header";
 import ContactSection from "@/components/organisms/contact-section";
+import Layout from "@/components/templates/layout";
 import RootContext from "@/context/RootContext";
 import { createClient } from "contentful";
 import React, { useContext } from "react";
@@ -44,16 +45,18 @@ export async function getStaticProps() {
   });
 
   const res = await client.getEntries({ content_type: "contact" });
+  const resFooter = await client.getEntries({ content_type: "footer" });
 
   return {
     props: {
       contact: res.items,
+      footer: resFooter.items,
     },
     revalidate: 10,
   };
 }
 
-const contact = ({ contact }: ContactProps) => {
+const contact = ({ contact, footer }: ContactProps) => {
   const {
     titlePl,
     titleEn,
@@ -69,19 +72,21 @@ const contact = ({ contact }: ContactProps) => {
   const { lang } = useContext(RootContext);
 
   return (
-    <div>
-      <Container>
-        <PageHeader>{lang === "en" ? "Contact" : "Kontakt"}</PageHeader>
-        <ContactSection
-          title={titlePl}
-          address={address}
-          phoneNumber={phoneNumber}
-          phoneNumber2={phoneNumber2}
-          email={eMail}
-          img={image ? image : ""}
-        />
-      </Container>
-    </div>
+    <Layout footer={footer}>
+      <div>
+        <Container>
+          <PageHeader>{lang === "en" ? "Contact" : "Kontakt"}</PageHeader>
+          <ContactSection
+            title={titlePl}
+            address={address}
+            phoneNumber={phoneNumber}
+            phoneNumber2={phoneNumber2}
+            email={eMail}
+            img={image ? image : ""}
+          />
+        </Container>
+      </div>
+    </Layout>
   );
 };
 

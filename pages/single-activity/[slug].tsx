@@ -5,13 +5,13 @@ import PageHeader from "@/components/molecules/page-header";
 import AboutSection from "@/components/organisms/about-section";
 import RootContext from "@/context/RootContext";
 import { useContext } from "react";
+import Layout from "@/components/templates/layout";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID ? process.env.CONTENTFUL_SPACE_ID : "",
   accessToken: process.env.CONTENTFUL_ACCESS_KEY
     ? process.env.CONTENTFUL_ACCESS_KEY
     : "",
-
 });
 
 export const getStaticPaths = async () => {
@@ -33,6 +33,8 @@ export async function getStaticProps({ params }) {
     "fields.slug": params.slug,
   });
 
+  const resFooter = await client.getEntries({ content_type: "footer" });
+
   if (!items.length) {
     return {
       redirect: {
@@ -43,76 +45,77 @@ export async function getStaticProps({ params }) {
   }
 
   return {
-    props: { activity: items[0] },
+    props: { activity: items[0], footer: resFooter.items },
     revalidate: 10,
   };
 }
 
-const singleActivity = ({ activity }) => {
-
+const singleActivity = ({ activity, footer }) => {
   if (!activity) return <div>No such address</div>;
 
   const { lang } = useContext(RootContext);
 
   return (
-    <Container>
-      <PageHeader>
-        {lang === "en" ? "Activities" : "Nasze działania"}
-      </PageHeader>
-      {activity?.fields && activity?.fields?.paragraph1Img?.fields && (
-        <AboutSection
-          title={
-            lang === "en" && activity.fields.paragraph1TitleEn
-              ? activity.fields.paragraph1TitleEn
-              : activity.fields.paragraph1TitlePl
-          }
-          img={
-            activity.fields.paragraph1Img ? activity.fields.paragraph1Img : ""
-          }
-          content={
-            lang === "en" && activity.fields.paragraph1TextEn
-              ? documentToReactComponents(activity.fields.paragraph1TextEn)
-              : documentToReactComponents(activity.fields.paragraph1TextPl)
-          }
-        ></AboutSection>
-      )}
-      {activity?.fields?.paragraph2TextPl && (
-        <AboutSection
-          isReverse
-          title={
-            lang === "en" && activity.fields.paragraph1TitleEn
-              ? activity.fields.paragraph1TitleEn
-              : activity.fields.paragraph1TitlePl
-          }
-          img={
-            activity.fields.paragraph2Img ? activity.fields.paragraph2Img : ""
-          }
-          content={
-            lang === "en" && activity.fields.paragraph2TextEn
-              ? documentToReactComponents(activity.fields.paragraph2TextEn)
-              : documentToReactComponents(activity.fields.paragraph2TextPl)
-          }
-        ></AboutSection>
-      )}
-      {activity?.fields?.paragraph3TextPl && (
-        <AboutSection
-          isReverse
-          title={
-            activity.fields.paragraph3TitlePl
-              ? activity.fields.paragraph3TitlePl
-              : ""
-          }
-          img={
-            activity.fields.paragraph3Img ? activity.fields.paragraph3Img : ""
-          }
-          content={
-            lang === "en" && activity.fields.paragraph3TextEn
-              ? documentToReactComponents(activity.fields.paragraph3TextEn)
-              : documentToReactComponents(activity.fields.paragraph3TextPl)
-          }
-        ></AboutSection>
-      )}
-    </Container>
+    <Layout footer={footer}>
+      <Container>
+        <PageHeader>
+          {lang === "en" ? "Activities" : "Nasze działania"}
+        </PageHeader>
+        {activity?.fields && activity?.fields?.paragraph1Img?.fields && (
+          <AboutSection
+            title={
+              lang === "en" && activity.fields.paragraph1TitleEn
+                ? activity.fields.paragraph1TitleEn
+                : activity.fields.paragraph1TitlePl
+            }
+            img={
+              activity.fields.paragraph1Img ? activity.fields.paragraph1Img : ""
+            }
+            content={
+              lang === "en" && activity.fields.paragraph1TextEn
+                ? documentToReactComponents(activity.fields.paragraph1TextEn)
+                : documentToReactComponents(activity.fields.paragraph1TextPl)
+            }
+          ></AboutSection>
+        )}
+        {activity?.fields?.paragraph2TextPl && (
+          <AboutSection
+            isReverse
+            title={
+              lang === "en" && activity.fields.paragraph1TitleEn
+                ? activity.fields.paragraph1TitleEn
+                : activity.fields.paragraph1TitlePl
+            }
+            img={
+              activity.fields.paragraph2Img ? activity.fields.paragraph2Img : ""
+            }
+            content={
+              lang === "en" && activity.fields.paragraph2TextEn
+                ? documentToReactComponents(activity.fields.paragraph2TextEn)
+                : documentToReactComponents(activity.fields.paragraph2TextPl)
+            }
+          ></AboutSection>
+        )}
+        {activity?.fields?.paragraph3TextPl && (
+          <AboutSection
+            isReverse
+            title={
+              activity.fields.paragraph3TitlePl
+                ? activity.fields.paragraph3TitlePl
+                : ""
+            }
+            img={
+              activity.fields.paragraph3Img ? activity.fields.paragraph3Img : ""
+            }
+            content={
+              lang === "en" && activity.fields.paragraph3TextEn
+                ? documentToReactComponents(activity.fields.paragraph3TextEn)
+                : documentToReactComponents(activity.fields.paragraph3TextPl)
+            }
+          ></AboutSection>
+        )}
+      </Container>
+    </Layout>
   );
 };
 

@@ -4,6 +4,7 @@ import PageHeader from "@/components/molecules/page-header";
 import NewsSection from "@/components/organisms/news-section";
 import { createClient } from "contentful";
 import RootContext from "@/context/RootContext";
+import Layout from "@/components/templates/layout";
 
 interface NewsProps {
   news: {
@@ -43,27 +44,31 @@ export async function getStaticProps() {
   });
 
   const res = await client.getEntries({ content_type: "news" });
+  const resFooter = await client.getEntries({ content_type: "footer" });
 
   return {
     props: {
       news: res.items,
+      footer: resFooter.items,
     },
     revalidate: 10,
   };
 }
 
-const News = ({ news }: NewsProps) => {
+const News = ({ news, footer }: NewsProps) => {
   const { lang } = useContext(RootContext);
 
   return (
-    <div>
-      <Container>
-        <PageHeader>{lang === "en" ? "News" : "Aktualności"}</PageHeader>
-        <div className="px-32 py-10">
-          <NewsSection content={news}></NewsSection>
-        </div>
-      </Container>
-    </div>
+    <Layout footer={footer}>
+      <div>
+        <Container>
+          <PageHeader>{lang === "en" ? "News" : "Aktualności"}</PageHeader>
+          <div className="px-32 py-10">
+            <NewsSection content={news}></NewsSection>
+          </div>
+        </Container>
+      </div>
+    </Layout>
   );
 };
 
