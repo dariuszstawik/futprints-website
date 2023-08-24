@@ -23,6 +23,7 @@
     "react": "18.2.0",
     "react-awesome-slider": "^4.1.0",
     "react-dom": "18.2.0",
+    "react-iframe": "^1.8.5",
     "react-photo-album": "^2.2.2",
     "react-reveal": "^1.2.2",
     "typescript": "5.0.4",
