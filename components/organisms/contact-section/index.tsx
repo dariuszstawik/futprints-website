@@ -55,7 +55,7 @@ const ContactSection = ({
             width="640px"
             height="420px"
             id=""
-            className=""
+            className="border rounded-lg"
             display="block"
             position="relative"
           />
